@@ -3,7 +3,7 @@ import Link from "next/link";
 import InquiryForm from "@/components/InquiryForm";
 import boardData from "@/data/board.json";
 import programsData from "@/data/programs.json";
-import { homepageFeaturedEvents, siteImages } from "@/data/site-content";
+import { siteImages } from "@/data/site-content";
 
 // ─── Types ────────────────────────────────────────────────────
 interface BoardMember {
@@ -311,17 +311,17 @@ export default function HomePage() {
         <div className="pbi-container">
           <div style={{ textAlign: "center", marginBottom: "3rem" }}>
             <div className="section-eyebrow">Events</div>
-            <h2 id="events-heading" className="section-title">What&apos;s Happening Now</h2>
+            <h2 id="events-heading" className="section-title">Events That Bring the Mission to Life</h2>
             <p className="section-lead" style={{ margin: "0 auto" }}>
-              The original Wix homepage gave events a dedicated place in the story. This section brings that back with a clearer spotlight on current and signature experiences.
+              From leadership development to direct outreach, these gatherings show how Pass by Ira turns care, partnership, and action into real community impact.
             </p>
           </div>
 
-          <div style={{ display: "grid", gap: "1.5rem" }}>
+          <div style={{ display: "grid", gap: "1.5rem", marginBottom: "2rem" }}>
             {homepageEventSpotlights.map((event, index) => (
               <article
                 key={event.title}
-                className="feature-card"
+                className="feature-card home-event-card"
                 style={{
                   display: "grid",
                   gap: "1.5rem",
@@ -375,7 +375,7 @@ export default function HomePage() {
                 </div>
 
                 <div
-                  className="gallery-item"
+                  className="gallery-item home-event-card__media"
                   style={{
                     order: index % 2 === 0 ? 1 : 0,
                     aspectRatio: "16 / 11",
@@ -394,68 +394,14 @@ export default function HomePage() {
               </article>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* ── Why Support Section ──────────────────────────────── */}
-      <section className="section-shell" aria-labelledby="support-heading">
-        <div className="pbi-container">
-          <div className="responsive-split responsive-split--wide responsive-split--center" style={{ gap: "2rem" }}>
-            <div>
-              <div className="section-eyebrow">The Stakes</div>
-              <h2 id="support-heading" className="section-title">
-                Why Your Support Matters
-              </h2>
-              <p className="section-lead" style={{ marginBottom: "1.5rem" }}>
-                Homelessness is more than a lack of shelter — it is a public health
-                emergency, a mental health crisis, and a systemic failure that affects
-                us all. With economic uncertainty and rising costs of living, more
-                people are at risk of losing their homes.
-              </p>
-              <p className="section-lead" style={{ marginBottom: "2rem" }}>
-                Your generosity enables us to create long-term, sustainable solutions.
-                Together, we can break the cycle of homelessness and build a stronger,
-                healthier, and more compassionate community across the DFW.
-              </p>
-              <ul style={{ listStyle: "none", padding: 0, margin: "0 0 2rem", display: "flex", flexDirection: "column", gap: "0.6rem" }}>
-                {[
-                  "Provide meals and access to basic necessities",
-                  "Support individuals in securing community resources",
-                  "Educate the community to decrease homelessness together",
-                  "Advocate for systemic changes to prevent future homelessness",
-                ].map((item) => (
-                  <li key={item} style={{ display: "flex", gap: "0.6rem", alignItems: "flex-start", fontSize: "0.95rem", color: "var(--color-pbi-muted)", lineHeight: 1.55 }}>
-                    <span style={{ color: "var(--color-pbi-accent-strong)", fontWeight: 700, flexShrink: 0 }}>✓</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.85rem" }}>
-                <a
-                  href="https://givebutter.com/Give4Ira"
-                  className="btn-pbi btn-gold"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Donate
-                </a>
-                <Link
-                  href="/support-us"
-                  className="btn-pbi btn-outline-blue"
-                >
-                  Learn More
-                </Link>
-              </div>
-            </div>
-            <div className="gallery-item" style={{ borderRadius: "22px", aspectRatio: "3/4", minHeight: "420px" }}>
-              <Image
-                src={siteImages.homeSupport.src}
-                alt={siteImages.homeSupport.alt}
-                width={1130}
-                height={1505}
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
-              />
-            </div>
+          <div className="home-events-footer">
+            <p className="section-lead" style={{ margin: 0 }}>
+              Looking for the full archive? Explore event photos, outreach moments, and team gatherings in one place.
+            </p>
+            <Link href="/past-events" className="btn-pbi btn-outline-blue">
+              View Full Event Gallery
+            </Link>
           </div>
         </div>
       </section>
@@ -486,6 +432,61 @@ export default function HomePage() {
             >
               Sign Up to Volunteer at Our Next Event
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Why Support Section ──────────────────────────────── */}
+      <section className="section-shell" aria-labelledby="support-heading">
+        <div className="pbi-container">
+          <div className="responsive-split responsive-split--wide responsive-split--center" style={{ gap: "2rem" }}>
+            <div>
+              <div className="section-eyebrow">Why It Matters</div>
+              <h2 id="support-heading" className="section-title">
+                Why Your Support Matters
+              </h2>
+              <p className="section-lead" style={{ marginBottom: "1.5rem" }}>
+                Homelessness is a public health issue, a housing issue, and a systems issue. Meeting immediate needs matters, and so does building long-term pathways toward stability, dignity, and belonging.
+              </p>
+              <ul style={{ listStyle: "none", padding: 0, margin: "0 0 2rem", display: "flex", flexDirection: "column", gap: "0.6rem" }}>
+                {[
+                  "Provide meals and access to basic necessities",
+                  "Connect people with community resources",
+                  "Build public understanding and reduce stigma",
+                  "Support advocacy for long-term change",
+                ].map((item) => (
+                  <li key={item} style={{ display: "flex", gap: "0.6rem", alignItems: "flex-start", fontSize: "0.95rem", color: "var(--color-pbi-muted)", lineHeight: 1.55 }}>
+                    <span style={{ color: "var(--color-pbi-accent-strong)", fontWeight: 700, flexShrink: 0 }}>✓</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.85rem" }}>
+                <a
+                  href="https://givebutter.com/Give4Ira"
+                  className="btn-pbi btn-gold"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Donate
+                </a>
+                <Link
+                  href="/support-us"
+                  className="btn-pbi btn-outline-blue"
+                >
+                  Learn More
+                </Link>
+              </div>
+            </div>
+            <div className="gallery-item home-support-card__media" style={{ borderRadius: "22px", aspectRatio: "3/4", minHeight: "420px" }}>
+              <Image
+                src={siteImages.homeSupport.src}
+                alt={siteImages.homeSupport.alt}
+                width={1130}
+                height={1505}
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -538,52 +539,6 @@ export default function HomePage() {
             </a>{" "}
             for inquiries.
           </p>
-        </div>
-      </section>
-
-      {/* ── Gallery ──────────────────────────────────────────── */}
-      <section className="section-shell section-alt" aria-labelledby="gallery-heading">
-        <div className="pbi-container">
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "1rem", marginBottom: "2rem" }}>
-            <div>
-              <div className="section-eyebrow">Recent Events</div>
-              <h2 id="gallery-heading" className="section-title" style={{ margin: 0 }}>
-                From the Field
-              </h2>
-            </div>
-            <Link
-              href="/past-events"
-              className="btn-pbi btn-outline-blue"
-              style={{ flexShrink: 0 }}
-            >
-              View Full Gallery
-            </Link>
-          </div>
-          <div className="gallery-grid">
-            {homepageFeaturedEvents.map((event) => (
-              <a
-                key={event.id}
-                href={`/past-events#${event.id}`}
-                className="feature-card"
-                style={{ padding: "1rem", display: "grid", gap: "1rem", textDecoration: "none", color: "inherit" }}
-              >
-                <div className="gallery-item" style={{ aspectRatio: "16 / 10" }}>
-                  <Image
-                    src={event.src}
-                    alt={event.alt}
-                    width={1200}
-                    height={800}
-                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                  />
-                  <div className="gallery-caption">{event.caption}</div>
-                </div>
-                <div>
-                  <h3 style={{ marginTop: 0, marginBottom: "0.5rem" }}>{event.caption}</h3>
-                  <p style={{ margin: 0, color: "var(--color-pbi-muted)", lineHeight: 1.65 }}>{event.summary}</p>
-                </div>
-              </a>
-            ))}
-          </div>
         </div>
       </section>
 
