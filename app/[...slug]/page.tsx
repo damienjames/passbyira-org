@@ -12,7 +12,6 @@ import {
   partnershipWays,
   restFramework,
   siteImages,
-  sponsorshipLevels,
 } from "@/data/site-content";
 import {
   getAbsoluteUrl,
@@ -646,7 +645,7 @@ function renderSupportPage() {
       <PageHero
         eyebrow="Support Us"
         title="Why Your Support Matters"
-        lead="Homelessness is a public health, mental health, and systems issue, and meaningful support requires both immediate care and long-term change."
+        lead="Meaningful support helps Pass by Ira meet urgent needs today while investing in long-term change across the DFW Metroplex."
         imageSrc={siteImages.supportHero.src}
         imageAlt={siteImages.supportHero.alt}
       />
@@ -658,7 +657,7 @@ function renderSupportPage() {
               According to Housing Forward&apos;s 2023 point-in-time report, 4,244 individuals were identified as experiencing homelessness in Dallas and Collin Counties. Separate Fort Worth reporting cited 2,390 individuals experiencing homelessness as of January 2024.
             </p>
             <p>
-              Support helps provide meals, access to basic necessities, pathways to community resources, community education, and advocacy for long-term change.
+              Support helps provide meals, basic necessities, resource connection, community education, and advocacy that can move systems forward.
             </p>
           </div>
         </div>
@@ -772,9 +771,9 @@ function renderVolunteerPage() {
 
 function renderDonatePage() {
   const givingOptions = [
-    "One-time donation to support current programs",
-    "Monthly giving for sustaining support",
-    "In-kind donations such as clothing, hygiene supplies, and non-perishable essentials",
+    "One-time gifts for current outreach and program needs",
+    "Monthly giving for steady, sustaining support",
+    "In-kind donations such as clothing, hygiene supplies, and essentials",
   ] as const;
 
   const currentNeeds = [
@@ -792,7 +791,7 @@ function renderDonatePage() {
       <PageHero
         eyebrow="Donate"
         title="Support Our Mission"
-        lead="Financial gifts and in-kind contributions help Pass by Ira respond to immediate needs while sustaining long-term outreach, education, and advocacy."
+        lead="Financial gifts and in-kind contributions help Pass by Ira respond to immediate needs while sustaining outreach, education, and advocacy."
         imageSrc="/images/gallery/wix-archive/003-129b3c_c8014410ad354faa9cea95febd8a87fb-mv2.webp"
         imageAlt="Pass by Ira volunteer handing a prepared meal to a community member"
         />
@@ -802,9 +801,9 @@ function renderDonatePage() {
             <div className="responsive-split responsive-split--wide">
             <div className="feature-card">
               <div className="section-eyebrow">Ways to Give</div>
-              <h2 style={{ marginTop: 0 }}>What Your Support Makes Possible</h2>
+              <h2 style={{ marginTop: 0 }}>Give in the Way That Fits</h2>
               <p style={{ marginBottom: "1rem" }}>
-                Every gift helps Pass by Ira respond to urgent needs while building lasting community support through outreach, education, and advocacy.
+                Every gift helps fund responsive, dignity-centered support in community.
               </p>
               <ul style={{ margin: 0, paddingLeft: "1.2rem", color: "var(--color-pbi-muted)", lineHeight: 1.75 }}>
                 {givingOptions.map((item) => (
@@ -830,7 +829,7 @@ function renderDonatePage() {
                 ))}
               </ul>
               <p style={{ marginTop: "1rem" }}>
-                For in-kind donations, contact{" "}
+                Coordinating an in-kind dropoff? Contact{" "}
                 <a href="mailto:donate@passbyira.org" style={{ color: "var(--color-pbi-primary)", fontWeight: 700 }}>
                   donate@passbyira.org
                 </a>.
@@ -847,10 +846,10 @@ function renderDonatePage() {
               <div className="section-eyebrow">Current Focus</div>
               <h2 style={{ marginTop: 0 }}>SERVE: Signature Meal Outreach</h2>
               <p>
-                Donations help fund warm meals, outreach logistics, and the direct community support tied to this signature program.
+                Donations help fund warm meals, outreach logistics, and the direct support tied to this signature program.
               </p>
               <p>
-                To learn more about SERVE or how to support the next outreach effort, contact{" "}
+                To support the next outreach effort or learn more about SERVE, contact{" "}
                 <a href="mailto:events@passbyira.org" style={{ color: "var(--color-pbi-primary)", fontWeight: 700 }}>
                   events@passbyira.org
                 </a>.
@@ -862,7 +861,7 @@ function renderDonatePage() {
             </div>
 
             <div className="feature-card">
-              <div className="section-eyebrow">Suggested Giving</div>
+              <div className="section-eyebrow">Quick Start</div>
               <h2 style={{ marginTop: 0 }}>Common Donation Amounts</h2>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "0.65rem", marginBottom: "1rem" }}>
                 {sampleAmounts.map((amount) => (
@@ -886,10 +885,10 @@ function renderDonatePage() {
                 ))}
               </div>
               <p>
-                These sample amounts offer a simple starting point while the secure contribution flow continues through GiveButter.
+                Start with any amount that feels right. Secure online giving continues through GiveButter.
               </p>
               <a href="https://givebutter.com/Give4Ira" className="btn-pbi btn-gold" target="_blank" rel="noopener noreferrer" style={{ marginTop: "1rem" }}>
-                Open Donation Form
+                Start Your Gift
               </a>
             </div>
           </div>
@@ -1135,9 +1134,9 @@ function renderSponsorshipPage() {
             <div className="responsive-split responsive-split--wide">
               <div className="feature-card">
               <div className="section-eyebrow">Why Partner</div>
-              <h2 style={{ marginTop: 0 }}>Ways to Support</h2>
+              <h2 style={{ marginTop: 0 }}>Ways to Partner</h2>
               <p style={{ marginBottom: "1rem" }}>
-                Partnership support helps Pass by Ira expand outreach, strengthen events, and create more ways for businesses and community organizations to show up with impact.
+                Partnership support helps Pass by Ira expand outreach, strengthen events, and create more ways for organizations to show up with impact.
               </p>
               <ul style={{ margin: 0, paddingLeft: "1.2rem", color: "var(--color-pbi-muted)", lineHeight: 1.7 }}>
                 {partnershipWays.map((item) => (
@@ -1145,7 +1144,7 @@ function renderSponsorshipPage() {
                 ))}
               </ul>
             </div>
-            <div className="feature-card">
+              <div className="feature-card">
               <div className="section-eyebrow">Contact</div>
               <h2 style={{ marginTop: 0 }}>Start the Conversation</h2>
               <p>Jordan Lowe leads corporate sponsorship and fundraising efforts for Pass by Ira.</p>
@@ -1176,15 +1175,15 @@ function renderSponsorshipPage() {
             <div className="section-eyebrow">Previous Partnerships</div>
             <h2 className="section-title">Organizations That Have Helped Shape the Work</h2>
             <p className="section-lead" style={{ margin: "0 auto" }}>
-              We are grateful for the organizations that have helped strengthen this work through visibility, resources, and shared commitment.
+              These organizations have helped strengthen the work through visibility, resources, and shared commitment.
             </p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "1.25rem" }}>
             {previousPartners.map((partner) => (
-              <div key={partner} className="feature-card" style={{ textAlign: "center" }}>
-                <div className="section-eyebrow">Partner</div>
-                <h3 style={{ marginTop: 0 }}>{partner}</h3>
-                <p>Recognized as a previous supporter of mission-driven work and event visibility.</p>
+                <div key={partner} className="feature-card" style={{ textAlign: "center" }}>
+                  <div className="section-eyebrow">Partner</div>
+                  <h3 style={{ marginTop: 0 }}>{partner}</h3>
+                <p>Recognized as a previous supporter of mission-driven events and community visibility.</p>
               </div>
             ))}
           </div>
@@ -1197,7 +1196,7 @@ function renderSponsorshipPage() {
             <div className="section-eyebrow">REST Retreat Sponsorship</div>
             <h2 className="section-title">Sponsorship Levels</h2>
             <p className="section-lead" style={{ margin: "0 auto" }}>
-              Each level is designed to support the event while giving partners clear visibility, recognition, and meaningful ways to participate.
+              Each level is designed to support the event while giving partners clear visibility and meaningful ways to participate.
             </p>
           </div>
           <div style={{ display: "grid", gap: "1.25rem" }}>
@@ -1245,9 +1244,9 @@ function renderSponsorshipPage() {
               <div className="section-eyebrow">How to Become a Sponsor</div>
               <h2 style={{ marginTop: 0 }}>Next Steps</h2>
               <ol style={{ margin: 0, paddingLeft: "1.2rem", color: "var(--color-pbi-muted)", lineHeight: 1.75 }}>
-                <li>Review the sponsorship levels and decide what scale of support fits your organization.</li>
-                <li>Use the advertising form for ad-book placements or email Jordan Lowe for custom sponsorship conversations.</li>
-                <li>Coordinate recognition details, event visibility, and any in-kind support directly with the Pass by Ira team.</li>
+                <li>Review the sponsorship levels and choose the scale of support that fits your organization.</li>
+                <li>Use the advertising form for ad-book placements or email Jordan Lowe for a custom conversation.</li>
+                <li>Coordinate visibility details, recognition, and any in-kind support with the Pass by Ira team.</li>
               </ol>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "0.85rem", marginTop: "1.25rem" }}>
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLScvTciz2SDzOsRxr17EjSSc6viOmdta4mlOuXmUH5ush5RwnA/viewform?usp=sharing" className="btn-pbi btn-blue" target="_blank" rel="noopener noreferrer">
@@ -1262,23 +1261,6 @@ function renderSponsorshipPage() {
         </div>
       </section>
 
-      <section className="section-shell">
-        <div className="pbi-container">
-          <div style={{ textAlign: "center", marginBottom: "2rem" }}>
-            <div className="section-eyebrow">Quick Reference</div>
-            <h2 className="section-title">Summary Cards</h2>
-          </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "1.25rem" }}>
-            {sponsorshipLevels.map((level) => (
-              <div key={level.name} className="involve-card">
-                <div className="section-eyebrow" style={{ marginBottom: 0 }}>{level.amount}</div>
-                <h3>{level.name}</h3>
-                <p>{level.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
     </>
   );
 }

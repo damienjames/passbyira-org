@@ -42,7 +42,7 @@ const homepageEventSpotlights = [
     eyebrow: "Featured Event",
     title: "2024 Team Retreat",
     body:
-      "Recharge. Elevate. Strategize. Transform. The 2024 Team Retreat reflects Pass by Ira's REST experience for nonprofit, small business, and community leaders building lasting impact across DFW.",
+      "The 2024 Team Retreat reflects Pass by Ira's REST experience for nonprofit, small business, and community leaders building lasting impact across DFW.",
     meta: ["Leadership retreat", "Community partnerships", "Sponsor and advertise"],
     imageSrc: "/images/gallery/wix-archive/021-4db8fe_ab01646ecc6d448d91676b695327ddbe-mv2.webp",
     imageAlt: "REST Retreat speaker leading a session with attendees",
@@ -56,7 +56,7 @@ const homepageEventSpotlights = [
     eyebrow: "Signature Outreach",
     title: "2023 Thanksgiving Dinner",
     body:
-      "The 2023 Thanksgiving Dinner gallery captures a SERVE outreach tradition: preparing and sharing warm meals with neighbors across the Dallas–Fort Worth Metroplex through consistent, dignity-centered care.",
+      "The 2023 Thanksgiving Dinner gallery captures a SERVE tradition: preparing and sharing warm meals with neighbors across the Dallas–Fort Worth Metroplex.",
     meta: ["Meal preparation", "Direct outreach", "Volunteer-driven"],
     imageSrc: "/images/gallery/wix-archive/008-129b3c_6c4307da023f42f2b365003f5e8dff40-mv2.webp",
     imageAlt: "Pass by Ira volunteer delivering a meal during outreach",
@@ -204,9 +204,7 @@ export default function HomePage() {
             <em>basic human rights</em>.
           </h1>
           <p className="hero-lead">
-            Safe shelter, healthy food, clean water, quality education, healthcare, and
-            a livable income — these are not privileges. Pass by Ira works to make them
-            a reality for every person in the Dallas–Fort Worth Metroplex.
+            Pass by Ira began with one bottle of water and one repeated act of care. Today, that same spirit guides our work to increase access to shelter, food, water, healthcare, education, and a livable income across DFW.
           </p>
           <div className="hero-cta-group">
             <a
@@ -253,7 +251,7 @@ export default function HomePage() {
             </div>
             <div className="stats-banner-item">
               <strong>3</strong>
-              <span>Program pillars: Outreach, Education, Advocacy</span>
+              <span>Program pillars: outreach, education, and advocacy</span>
             </div>
             <div className="stats-banner-item">
               <strong>DFW</strong>
@@ -273,6 +271,9 @@ export default function HomePage() {
           <div style={{ textAlign: "center", marginBottom: "3rem" }}>
             <div className="section-eyebrow">Who We Are</div>
             <h2 id="mission-heading" className="section-title">Our Mission &amp; Vision</h2>
+            <p className="section-lead" style={{ margin: "0 auto" }}>
+              What started as a personal act of care has grown into a community response rooted in dignity, consistency, and relationship.
+            </p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1.5rem" }}>
             <div className="feature-card">
@@ -296,10 +297,7 @@ export default function HomePage() {
               <div className="section-eyebrow">Our Approach</div>
               <h3>How We Do It</h3>
               <p>
-                Pass by Ira works through three interconnected pillars: direct{" "}
-                <strong>Outreach</strong> to meet immediate needs, community{" "}
-                <strong>Education</strong> to reduce stigma and shift narratives, and
-                systemic <strong>Advocacy</strong> to drive lasting policy change.
+                We work through three connected pillars: direct <strong>Outreach</strong>, community <strong>Education</strong>, and systemic <strong>Advocacy</strong>.
               </p>
             </div>
           </div>
@@ -313,7 +311,7 @@ export default function HomePage() {
             <div className="section-eyebrow">Events</div>
             <h2 id="events-heading" className="section-title">Events That Bring the Mission to Life</h2>
             <p className="section-lead" style={{ margin: "0 auto" }}>
-              From leadership development to direct outreach, these gatherings show how Pass by Ira turns care, partnership, and action into real community impact.
+              From leadership development to direct outreach, these gatherings show how care becomes visible in community.
             </p>
           </div>
 
@@ -397,7 +395,7 @@ export default function HomePage() {
 
           <div className="home-events-footer">
             <p className="section-lead" style={{ margin: 0 }}>
-              Looking for the full archive? Explore event photos, outreach moments, and team gatherings in one place.
+              Explore the full archive of outreach moments, team gatherings, and community events.
             </p>
             <Link href="/past-events" className="btn-pbi btn-outline-blue">
               View Full Event Gallery
@@ -413,9 +411,7 @@ export default function HomePage() {
             <div className="section-eyebrow">What We Do</div>
             <h2 id="programs-heading" className="section-title">Our Programs</h2>
             <p className="section-lead" style={{ margin: "0 auto" }}>
-              Built around three pillars — Outreach, Education, and Advocacy — our programs
-              make the vision of a home for every person a concrete, measurable reality
-              across the DFW Metroplex.
+              Built around outreach, education, and advocacy, our programs turn values into practical support across the DFW Metroplex.
             </p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1.5rem" }}>
@@ -446,7 +442,7 @@ export default function HomePage() {
                 Why Your Support Matters
               </h2>
               <p className="section-lead" style={{ marginBottom: "1.5rem" }}>
-                Homelessness is a public health issue, a housing issue, and a systems issue. Meeting immediate needs matters, and so does building long-term pathways toward stability, dignity, and belonging.
+                Homelessness is both immediate and systemic. Support helps meet urgent needs while strengthening pathways toward stability, dignity, and belonging.
               </p>
               <ul style={{ listStyle: "none", padding: 0, margin: "0 0 2rem", display: "flex", flexDirection: "column", gap: "0.6rem" }}>
                 {[
@@ -498,8 +494,7 @@ export default function HomePage() {
             <div className="section-eyebrow">Leadership</div>
             <h2 id="board-heading" className="section-title">The Board of Directors</h2>
             <p className="section-lead" style={{ margin: "0 auto" }}>
-              Our board brings together diverse expertise from nonprofit, corporate, and
-              community leadership to guide Pass by Ira&apos;s mission and ensure its impact.
+              Our board brings together nonprofit, corporate, and community leadership to help steward the mission with care and accountability.
             </p>
           </div>
           <div className="board-sections">
@@ -549,8 +544,7 @@ export default function HomePage() {
             <div className="section-eyebrow">Take Action</div>
             <h2 id="involve-heading" className="section-title">Ways to Get Involved</h2>
             <p className="section-lead" style={{ margin: "0 auto" }}>
-              There are many ways to support our mission — from a one-time gift to raising
-              your voice in your community.
+              Support the mission with your time, your resources, or your voice.
             </p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))", gap: "1.25rem" }}>
@@ -558,7 +552,7 @@ export default function HomePage() {
               {
                 icon: "💛",
                 title: "Donate",
-                body: "Your financial contribution powers every program — from meals delivered to voices amplified. One-time, monthly, or in-kind.",
+                body: "Support meals, outreach, and advocacy through one-time, monthly, or in-kind giving.",
                 href: "https://givebutter.com/Give4Ira",
                 cta: "Donate Now",
                 external: true,
@@ -566,7 +560,7 @@ export default function HomePage() {
               {
                 icon: "🤲",
                 title: "Volunteer",
-                body: "Join us at our next outreach event and make a direct difference in your community. All skill levels welcome.",
+                body: "Join an outreach effort, help behind the scenes, or bring a skill the team can use.",
                 href: "https://forms.gle/6R56X5v6z9dCuvWS9",
                 cta: "Sign Up",
                 external: true,
@@ -574,7 +568,7 @@ export default function HomePage() {
               {
                 icon: "📢",
                 title: "Fundraise",
-                body: "Celebrate a birthday or holiday by encouraging donations. Check if your employer matches gifts to nonprofits.",
+                body: "Turn birthdays, holidays, and matching gifts into practical support for the mission.",
                 href: "/support-us#fundraise",
                 cta: "Learn How",
                 external: false,
@@ -582,7 +576,7 @@ export default function HomePage() {
               {
                 icon: "🗣️",
                 title: "Advocate",
-                body: "Share our mission, contact local officials, and host awareness events. Your voice drives systemic change.",
+                body: "Share the mission, host awareness moments, and help shift the public conversation.",
                 href: "/support-us#advocate",
                 cta: "Start Advocating",
                 external: false,
@@ -590,7 +584,7 @@ export default function HomePage() {
               {
                 icon: "🏢",
                 title: "Sponsor / Advertise",
-                body: "Partner with Pass by Ira through sponsorships, advertising, in-kind support, and employee engagement opportunities.",
+                body: "Partner through sponsorships, advertising, in-kind support, or team engagement.",
                 href: "/sponsorship",
                 cta: "View Opportunities",
                 external: false,
@@ -598,7 +592,7 @@ export default function HomePage() {
               {
                 icon: "🏛️",
                 title: "Planned Giving",
-                body: "Leave a lasting legacy by including Pass by Ira in your estate planning. Your gift ensures our work continues for years to come.",
+                body: "Create a lasting legacy by including Pass by Ira in your long-term planning.",
                 href: "mailto:jordanlowe@passbyira.org",
                 cta: "Contact Jordan Lowe",
                 external: false,
@@ -632,8 +626,7 @@ export default function HomePage() {
             No one should be unseen,<br />underserved, or without a home.
           </h2>
           <p>
-            Every contribution — financial, material, or in time — moves us closer to
-            a DFW Metroplex where homelessness is the exception, not the norm.
+            Every gift, item, and volunteer hour helps move the mission forward.
           </p>
           <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "1rem" }}>
             <a
@@ -662,8 +655,7 @@ export default function HomePage() {
             <div className="section-eyebrow">Stay Connected</div>
             <h2 id="newsletter-heading" className="section-title">Subscribe to Our Newsletter</h2>
             <p className="section-lead" style={{ margin: "0 auto 2rem" }}>
-              Get the latest updates on programs, events, and ways to get involved —
-              delivered straight to your inbox.
+              Get updates on programs, events, and ways to stay involved.
             </p>
             <InquiryForm kind="newsletter" />
             <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap", justifyContent: "center", marginTop: "1.5rem" }}>
