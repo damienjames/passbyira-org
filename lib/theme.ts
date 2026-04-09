@@ -12,12 +12,14 @@ export const pbiColors = {
   primary: '#7A5A43',
   /** Deep espresso — headers, nav, footer */
   primaryDark: '#4C362A',
-  /** Lighter caramel — gradients and emphasis */
-  primaryLight: '#A27A5C',
+  /** Accessible warm brown for gradients and emphasis */
+  primaryLight: '#775642',
   /** Warm gold — accent, CTAs */
   accent: '#C9A227',
   /** Lighter gold — text on dark backgrounds, hover highlights */
   accentSoft: '#E7CC87',
+  /** Darker gold for text and small UI labels on light surfaces */
+  accentStrong: '#7D5D10',
   /** Muted gold alpha — pill backgrounds */
   accentMuted: 'rgba(201,162,39,0.14)',
   /** Near-black brown for body text */

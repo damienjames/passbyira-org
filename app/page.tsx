@@ -136,7 +136,7 @@ function PillarCard({ pillar }: { pillar: Pillar }) {
                   fontWeight: 700,
                   letterSpacing: "0.05em",
                   textTransform: "uppercase",
-                  color: "var(--color-pbi-accent)",
+                  color: "var(--color-pbi-accent-strong)",
                   border: "1px solid rgba(201,162,39,0.4)",
                   borderRadius: "999px",
                   padding: "0.1rem 0.5rem",
@@ -166,7 +166,7 @@ function PillarCard({ pillar }: { pillar: Pillar }) {
               <span style={{
                 fontSize: "0.82rem",
                 fontWeight: 700,
-                color: "var(--color-pbi-accent)",
+                  color: "var(--color-pbi-accent-strong)",
               }}>
                 {program.hashtag}
               </span>
@@ -425,7 +425,7 @@ export default function HomePage() {
                   "Advocate for systemic changes to prevent future homelessness",
                 ].map((item) => (
                   <li key={item} style={{ display: "flex", gap: "0.6rem", alignItems: "flex-start", fontSize: "0.95rem", color: "var(--color-pbi-muted)", lineHeight: 1.55 }}>
-                    <span style={{ color: "var(--color-pbi-accent)", fontWeight: 700, flexShrink: 0 }}>✓</span>
+                    <span style={{ color: "var(--color-pbi-accent-strong)", fontWeight: 700, flexShrink: 0 }}>✓</span>
                     {item}
                   </li>
                 ))}
@@ -520,7 +520,7 @@ export default function HomePage() {
                 <div className="board-subsection__header">
                   <h3 className="board-subsection__title">Board Advisors</h3>
                   <p className="board-subsection__copy">
-                    Advisors highlighted separately on the live site and retained here as a distinct group.
+                    Advisors who help strengthen strategy, care, and long-term community partnerships.
                   </p>
                 </div>
                 <div className="board-grid board-grid--leadership">

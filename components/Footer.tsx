@@ -74,7 +74,7 @@ export default function Footer() {
             <div style={{ marginTop: '1.5rem' }}>
               <h5 style={{ fontSize: '0.95rem' }}>Contact</h5>
               <ul className="footer-links">
-                <li><Link href="/contact#connect">Connect Page</Link></li>
+                <li><Link href="/contact#connect">Contact &amp; Connect</Link></li>
                 <li><Link href="/blog">News</Link></li>
                 <li><a href="mailto:connect@passbyira.org">connect@passbyira.org</a></li>
                 <li><a href="mailto:events@passbyira.org">events@passbyira.org</a></li>

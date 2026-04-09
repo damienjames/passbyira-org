@@ -90,10 +90,11 @@ function Dropdown({ group, isOpen, onToggle, onClose }: DropdownProps) {
   return (
     <li className="nav-item" data-open={isOpen ? 'true' : undefined}>
       <button
+        type="button"
         ref={btnRef}
         className="nav-toggle"
         aria-expanded={isOpen}
-        aria-haspopup="true"
+        aria-haspopup="menu"
         onClick={onToggle}
       >
         {group.label}
@@ -207,6 +208,7 @@ export default function SiteNav() {
 
           {/* Hamburger */}
           <button
+            type="button"
             className="hamburger-btn"
             aria-label="Open navigation menu"
             aria-expanded={mobileOpen}
@@ -239,6 +241,7 @@ export default function SiteNav() {
             <span className="nav-brand-name" style={{ fontSize: '1.2rem' }}>Pass by Ira</span>
           </Link>
           <button
+            type="button"
             className="mobile-close-btn"
             aria-label="Close navigation menu"
             onClick={() => setMobileOpen(false)}

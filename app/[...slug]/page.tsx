@@ -184,7 +184,7 @@ const newsPosts = [
     ],
     body: [
       "This archived newsletter reflects the rhythm of Pass by Ira's work near the close of 2024: consistent outreach, growing community visibility, and preparation for seasonal needs that become more urgent in colder months.",
-      "Keeping this post in the refactor matters because it preserves continuity in the organization's public story, rather than making the blog feel like it only began with the most recent two entries.",
+      "Keeping this archived newsletter available helps preserve the continuity of Pass by Ira's public story and gives supporters a fuller picture of the work over time.",
     ],
   },
 ] as const;
@@ -544,7 +544,7 @@ function renderProgramsPage(pillars: Pillar[]) {
                       </h4>
                       <p>{program.description}</p>
                       {program.season ? <p style={{ marginTop: "0.35rem", fontWeight: 700, color: "var(--color-pbi-primary-dark)" }}>{program.season}</p> : null}
-                      {program.hashtag ? <p style={{ marginTop: "0.35rem", fontWeight: 700, color: "var(--color-pbi-accent)" }}>{program.hashtag}</p> : null}
+                      {program.hashtag ? <p style={{ marginTop: "0.35rem", fontWeight: 700, color: "var(--color-pbi-accent-strong)" }}>{program.hashtag}</p> : null}
                       {program.donationNeeds?.length ? (
                         <p style={{ marginTop: "0.35rem" }}>Donation needs: {program.donationNeeds.join(", ")}</p>
                       ) : null}
@@ -580,10 +580,10 @@ function renderRestPage() {
         <div className="pbi-container">
           <div className="feature-card" style={{ display: "grid", gap: "1rem" }}>
             <p>
-              The live site still preserves detailed retreat copy from the 2025 event cycle. In the refactor, this page keeps the core intent intact: a dedicated home for the REST framework, retreat overview, and the partnership opportunities connected to it.
+              REST has a clear purpose: give leaders room to recharge, exchange ideas, strengthen relationships, and return to their work with renewed clarity.
             </p>
             <p>
-              REST exists to give leaders room to recharge, exchange ideas, strengthen relationships, and return to their work with clearer strategy and deeper support.
+              This page brings together the retreat overview, the REST framework, and the partnership opportunities connected to the event in one place.
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "0.85rem" }}>
               <Link href="/sponsorship" className="btn-pbi btn-blue">View Sponsorship Options</Link>
@@ -619,7 +619,7 @@ function renderGalleryPage() {
       <PageHero
         eyebrow="Gallery"
         title="From the Field"
-        lead="A closer look at the event archives that are most clearly represented in the local photo set, from holiday meal distribution to leadership retreat moments."
+        lead="A closer look at the events, outreach moments, and leadership gatherings that help tell the story of Pass by Ira."
         imageSrc="/images/hero/support-banner.webp"
         imageAlt="Gallery hero image"
       />
@@ -733,7 +733,7 @@ function renderVolunteerPage() {
               <div className="section-eyebrow">Why Volunteer</div>
               <h2 style={{ marginTop: 0 }}>Time and Skills Matter Here</h2>
               <p style={{ marginBottom: "1rem" }}>
-                The live site positioned volunteer work as more than an event signup, and that context is worth keeping. Volunteers help prepare meals, organize donations, distribute resources, and support the people-facing details that make each effort feel dignified and coordinated.
+                Volunteers help prepare meals, organize donations, distribute resources, and support the people-facing details that make each effort feel dignified and coordinated.
               </p>
               <p>
                 Whether you can help once, return regularly, or contribute a specific skill set, Pass by Ira makes room for short-term, long-term, and event-based support.
@@ -804,7 +804,7 @@ function renderDonatePage() {
               <div className="section-eyebrow">Ways to Give</div>
               <h2 style={{ marginTop: 0 }}>What Your Support Makes Possible</h2>
               <p style={{ marginBottom: "1rem" }}>
-                The live donate page did more than link outward. It explained why giving matters, what kinds of support are welcome, and what needs are most urgent right now.
+                Every gift helps Pass by Ira respond to urgent needs while building lasting community support through outreach, education, and advocacy.
               </p>
               <ul style={{ margin: 0, paddingLeft: "1.2rem", color: "var(--color-pbi-muted)", lineHeight: 1.75 }}>
                 {givingOptions.map((item) => (
@@ -847,7 +847,7 @@ function renderDonatePage() {
               <div className="section-eyebrow">Current Focus</div>
               <h2 style={{ marginTop: 0 }}>SERVE: Signature Meal Outreach</h2>
               <p>
-                The live donate page specifically spotlighted SERVE as a giving opportunity. This refactor preserves that emphasis: donations help fund warm meals, outreach logistics, and the direct community support tied to this signature program.
+                Donations help fund warm meals, outreach logistics, and the direct community support tied to this signature program.
               </p>
               <p>
                 To learn more about SERVE or how to support the next outreach effort, contact{" "}
@@ -886,7 +886,7 @@ function renderDonatePage() {
                 ))}
               </div>
               <p>
-                On Wix, these fed directly into the donation widget. Here, they serve as giving cues while the secure contribution flow remains on GiveButter.
+                These sample amounts offer a simple starting point while the secure contribution flow continues through GiveButter.
               </p>
               <a href="https://givebutter.com/Give4Ira" className="btn-pbi btn-gold" target="_blank" rel="noopener noreferrer" style={{ marginTop: "1rem" }}>
                 Open Donation Form
@@ -979,7 +979,7 @@ function renderBlogPage() {
                 <div className="section-eyebrow">Archive</div>
                 <h2 style={{ marginTop: 0, marginBottom: "0.45rem" }}>All Posts</h2>
                 <p style={{ margin: 0 }}>
-                  The original Wix blog presented these entries as a lightweight archive. This refactor keeps that archive visible and makes each newsletter easier to browse.
+                  Browse newsletter updates, event recaps, and recent highlights in one simple archive.
                 </p>
               </div>
               <div style={{ display: "grid", gap: "0.45rem", minWidth: "220px" }}>
@@ -1137,7 +1137,7 @@ function renderSponsorshipPage() {
               <div className="section-eyebrow">Why Partner</div>
               <h2 style={{ marginTop: 0 }}>Ways to Support</h2>
               <p style={{ marginBottom: "1rem" }}>
-                The live site includes a full sponsorship menu for the REST Retreat. This refactor keeps that pathway visible while making it easier to update for future event cycles.
+                Partnership support helps Pass by Ira expand outreach, strengthen events, and create more ways for businesses and community organizations to show up with impact.
               </p>
               <ul style={{ margin: 0, paddingLeft: "1.2rem", color: "var(--color-pbi-muted)", lineHeight: 1.7 }}>
                 {partnershipWays.map((item) => (
@@ -1176,7 +1176,7 @@ function renderSponsorshipPage() {
             <div className="section-eyebrow">Previous Partnerships</div>
             <h2 className="section-title">Organizations That Have Helped Shape the Work</h2>
             <p className="section-lead" style={{ margin: "0 auto" }}>
-              The live site highlights previous partners as part of the sponsorship story. Until logo assets are added locally, this section keeps that recognition visible in text form.
+              We are grateful for the organizations that have helped strengthen this work through visibility, resources, and shared commitment.
             </p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "1.25rem" }}>
@@ -1184,7 +1184,7 @@ function renderSponsorshipPage() {
               <div key={partner} className="feature-card" style={{ textAlign: "center" }}>
                 <div className="section-eyebrow">Partner</div>
                 <h3 style={{ marginTop: 0 }}>{partner}</h3>
-                <p>Recognized on the live Pass by Ira sponsorship page as a previous supporter of mission-driven work and event visibility.</p>
+                <p>Recognized as a previous supporter of mission-driven work and event visibility.</p>
               </div>
             ))}
           </div>
@@ -1197,7 +1197,7 @@ function renderSponsorshipPage() {
             <div className="section-eyebrow">REST Retreat Sponsorship</div>
             <h2 className="section-title">Sponsorship Levels</h2>
             <p className="section-lead" style={{ margin: "0 auto" }}>
-              This carries over the main tier structure from the live site so visitors can understand the scale, benefits, and intent behind the REST Retreat sponsorship program.
+              Each level is designed to support the event while giving partners clear visibility, recognition, and meaningful ways to participate.
             </p>
           </div>
           <div style={{ display: "grid", gap: "1.25rem" }}>
@@ -1232,7 +1232,7 @@ function renderSponsorshipPage() {
               <div className="section-eyebrow">In-Kind Sponsorship</div>
               <h2 style={{ marginTop: 0 }}>Goods and Services That Help</h2>
               <p style={{ marginBottom: "1rem" }}>
-                The live page also invites non-cash support. That matters, so this version preserves it as a first-class option rather than burying it behind the form.
+                Non-cash support can be just as meaningful, especially when it helps cover event operations, hospitality, and outreach essentials.
               </p>
               <ul style={{ margin: 0, paddingLeft: "1.2rem", color: "var(--color-pbi-muted)", lineHeight: 1.75 }}>
                 {inKindIdeas.map((item) => (

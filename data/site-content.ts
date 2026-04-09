@@ -83,7 +83,7 @@ export const galleryItems: readonly GalleryItem[] = [
     subtitle: "SERVE annual holiday meal drive",
     src: "/images/gallery/wix-archive/008-129b3c_6c4307da023f42f2b365003f5e8dff40-mv2.webp",
     alt: "Pass by Ira volunteer connecting with a community member during outreach",
-    body: "This gallery maps to the live site's 2023 Thanksgiving Dinner coverage, a SERVE event built around warm meals, steady outreach, and direct community care.",
+    body: "A SERVE event built around warm meals, steady outreach, and direct community care during the 2023 holiday season.",
     images: [
       {
         src: "/images/gallery/wix-archive/001-129b3c_5d17920a9f504fe8af22b93c06f15b05-mv2.webp",
@@ -155,7 +155,7 @@ export const galleryItems: readonly GalleryItem[] = [
     subtitle: "REST leadership retreat",
     src: "/images/gallery/wix-archive/021-4db8fe_ab01646ecc6d448d91676b695327ddbe-mv2.webp",
     alt: "REST Retreat speaker leading a session with attendees",
-    body: "This gallery maps to the live site's 2024 Team Retreat coverage, showing the REST retreat's workshops, collaboration, and relationship-building moments.",
+    body: "A retreat gallery showing REST's workshops, collaboration, and relationship-building moments from the 2024 team retreat.",
     images: [
       {
         src: "/images/gallery/wix-archive/021-4db8fe_ab01646ecc6d448d91676b695327ddbe-mv2.webp",

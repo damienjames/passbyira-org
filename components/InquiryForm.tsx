@@ -31,8 +31,8 @@ const FORM_CONFIG = {
   },
   newsletter: {
     endpoint: NEWSLETTER_FORM_ENDPOINT,
-    submitLabel: "Subscribe",
-    fallbackLabel: "Email to Subscribe",
+    submitLabel: "Sign Up",
+    fallbackLabel: "Sign Up by Email",
     successMessage: "You're signed up. Thanks for staying connected.",
     fallbackSuccessMessage:
       "Your email app should open with a prefilled subscription request.",
@@ -194,8 +194,8 @@ export default function InquiryForm({ kind }: InquiryFormProps) {
           </button>
           <p className="inquiry-form__note">
             {hasEndpoint
-              ? "Your information is submitted securely through a connected form endpoint."
-              : "A dedicated submission endpoint can be connected later through Formspree or Azure. For now, this opens your email app with a draft."}
+              ? "Your information is sent securely to the Pass by Ira team."
+              : "Submitting opens your email app with a prefilled draft so you can send your message directly."}
           </p>
           {message ? (
             <p
