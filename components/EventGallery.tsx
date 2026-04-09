@@ -25,6 +25,7 @@ export default function EventGallery({ items }: { items: readonly GalleryItem[] 
   const activeEvent = items.find((item) => item.id === activeEventId) ?? null;
   const activeImages = activeEvent?.images ?? [];
   const activeImage = activeImages[activeImageIndex] ?? null;
+  const hasMultipleImages = activeImages.length > 1;
 
   useEffect(() => {
     if (!activeEvent) {
@@ -84,7 +85,7 @@ export default function EventGallery({ items }: { items: readonly GalleryItem[] 
                   }}
                   aria-haspopup="dialog"
                 >
-                  View all {item.images.length} photos
+                  {item.images.length > 1 ? `View all ${item.images.length} photos` : "View featured photo"}
                 </button>
               </div>
             </div>
@@ -107,44 +108,50 @@ export default function EventGallery({ items }: { items: readonly GalleryItem[] 
             </div>
 
             <div className="gallery-modal__stage">
-              <button
-                type="button"
-                className="gallery-modal__nav"
-                onClick={() => setActiveImageIndex((currentIndex) => (currentIndex - 1 + activeImages.length) % activeImages.length)}
-                aria-label="Previous image"
-              >
-                ‹
-              </button>
+              {hasMultipleImages ? (
+                <button
+                  type="button"
+                  className="gallery-modal__nav"
+                  onClick={() => setActiveImageIndex((currentIndex) => (currentIndex - 1 + activeImages.length) % activeImages.length)}
+                  aria-label="Previous image"
+                >
+                  ‹
+                </button>
+              ) : null}
               <div className="gallery-modal__image-wrap">
                 <Image src={activeImage.src} alt={activeImage.alt} width={1600} height={1200} className="gallery-modal__image" />
               </div>
-              <button
-                type="button"
-                className="gallery-modal__nav"
-                onClick={() => setActiveImageIndex((currentIndex) => (currentIndex + 1) % activeImages.length)}
-                aria-label="Next image"
-              >
-                ›
-              </button>
+              {hasMultipleImages ? (
+                <button
+                  type="button"
+                  className="gallery-modal__nav"
+                  onClick={() => setActiveImageIndex((currentIndex) => (currentIndex + 1) % activeImages.length)}
+                  aria-label="Next image"
+                >
+                  ›
+                </button>
+              ) : null}
             </div>
 
             <div className="gallery-modal__footer">
               <p className="gallery-modal__count">
-                Photo {activeImageIndex + 1} of {activeImages.length}
+                {hasMultipleImages ? `Photo ${activeImageIndex + 1} of ${activeImages.length}` : "Featured event photo"}
               </p>
-              <div className="gallery-modal__thumbs">
-                {activeImages.map((image, index) => (
-                  <button
-                    key={image.src}
-                    type="button"
-                    className={`gallery-modal__thumb${index === activeImageIndex ? " is-active" : ""}`}
-                    onClick={() => setActiveImageIndex(index)}
-                    aria-label={`View ${activeEvent.title} photo ${index + 1}`}
-                  >
-                    <Image src={image.src} alt="" width={180} height={120} />
-                  </button>
-                ))}
-              </div>
+              {hasMultipleImages ? (
+                <div className="gallery-modal__thumbs">
+                  {activeImages.map((image, index) => (
+                    <button
+                      key={image.src}
+                      type="button"
+                      className={`gallery-modal__thumb${index === activeImageIndex ? " is-active" : ""}`}
+                      onClick={() => setActiveImageIndex(index)}
+                      aria-label={`View ${activeEvent.title} photo ${index + 1}`}
+                    >
+                      <Image src={image.src} alt="" width={180} height={120} />
+                    </button>
+                  ))}
+                </div>
+              ) : null}
             </div>
           </div>
         </div>

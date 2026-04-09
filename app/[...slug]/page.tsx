@@ -89,7 +89,7 @@ const pageMeta: Record<(typeof STATIC_ROUTES)[number], { title: string; descript
   },
   "past-events": {
     title: "Gallery | Pass by Ira",
-    description: "View highlights from SERVE, the REST Leadership Retreat, and Coats & Cocoa.",
+    description: "View highlights from 2023 Thanksgiving Dinner, Coats & Cocoa, and the 2024 Team Retreat.",
   },
   "support-us": {
     title: "Support Us | Pass by Ira",
@@ -620,7 +620,7 @@ function renderGalleryPage() {
       <PageHero
         eyebrow="Gallery"
         title="From the Field"
-        lead="A closer look at the events, outreach moments, and community partnerships that bring the mission to life."
+        lead="A closer look at the event archives that are most clearly represented in the local photo set, from holiday meal distribution to leadership retreat moments."
         imageSrc="/images/hero/support-banner.webp"
         imageAlt="Gallery hero image"
       />

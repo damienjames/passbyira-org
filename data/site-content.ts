@@ -47,78 +47,139 @@ export const siteImages = {
     alt: "REST Retreat guests gathered at a sponsor-facing event moment",
   },
   coatsAndCocoa: {
-    src: "/images/hero/support-banner.webp",
-    alt: "Pass by Ira volunteers and community members at Coats and Cocoa",
+    src: "/images/gallery/wix-archive/003-129b3c_c8014410ad354faa9cea95febd8a87fb-mv2.webp",
+    alt: "Pass by Ira volunteers preparing meals for Coats and Cocoa",
   },
 } as const;
 
 export const homepageFeaturedEvents = [
   {
+    id: "serve",
+    src: "/images/gallery/wix-archive/008-129b3c_6c4307da023f42f2b365003f5e8dff40-mv2.webp",
+    alt: "Pass by Ira volunteer connecting with a community member during outreach",
+    caption: "2023 Thanksgiving Dinner",
+    summary: "A SERVE photo set focused on preparing and distributing warm meals with dignity during the 2023 holiday season.",
+  },
+  {
     id: "coats-cocoa",
     src: siteImages.coatsAndCocoa.src,
     alt: siteImages.coatsAndCocoa.alt,
     caption: "Coats & Cocoa",
-    summary: "A winter outreach focused on coats, blankets, gloves, and hot drinks for neighbors facing cold-weather conditions.",
+    summary: "A winter outreach built around coats, cocoa, hot meals, and direct care for neighbors during the coldest season.",
   },
   {
     id: "rest",
     src: "/images/gallery/wix-archive/026-4db8fe_cad34d6f0e2b47a39f72d22b114891dc-mv2.webp",
     alt: "Pass by Ira leadership team gathered at the REST Retreat",
-    caption: "REST Retreat",
-    summary: "A leadership gathering built to strengthen collaboration, knowledge-sharing, and long-term community impact.",
+    caption: "2024 Team Retreat",
+    summary: "A REST retreat photo set centered on leadership development, collaboration, and relationship-building.",
   },
 ] as const;
 
 export const galleryItems: readonly GalleryItem[] = [
   {
     id: "serve",
-    title: "SERVE",
-    subtitle: "Meal prep and direct outreach",
+    title: "2023 Thanksgiving Dinner",
+    subtitle: "SERVE annual holiday meal drive",
     src: "/images/gallery/wix-archive/008-129b3c_6c4307da023f42f2b365003f5e8dff40-mv2.webp",
-    alt: "Pass by Ira volunteer delivering a meal during outreach",
-    body: "SERVE is the meal-centered outreach tradition that helped shape Pass by Ira's work: preparing food, delivering it with dignity, and making sure neighbors are seen.",
+    alt: "Pass by Ira volunteer connecting with a community member during outreach",
+    body: "This gallery maps to the live site's 2023 Thanksgiving Dinner coverage, a SERVE event built around warm meals, steady outreach, and direct community care.",
     images: [
       {
-        src: "/images/gallery/wix-archive/008-129b3c_6c4307da023f42f2b365003f5e8dff40-mv2.webp",
-        alt: "Pass by Ira volunteer delivering a meal during outreach",
-      },
-      {
-        src: "/images/gallery/wix-archive/003-129b3c_c8014410ad354faa9cea95febd8a87fb-mv2.webp",
-        alt: "Pass by Ira volunteer handing out a prepared meal",
-      },
-      {
         src: "/images/gallery/wix-archive/001-129b3c_5d17920a9f504fe8af22b93c06f15b05-mv2.webp",
-        alt: "Pass by Ira volunteers preparing food before service",
+        alt: "Pass by Ira volunteers serving hot meals during SERVE outreach",
+      },
+      {
+        src: "/images/gallery/wix-archive/004-129b3c_428b7d7a55eb4afba4875e0bcd86df93-mv2.webp",
+        alt: "Pass by Ira volunteer holding a plated meal during SERVE outreach",
+      },
+      {
+        src: "/images/gallery/wix-archive/008-129b3c_6c4307da023f42f2b365003f5e8dff40-mv2.webp",
+        alt: "Pass by Ira volunteer connecting with a community member during SERVE outreach",
+      },
+      {
+        src: "/images/gallery/wix-archive/010-129b3c_18868cc8893741f785f3d80f54ea7aa4-mv2.webp",
+        alt: "Dallas skyline and outreach setting during a Pass by Ira SERVE event",
       },
       {
         src: "/images/gallery/wix-archive/011-129b3c_9502441c8934426ea707f5de634bbce5-mv2.webp",
-        alt: "Pass by Ira volunteers plating and packing meals together",
+        alt: "Pass by Ira volunteers preparing meals together for SERVE",
+      },
+    ],
+  },
+  {
+    id: "coats-cocoa",
+    title: "Coats & Cocoa",
+    subtitle: "Winter outreach, meals, and direct distribution",
+    src: siteImages.coatsAndCocoa.src,
+    alt: siteImages.coatsAndCocoa.alt,
+    body: "These photos belong with Coats & Cocoa: volunteers preparing warm meals, packing food, and meeting neighbors directly with winter-season care and visible support.",
+    images: [
+      {
+        src: "/images/gallery/wix-archive/009-129b3c_a5172118cb874ef5a1bc0656ff35664e-mv2.webp",
+        alt: "Pass by Ira volunteers setting up meal service for Coats and Cocoa",
+      },
+      {
+        src: "/images/gallery/wix-archive/003-129b3c_c8014410ad354faa9cea95febd8a87fb-mv2.webp",
+        alt: "Pass by Ira volunteers preparing meals for Coats and Cocoa",
+      },
+      {
+        src: "/images/gallery/wix-archive/001-129b3c_5d17920a9f504fe8af22b93c06f15b05-mv2.webp",
+        alt: "Pass by Ira volunteers serving hot meals during Coats and Cocoa",
+      },
+      {
+        src: "/images/gallery/wix-archive/004-129b3c_428b7d7a55eb4afba4875e0bcd86df93-mv2.webp",
+        alt: "Pass by Ira volunteer holding a plated meal during Coats and Cocoa",
+      },
+      {
+        src: "/images/gallery/wix-archive/007-4db8fe_883fc845fe7e4c1bb457cc85c38a8901-mv2.webp",
+        alt: "Pass by Ira volunteers sharing a plated meal together during Coats and Cocoa",
+      },
+      {
+        src: "/images/gallery/wix-archive/008-129b3c_6c4307da023f42f2b365003f5e8dff40-mv2.webp",
+        alt: "Pass by Ira volunteer connecting with a community member during Coats and Cocoa outreach",
+      },
+      {
+        src: "/images/gallery/wix-archive/002-129b3c_1436c874fe7c45c58dfb5236d0aa3dae-mv2.webp",
+        alt: "Pass by Ira volunteers distributing meals during Coats and Cocoa in downtown Dallas",
+      },
+      {
+        src: "/images/hero/support-banner.webp",
+        alt: "Pass by Ira volunteers and community members at Coats and Cocoa",
       },
     ],
   },
   {
     id: "rest",
-    title: "REST Leadership Retreat",
-    subtitle: "Education and collaboration",
-    src: "/images/gallery/wix-archive/026-4db8fe_cad34d6f0e2b47a39f72d22b114891dc-mv2.webp",
-    alt: "Pass by Ira leadership team gathered at the REST Retreat",
-    body: "The REST Retreat brings together nonprofit, small business, and community leaders to recharge, share strategy, and build partnerships that strengthen long-term impact.",
+    title: "2024 Team Retreat",
+    subtitle: "REST leadership retreat",
+    src: "/images/gallery/wix-archive/021-4db8fe_ab01646ecc6d448d91676b695327ddbe-mv2.webp",
+    alt: "REST Retreat speaker leading a session with attendees",
+    body: "This gallery maps to the live site's 2024 Team Retreat coverage, showing the REST retreat's workshops, collaboration, and relationship-building moments.",
     images: [
-      {
-        src: "/images/gallery/wix-archive/026-4db8fe_cad34d6f0e2b47a39f72d22b114891dc-mv2.webp",
-        alt: "Pass by Ira leadership team gathered at the REST Retreat",
-      },
       {
         src: "/images/gallery/wix-archive/021-4db8fe_ab01646ecc6d448d91676b695327ddbe-mv2.webp",
         alt: "REST Retreat speaker leading a session with attendees",
       },
       {
-        src: "/images/gallery/wix-archive/024-4db8fe_6b9360fd96de48a1a88634285c058a62-mv2.webp",
-        alt: "REST Retreat team activity in the main meeting room",
+        src: "/images/gallery/wix-archive/020-4db8fe_c292ada5e42246efba82b536122c0f20-mv2.webp",
+        alt: "REST Retreat collaboration session with attendees gathered in discussion",
       },
       {
-        src: "/images/gallery/wix-archive/028-4db8fe_a5b4cbe998ca40d9bab4445d37117037-mv2.webp",
-        alt: "REST Retreat group portrait",
+        src: "/images/gallery/wix-archive/014-4db8fe_300e78648b0146a19e796e1e3f990915-mv2.webp",
+        alt: "REST Retreat facilitator welcoming guests in the main event space",
+      },
+      {
+        src: "/images/gallery/wix-archive/025-4db8fe_26d40945f1fb4796822df4153fdb3310-mv2.webp",
+        alt: "REST Retreat participants listening during a group session",
+      },
+      {
+        src: "/images/gallery/wix-archive/016-4db8fe_6ead3b08e245489f9e8075403d3632f2-mv2.webp",
+        alt: "REST Retreat guests gathered beneath the event balloon installation",
+      },
+      {
+        src: "/images/gallery/wix-archive/026-4db8fe_cad34d6f0e2b47a39f72d22b114891dc-mv2.webp",
+        alt: "Pass by Ira leadership team gathered at the REST Retreat",
       },
       {
         src: "/images/gallery/wix-archive/019-4db8fe_f7928a0b5ad144d08420f57f390600e4-mv2.webp",
@@ -126,24 +187,10 @@ export const galleryItems: readonly GalleryItem[] = [
       },
     ],
   },
-  {
-    id: "coats-cocoa",
-    title: "Coats & Cocoa",
-    subtitle: "Winter essentials and hot drinks",
-    src: siteImages.coatsAndCocoa.src,
-    alt: siteImages.coatsAndCocoa.alt,
-    body: "Coats & Cocoa is Pass by Ira's cold-weather outreach effort, centered on coats, blankets, gloves, hot drinks, and visible care for neighbors navigating winter conditions.",
-    images: [
-      {
-        src: siteImages.coatsAndCocoa.src,
-        alt: siteImages.coatsAndCocoa.alt,
-      },
-    ],
-  },
 ] as const;
 
 export const additionalGalleryNote =
-  "The live site references additional seasonal archives, but the local asset archive currently supports clearly identifiable SERVE, REST, and Coats & Cocoa coverage. THIRST photos can be slotted in cleanly once that set is organized.";
+  "The gallery labels now follow the live site's naming more closely: 2023 Thanksgiving Dinner, Coats & Cocoa, and 2024 Team Retreat. Under the hood, those still map back to Pass by Ira's SERVE and REST program structure.";
 
 export const restFramework = [
   {

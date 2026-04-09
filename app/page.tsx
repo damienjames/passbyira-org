@@ -40,9 +40,9 @@ interface Pillar {
 const homepageEventSpotlights = [
   {
     eyebrow: "Featured Event",
-    title: "REST Leadership Retreat",
+    title: "2024 Team Retreat",
     body:
-      "Recharge. Elevate. Strategize. Transform. REST is Pass by Ira's dedicated leadership experience for nonprofit, small business, and community leaders building lasting impact across DFW.",
+      "Recharge. Elevate. Strategize. Transform. The 2024 Team Retreat reflects Pass by Ira's REST experience for nonprofit, small business, and community leaders building lasting impact across DFW.",
     meta: ["Leadership retreat", "Community partnerships", "Sponsor and advertise"],
     imageSrc: "/images/gallery/wix-archive/021-4db8fe_ab01646ecc6d448d91676b695327ddbe-mv2.webp",
     imageAlt: "REST Retreat speaker leading a session with attendees",
@@ -54,16 +54,16 @@ const homepageEventSpotlights = [
   },
   {
     eyebrow: "Signature Outreach",
-    title: "SERVE",
+    title: "2023 Thanksgiving Dinner",
     body:
-      "SERVE is the heartbeat of Pass by Ira: preparing and sharing warm meals with neighbors across the Dallas–Fort Worth Metroplex through consistent, dignity-centered outreach.",
+      "The 2023 Thanksgiving Dinner gallery captures a SERVE outreach tradition: preparing and sharing warm meals with neighbors across the Dallas–Fort Worth Metroplex through consistent, dignity-centered care.",
     meta: ["Meal preparation", "Direct outreach", "Volunteer-driven"],
     imageSrc: "/images/gallery/wix-archive/008-129b3c_6c4307da023f42f2b365003f5e8dff40-mv2.webp",
     imageAlt: "Pass by Ira volunteer delivering a meal during outreach",
     primaryHref: "/event#outreach",
-    primaryLabel: "View Outreach Programs",
+    primaryLabel: "View SERVE Programs",
     secondaryHref: "https://forms.gle/6R56X5v6z9dCuvWS9",
-    secondaryLabel: "Volunteer for SERVE",
+    secondaryLabel: "Volunteer for Thanksgiving",
     secondaryExternal: true,
   },
 ] as const;
