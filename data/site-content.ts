@@ -15,39 +15,39 @@ export interface GalleryItem {
 
 export const siteImages = {
   homeSupport: {
-    src: "/images/gallery/wix-archive/008-129b3c_6c4307da023f42f2b365003f5e8dff40-mv2.jpeg",
+    src: "/images/gallery/wix-archive/008-129b3c_6c4307da023f42f2b365003f5e8dff40-mv2.webp",
     alt: "Pass by Ira volunteers sharing meals with community members in Dallas",
   },
   aboutHero: {
-    src: "/images/gallery/wix-archive/008-129b3c_6c4307da023f42f2b365003f5e8dff40-mv2.jpeg",
+    src: "/images/gallery/wix-archive/008-129b3c_6c4307da023f42f2b365003f5e8dff40-mv2.webp",
     alt: "Pass by Ira outreach in the field",
   },
   teamHero: {
-    src: "/images/gallery/wix-archive/026-4db8fe_cad34d6f0e2b47a39f72d22b114891dc-mv2.jpg",
+    src: "/images/gallery/wix-archive/026-4db8fe_cad34d6f0e2b47a39f72d22b114891dc-mv2.webp",
     alt: "Pass by Ira leadership team together at the REST Retreat",
   },
   programsHero: {
-    src: "/images/gallery/wix-archive/011-129b3c_9502441c8934426ea707f5de634bbce5-mv2.png",
+    src: "/images/gallery/wix-archive/011-129b3c_9502441c8934426ea707f5de634bbce5-mv2.webp",
     alt: "Pass by Ira volunteers preparing meals together",
   },
   supportHero: {
-    src: "/images/gallery/wix-archive/003-129b3c_c8014410ad354faa9cea95febd8a87fb-mv2.jpg",
+    src: "/images/gallery/wix-archive/003-129b3c_c8014410ad354faa9cea95febd8a87fb-mv2.webp",
     alt: "Pass by Ira volunteers handing prepared meals to community members",
   },
   contactHero: {
-    src: "/images/gallery/wix-archive/028-4db8fe_a5b4cbe998ca40d9bab4445d37117037-mv2.jpg",
+    src: "/images/gallery/wix-archive/028-4db8fe_a5b4cbe998ca40d9bab4445d37117037-mv2.webp",
     alt: "Pass by Ira community gathered together indoors",
   },
   restHero: {
-    src: "/images/gallery/wix-archive/021-4db8fe_ab01646ecc6d448d91676b695327ddbe-mv2.jpg",
+    src: "/images/gallery/wix-archive/021-4db8fe_ab01646ecc6d448d91676b695327ddbe-mv2.webp",
     alt: "REST Retreat speaker leading a session with attendees",
   },
   sponsorshipHero: {
-    src: "/images/gallery/wix-archive/019-4db8fe_f7928a0b5ad144d08420f57f390600e4-mv2.jpg",
+    src: "/images/gallery/wix-archive/019-4db8fe_f7928a0b5ad144d08420f57f390600e4-mv2.webp",
     alt: "REST Retreat guests gathered at a sponsor-facing event moment",
   },
   coatsAndCocoa: {
-    src: "https://static.wixstatic.com/media/31e2e9a7bf5b465887db7407f729ddb8.jpg/v1/fill/w_1470,h_744,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/31e2e9a7bf5b465887db7407f729ddb8.jpg",
+    src: "/images/hero/support-banner.webp",
     alt: "Pass by Ira volunteers and community members at Coats and Cocoa",
   },
 } as const;
@@ -62,7 +62,7 @@ export const homepageFeaturedEvents = [
   },
   {
     id: "rest",
-    src: "/images/gallery/wix-archive/026-4db8fe_cad34d6f0e2b47a39f72d22b114891dc-mv2.jpg",
+    src: "/images/gallery/wix-archive/026-4db8fe_cad34d6f0e2b47a39f72d22b114891dc-mv2.webp",
     alt: "Pass by Ira leadership team gathered at the REST Retreat",
     caption: "REST Retreat",
     summary: "A leadership gathering built to strengthen collaboration, knowledge-sharing, and long-term community impact.",
@@ -74,24 +74,24 @@ export const galleryItems: readonly GalleryItem[] = [
     id: "serve",
     title: "SERVE",
     subtitle: "Meal prep and direct outreach",
-    src: "/images/gallery/wix-archive/008-129b3c_6c4307da023f42f2b365003f5e8dff40-mv2.jpeg",
+    src: "/images/gallery/wix-archive/008-129b3c_6c4307da023f42f2b365003f5e8dff40-mv2.webp",
     alt: "Pass by Ira volunteer delivering a meal during outreach",
     body: "SERVE is the meal-centered outreach tradition that helped shape Pass by Ira's work: preparing food, delivering it with dignity, and making sure neighbors are seen.",
     images: [
       {
-        src: "/images/gallery/wix-archive/008-129b3c_6c4307da023f42f2b365003f5e8dff40-mv2.jpeg",
+        src: "/images/gallery/wix-archive/008-129b3c_6c4307da023f42f2b365003f5e8dff40-mv2.webp",
         alt: "Pass by Ira volunteer delivering a meal during outreach",
       },
       {
-        src: "/images/gallery/wix-archive/003-129b3c_c8014410ad354faa9cea95febd8a87fb-mv2.jpg",
+        src: "/images/gallery/wix-archive/003-129b3c_c8014410ad354faa9cea95febd8a87fb-mv2.webp",
         alt: "Pass by Ira volunteer handing out a prepared meal",
       },
       {
-        src: "/images/gallery/wix-archive/001-129b3c_5d17920a9f504fe8af22b93c06f15b05-mv2.jpg",
+        src: "/images/gallery/wix-archive/001-129b3c_5d17920a9f504fe8af22b93c06f15b05-mv2.webp",
         alt: "Pass by Ira volunteers preparing food before service",
       },
       {
-        src: "/images/gallery/wix-archive/011-129b3c_9502441c8934426ea707f5de634bbce5-mv2.png",
+        src: "/images/gallery/wix-archive/011-129b3c_9502441c8934426ea707f5de634bbce5-mv2.webp",
         alt: "Pass by Ira volunteers plating and packing meals together",
       },
     ],
@@ -100,28 +100,28 @@ export const galleryItems: readonly GalleryItem[] = [
     id: "rest",
     title: "REST Leadership Retreat",
     subtitle: "Education and collaboration",
-    src: "/images/gallery/wix-archive/026-4db8fe_cad34d6f0e2b47a39f72d22b114891dc-mv2.jpg",
+    src: "/images/gallery/wix-archive/026-4db8fe_cad34d6f0e2b47a39f72d22b114891dc-mv2.webp",
     alt: "Pass by Ira leadership team gathered at the REST Retreat",
     body: "The REST Retreat brings together nonprofit, small business, and community leaders to recharge, share strategy, and build partnerships that strengthen long-term impact.",
     images: [
       {
-        src: "/images/gallery/wix-archive/026-4db8fe_cad34d6f0e2b47a39f72d22b114891dc-mv2.jpg",
+        src: "/images/gallery/wix-archive/026-4db8fe_cad34d6f0e2b47a39f72d22b114891dc-mv2.webp",
         alt: "Pass by Ira leadership team gathered at the REST Retreat",
       },
       {
-        src: "/images/gallery/wix-archive/021-4db8fe_ab01646ecc6d448d91676b695327ddbe-mv2.jpg",
+        src: "/images/gallery/wix-archive/021-4db8fe_ab01646ecc6d448d91676b695327ddbe-mv2.webp",
         alt: "REST Retreat speaker leading a session with attendees",
       },
       {
-        src: "/images/gallery/wix-archive/024-4db8fe_6b9360fd96de48a1a88634285c058a62-mv2.jpg",
+        src: "/images/gallery/wix-archive/024-4db8fe_6b9360fd96de48a1a88634285c058a62-mv2.webp",
         alt: "REST Retreat team activity in the main meeting room",
       },
       {
-        src: "/images/gallery/wix-archive/028-4db8fe_a5b4cbe998ca40d9bab4445d37117037-mv2.jpg",
+        src: "/images/gallery/wix-archive/028-4db8fe_a5b4cbe998ca40d9bab4445d37117037-mv2.webp",
         alt: "REST Retreat group portrait",
       },
       {
-        src: "/images/gallery/wix-archive/019-4db8fe_f7928a0b5ad144d08420f57f390600e4-mv2.jpg",
+        src: "/images/gallery/wix-archive/019-4db8fe_f7928a0b5ad144d08420f57f390600e4-mv2.webp",
         alt: "REST Retreat guests posing beneath a balloon installation",
       },
     ],

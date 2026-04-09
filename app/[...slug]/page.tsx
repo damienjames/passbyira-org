@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import EventGallery from "@/components/EventGallery";
+import InquiryForm from "@/components/InquiryForm";
 import boardData from "@/data/board.json";
 import programsData from "@/data/programs.json";
 import {
@@ -14,6 +15,12 @@ import {
   siteImages,
   sponsorshipLevels,
 } from "@/data/site-content";
+import {
+  getAbsoluteUrl,
+  OG_IMAGE_ALT,
+  OG_IMAGE_PATH,
+  SITE_NAME,
+} from "@/lib/site";
 
 interface BoardMember {
   group: "board" | "advisor";
@@ -133,7 +140,7 @@ const newsPosts = [
     date: "Feb 16, 2025",
     summary: "Quarterly highlights, updates across the mission, and ways the community can stay engaged.",
     lead: "A snapshot of recent momentum across outreach, education, advocacy, and community engagement.",
-    imageSrc: "https://static.wixstatic.com/media/c2f5fa_e2b5ca69b11f45fd832f2e5ed705d460~mv2.png/v1/fill/w_1600,h_330,al_c,q_90,enc_avif,quality_auto/EmailTwitter%20Header.png",
+    imageSrc: "/images/hero/volunteer-header.webp",
     imageAlt: "February 2025 newsletter header",
     bullets: [
       "Mission updates and current momentum across outreach, education, and advocacy work.",
@@ -151,7 +158,7 @@ const newsPosts = [
     date: "Dec 14, 2024",
     summary: "A recap of Coats & Cocoa 2024 and the community support behind the winter outreach effort.",
     lead: "A recap of winter outreach centered on warmth, essential items, and community care.",
-    imageSrc: "https://static.wixstatic.com/media/31e2e9a7bf5b465887db7407f729ddb8.jpg/v1/fill/w_1470,h_744,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/31e2e9a7bf5b465887db7407f729ddb8.jpg",
+    imageSrc: "/images/hero/support-banner.webp",
     imageAlt: "Coats and Cocoa recap image",
     bullets: [
       "A winter-outreach recap centered on coats, cocoa, and direct community care.",
@@ -169,7 +176,7 @@ const newsPosts = [
     date: "Dec 7, 2024",
     summary: "A late-2024 mission update covering outreach momentum, seasonal needs, and community engagement.",
     lead: "A snapshot of Pass by Ira's work and priorities heading into the winter season.",
-    imageSrc: "/images/gallery/wix-archive/026-4db8fe_cad34d6f0e2b47a39f72d22b114891dc-mv2.jpg",
+    imageSrc: "/images/gallery/wix-archive/026-4db8fe_cad34d6f0e2b47a39f72d22b114891dc-mv2.webp",
     imageAlt: "Pass by Ira team at a community gathering",
     bullets: [
       "Seasonal outreach context and the importance of winter support.",
@@ -182,6 +189,41 @@ const newsPosts = [
     ],
   },
 ] as const;
+
+function getRoutePreview(key: (typeof STATIC_ROUTES)[number]) {
+  const newsPost = newsPosts.find((post) => post.slug === key);
+
+  if (newsPost) {
+    return {
+      image: newsPost.imageSrc,
+      imageAlt: newsPost.imageAlt,
+      type: "article" as const,
+    };
+  }
+
+  const previewMap: Partial<Record<(typeof STATIC_ROUTES)[number], { image: string; imageAlt: string }>> = {
+    "about-3": { image: siteImages.aboutHero.src, imageAlt: siteImages.aboutHero.alt },
+    "meet-the-team": { image: siteImages.teamHero.src, imageAlt: siteImages.teamHero.alt },
+    event: { image: siteImages.programsHero.src, imageAlt: siteImages.programsHero.alt },
+    rest: { image: siteImages.restHero.src, imageAlt: siteImages.restHero.alt },
+    "past-events": { image: siteImages.coatsAndCocoa.src, imageAlt: siteImages.coatsAndCocoa.alt },
+    "support-us": { image: siteImages.supportHero.src, imageAlt: siteImages.supportHero.alt },
+    "sign-up-to-volunteer": { image: "/images/hero/volunteer-header.webp", imageAlt: "Volunteer signup header" },
+    donate: { image: siteImages.supportHero.src, imageAlt: siteImages.supportHero.alt },
+    sponsorship: { image: siteImages.sponsorshipHero.src, imageAlt: siteImages.sponsorshipHero.alt },
+    contact: { image: siteImages.contactHero.src, imageAlt: siteImages.contactHero.alt },
+    blog: { image: "/images/hero/volunteer-header.webp", imageAlt: "Pass by Ira newsletter archive header" },
+    "30-for-30-campaign": { image: "/images/hero/volunteer-header.webp", imageAlt: "30 for 30 campaign header" },
+  };
+
+  const preview = previewMap[key];
+
+  return {
+    image: preview?.image || OG_IMAGE_PATH,
+    imageAlt: preview?.imageAlt || OG_IMAGE_ALT,
+    type: "website" as const,
+  };
+}
 
 const socialLinks = [
   { label: "Instagram", href: "https://www.instagram.com/passbyira", icon: "instagram" },
@@ -232,9 +274,34 @@ export async function generateMetadata({
     return {};
   }
 
+  const pathname = `/${key}`;
+  const preview = getRoutePreview(key);
+
   return {
     title: meta.title,
     description: meta.description,
+    alternates: {
+      canonical: pathname,
+    },
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      url: pathname,
+      siteName: SITE_NAME,
+      type: preview.type,
+      images: [
+        {
+          url: getAbsoluteUrl(preview.image),
+          alt: preview.imageAlt,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: meta.title,
+      description: meta.description,
+      images: [getAbsoluteUrl(preview.image)],
+    },
   };
 }
 
@@ -254,7 +321,7 @@ function PageHero({
   return (
     <section className="section-shell section-alt" aria-labelledby="route-page-heading">
       <div className="pbi-container">
-        <div style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: "2rem", alignItems: "center" }}>
+        <div className="page-hero-grid">
           <div>
             <div className="section-eyebrow">{eyebrow}</div>
             <h1 id="route-page-heading" className="section-title">{title}</h1>
@@ -312,10 +379,10 @@ function renderAboutPage() {
         imageAlt={siteImages.aboutHero.alt}
       />
 
-      <section className="section-shell">
-        <div className="pbi-container">
-          <div style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: "1.5rem" }}>
-            <div className="feature-card">
+        <section className="section-shell">
+          <div className="pbi-container">
+            <div className="responsive-split responsive-split--wide">
+              <div className="feature-card">
               <div className="section-eyebrow">Our Beginning</div>
               <p>
                 Pass by Ira began when founder Jene&apos;a encountered a woman named Ira asking for water on the way to work. That moment became a daily act of care: first water, then snacks, then breakfast, and eventually a recurring outreach routine rooted in relationship.
@@ -554,7 +621,7 @@ function renderGalleryPage() {
         eyebrow="Gallery"
         title="From the Field"
         lead="A closer look at the events, outreach moments, and community partnerships that bring the mission to life."
-        imageSrc="https://static.wixstatic.com/media/31e2e9a7bf5b465887db7407f729ddb8.jpg/v1/fill/w_1470,h_744,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/31e2e9a7bf5b465887db7407f729ddb8.jpg"
+        imageSrc="/images/hero/support-banner.webp"
         imageAlt="Gallery hero image"
       />
 
@@ -659,13 +726,13 @@ function renderVolunteerPage() {
         eyebrow="Volunteer"
         title="Volunteer with Our Team"
         lead="Pass by Ira welcomes volunteers to join the cause through one-time events, recurring support, and skill-based service."
-        imageSrc="/images/gallery/wix-archive/011-129b3c_9502441c8934426ea707f5de634bbce5-mv2.png"
+        imageSrc="/images/gallery/wix-archive/011-129b3c_9502441c8934426ea707f5de634bbce5-mv2.webp"
         imageAlt="Pass by Ira volunteers preparing meals together"
-      />
+        />
 
-      <section className="section-shell">
-        <div className="pbi-container">
-          <div style={{ display: "grid", gridTemplateColumns: "1.05fr 0.95fr", gap: "1.5rem" }}>
+        <section className="section-shell">
+          <div className="pbi-container">
+            <div className="responsive-split responsive-split--wide">
             <div className="feature-card">
               <div className="section-eyebrow">Why Volunteer</div>
               <h2 style={{ marginTop: 0 }}>Time and Skills Matter Here</h2>
@@ -730,13 +797,13 @@ function renderDonatePage() {
         eyebrow="Donate"
         title="Support Our Mission"
         lead="Financial gifts and in-kind contributions help Pass by Ira respond to immediate needs while sustaining long-term outreach, education, and advocacy."
-        imageSrc="/images/gallery/wix-archive/003-129b3c_c8014410ad354faa9cea95febd8a87fb-mv2.jpg"
+        imageSrc="/images/gallery/wix-archive/003-129b3c_c8014410ad354faa9cea95febd8a87fb-mv2.webp"
         imageAlt="Pass by Ira volunteer handing a prepared meal to a community member"
-      />
+        />
 
-      <section className="section-shell">
-        <div className="pbi-container">
-          <div style={{ display: "grid", gridTemplateColumns: "1.05fr 0.95fr", gap: "1.5rem" }}>
+        <section className="section-shell">
+          <div className="pbi-container">
+            <div className="responsive-split responsive-split--wide">
             <div className="feature-card">
               <div className="section-eyebrow">Ways to Give</div>
               <h2 style={{ marginTop: 0 }}>What Your Support Makes Possible</h2>
@@ -777,9 +844,9 @@ function renderDonatePage() {
         </div>
       </section>
 
-      <section className="section-shell section-alt">
-        <div className="pbi-container">
-          <div style={{ display: "grid", gridTemplateColumns: "1.05fr 0.95fr", gap: "1.5rem", alignItems: "center" }}>
+        <section className="section-shell section-alt">
+          <div className="pbi-container">
+            <div className="responsive-split responsive-split--wide responsive-split--center">
             <div className="feature-card">
               <div className="section-eyebrow">Current Focus</div>
               <h2 style={{ marginTop: 0 }}>SERVE: Signature Meal Outreach</h2>
@@ -847,48 +914,53 @@ function renderContactPage() {
         imageAlt={siteImages.contactHero.alt}
       />
 
-      <section className="section-shell" id="connect">
-        <div className="pbi-container">
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.5rem" }}>
-            <div className="feature-card">
-              <div className="section-eyebrow">Emails</div>
-              <p><a href="mailto:connect@passbyira.org">connect@passbyira.org</a></p>
-              <p><a href="mailto:events@passbyira.org">events@passbyira.org</a></p>
-              <p style={{ marginBottom: 0 }}><a href="mailto:donate@passbyira.org">donate@passbyira.org</a></p>
-            </div>
-            <div className="feature-card">
-              <div className="section-eyebrow">Social</div>
-              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gap: "0.6rem" }}>
-                {socialLinks.map((link) => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        display: "inline-flex",
-                        alignItems: "center",
-                        gap: "0.65rem",
-                        color: "var(--color-pbi-primary)",
-                        fontWeight: 700,
-                      }}
-                    >
-                      <SocialIcon icon={link.icon} />
-                      <span>{link.label}</span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="feature-card">
-              <div className="section-eyebrow">Newsletter</div>
-              <p>Browse recent newsletter updates and stay informed about current programs, events, and community impact.</p>
-              <Link href="/blog" style={{ color: "var(--color-pbi-primary)", fontWeight: 700 }}>View News &amp; Newsletter Posts</Link>
+        <section className="section-shell" id="connect">
+          <div className="pbi-container">
+            <div className="responsive-split responsive-split--wide">
+              <InquiryForm kind="contact" />
+              <div style={{ display: "grid", gap: "1.5rem" }}>
+                <div className="feature-card">
+                  <div className="section-eyebrow">Emails</div>
+                  <p><a href="mailto:connect@passbyira.org">connect@passbyira.org</a></p>
+                  <p><a href="mailto:events@passbyira.org">events@passbyira.org</a></p>
+                  <p style={{ marginBottom: 0 }}><a href="mailto:donate@passbyira.org">donate@passbyira.org</a></p>
+                </div>
+                <div className="feature-card">
+                  <div className="section-eyebrow">Social</div>
+                  <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gap: "0.6rem" }}>
+                    {socialLinks.map((link) => (
+                      <li key={link.label}>
+                        <a
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{
+                            display: "inline-flex",
+                            alignItems: "center",
+                            gap: "0.65rem",
+                            color: "var(--color-pbi-primary)",
+                            fontWeight: 700,
+                          }}
+                        >
+                          <SocialIcon icon={link.icon} />
+                          <span>{link.label}</span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="feature-card">
+                  <div className="section-eyebrow">Archive</div>
+                  <p>Prefer to browse first? You can catch up on updates and newsletter posts before reaching out.</p>
+                  <Link href="/blog" className="btn-pbi btn-outline-blue" style={{ alignSelf: "flex-start" }}>
+                    View News &amp; Newsletter Posts
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-    </>
+        </section>
+      </>
   );
 }
 
@@ -899,7 +971,7 @@ function renderBlogPage() {
         eyebrow="News"
         title="Updates and Newsletters"
         lead="Read recent updates, recaps, and newsletter-style highlights from Pass by Ira."
-        imageSrc="https://static.wixstatic.com/media/c2f5fa_e2b5ca69b11f45fd832f2e5ed705d460~mv2.png/v1/fill/w_1600,h_330,al_c,q_90,enc_avif,quality_auto/EmailTwitter%20Header.png"
+        imageSrc="/images/hero/volunteer-header.webp"
         imageAlt="Blog header graphic"
       />
 
@@ -1062,10 +1134,10 @@ function renderSponsorshipPage() {
         imageAlt={siteImages.sponsorshipHero.alt}
       />
 
-      <section className="section-shell">
-        <div className="pbi-container">
-          <div style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: "1.5rem" }}>
-            <div className="feature-card">
+        <section className="section-shell">
+          <div className="pbi-container">
+            <div className="responsive-split responsive-split--wide">
+              <div className="feature-card">
               <div className="section-eyebrow">Why Partner</div>
               <h2 style={{ marginTop: 0 }}>Ways to Support</h2>
               <p style={{ marginBottom: "1rem" }}>
@@ -1159,7 +1231,7 @@ function renderSponsorshipPage() {
 
       <section className="section-shell section-alt">
         <div className="pbi-container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem" }}>
+          <div className="responsive-split responsive-split--balanced">
             <div className="feature-card">
               <div className="section-eyebrow">In-Kind Sponsorship</div>
               <h2 style={{ marginTop: 0 }}>Goods and Services That Help</h2>
@@ -1222,7 +1294,7 @@ function renderCampaignPage() {
         eyebrow="Campaign"
         title="30 for 30 Campaign"
         lead="Support the 30 for 30 campaign and help sustain the outreach, advocacy, and community care at the heart of Pass by Ira's mission."
-        imageSrc="https://static.wixstatic.com/media/c2f5fa_e2b5ca69b11f45fd832f2e5ed705d460~mv2.png/v1/fill/w_1600,h_330,al_c,q_90,enc_avif,quality_auto/EmailTwitter%20Header.png"
+        imageSrc="/images/hero/volunteer-header.webp"
         imageAlt="30 for 30 campaign header"
       />
 

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import InquiryForm from "@/components/InquiryForm";
 import boardData from "@/data/board.json";
 import programsData from "@/data/programs.json";
 import { homepageFeaturedEvents, siteImages } from "@/data/site-content";
@@ -43,7 +44,7 @@ const homepageEventSpotlights = [
     body:
       "Recharge. Elevate. Strategize. Transform. REST is Pass by Ira's dedicated leadership experience for nonprofit, small business, and community leaders building lasting impact across DFW.",
     meta: ["Leadership retreat", "Community partnerships", "Sponsor and advertise"],
-    imageSrc: "/images/gallery/wix-archive/021-4db8fe_ab01646ecc6d448d91676b695327ddbe-mv2.jpg",
+    imageSrc: "/images/gallery/wix-archive/021-4db8fe_ab01646ecc6d448d91676b695327ddbe-mv2.webp",
     imageAlt: "REST Retreat speaker leading a session with attendees",
     primaryHref: "/rest",
     primaryLabel: "Explore REST",
@@ -57,7 +58,7 @@ const homepageEventSpotlights = [
     body:
       "SERVE is the heartbeat of Pass by Ira: preparing and sharing warm meals with neighbors across the Dallas–Fort Worth Metroplex through consistent, dignity-centered outreach.",
     meta: ["Meal preparation", "Direct outreach", "Volunteer-driven"],
-    imageSrc: "/images/gallery/wix-archive/008-129b3c_6c4307da023f42f2b365003f5e8dff40-mv2.jpeg",
+    imageSrc: "/images/gallery/wix-archive/008-129b3c_6c4307da023f42f2b365003f5e8dff40-mv2.webp",
     imageAlt: "Pass by Ira volunteer delivering a meal during outreach",
     primaryHref: "/event#outreach",
     primaryLabel: "View Outreach Programs",
@@ -192,7 +193,7 @@ export default function HomePage() {
           className="pbi-hero-bg"
           style={{
             // Replace with a local hero asset later if desired.
-            ["--hero-img" as string]: `url('https://static.wixstatic.com/media/nsplsh_6d5966795a314b624e686f~mv2_d_4110_2800_s_4_2.jpg/v1/fill/w_1470,h_1065,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/nsplsh_6d5966795a314b624e686f~mv2_d_4110_2800_s_4_2.jpg')`,
+            ["--hero-img" as string]: `url('/images/hero/home-hero.webp')`,
           }}
           aria-hidden="true"
         />
@@ -399,7 +400,7 @@ export default function HomePage() {
       {/* ── Why Support Section ──────────────────────────────── */}
       <section className="section-shell" aria-labelledby="support-heading">
         <div className="pbi-container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "center" }}>
+          <div className="responsive-split responsive-split--wide responsive-split--center" style={{ gap: "2rem" }}>
             <div>
               <div className="section-eyebrow">The Stakes</div>
               <h2 id="support-heading" className="section-title">
@@ -702,34 +703,24 @@ export default function HomePage() {
 
       {/* ── Newsletter & Connect ────────────────────────────── */}
       <section className="newsletter-section" id="connect" aria-labelledby="newsletter-heading">
-        <div className="pbi-container" style={{ maxWidth: "680px" }}>
-          <div className="section-eyebrow">Stay Connected</div>
-          <h2 id="newsletter-heading" className="section-title">Subscribe to Our Newsletter</h2>
-          <p className="section-lead" style={{ margin: "0 auto 2rem" }}>
-            Get the latest updates on programs, events, and ways to get involved —
-            delivered straight to your inbox.
-          </p>
-          <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap", justifyContent: "center", marginBottom: "2rem" }}>
-            <Link
-              href="/blog"
-              className="btn-pbi btn-blue"
-            >
-              View News &amp; Newsletter Posts
-            </Link>
+          <div className="pbi-container" style={{ maxWidth: "760px" }}>
+            <div className="section-eyebrow">Stay Connected</div>
+            <h2 id="newsletter-heading" className="section-title">Subscribe to Our Newsletter</h2>
+            <p className="section-lead" style={{ margin: "0 auto 2rem" }}>
+              Get the latest updates on programs, events, and ways to get involved —
+              delivered straight to your inbox.
+            </p>
+            <InquiryForm kind="newsletter" />
+            <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap", justifyContent: "center", marginTop: "1.5rem" }}>
+              <Link
+                href="/blog"
+                className="btn-pbi btn-blue"
+              >
+                View News &amp; Newsletter Posts
+              </Link>
+            </div>
           </div>
-          <div style={{ display: "flex", gap: "1.5rem", justifyContent: "center", flexWrap: "wrap", fontSize: "0.88rem", color: "var(--color-pbi-muted)" }}>
-            <a href="mailto:connect@passbyira.org" style={{ color: "var(--color-pbi-primary)", fontWeight: 600, textDecoration: "none" }}>
-              connect@passbyira.org
-            </a>
-            <a href="mailto:events@passbyira.org" style={{ color: "var(--color-pbi-primary)", fontWeight: 600, textDecoration: "none" }}>
-              events@passbyira.org
-            </a>
-            <a href="mailto:donate@passbyira.org" style={{ color: "var(--color-pbi-primary)", fontWeight: 600, textDecoration: "none" }}>
-              donate@passbyira.org
-            </a>
-          </div>
-        </div>
-      </section>
-    </>
+        </section>
+      </>
   );
 }

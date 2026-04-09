@@ -4,6 +4,7 @@ import "./globals.css";
 import MobileDock from "@/components/MobileDock";
 import SiteNav from "@/components/SiteNav";
 import Footer from "@/components/Footer";
+import { getAbsoluteUrl, OG_IMAGE_ALT, OG_IMAGE_PATH, SITE_NAME } from "@/lib/site";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -20,6 +21,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(getAbsoluteUrl("/")),
   title: "Pass by Ira | Eradicating Homelessness in the DFW Metroplex",
   description:
     "Pass by Ira is a 501(c)(3) nonprofit dedicated to eradicating homelessness in Dallas–Fort Worth through outreach programs, education, and advocacy. Donate, volunteer, or get involved today.",
@@ -31,19 +33,33 @@ export const metadata: Metadata = {
     "501c3 nonprofit",
     "#IRAdicateHomelessness",
   ],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Pass by Ira | Eradicating Homelessness in DFW",
     description:
       "Join us in #IRAdicatingHomelessness across the Dallas–Fort Worth Metroplex. Outreach. Education. Advocacy.",
-    siteName: "Pass by Ira",
+    url: "/",
+    siteName: SITE_NAME,
     type: "website",
+    images: [
+      {
+        url: OG_IMAGE_PATH,
+        width: 1470,
+        height: 744,
+        alt: OG_IMAGE_ALT,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Pass by Ira | Eradicating Homelessness in DFW",
     description:
       "Join us in #IRAdicatingHomelessness across the Dallas–Fort Worth Metroplex.",
+    images: [OG_IMAGE_PATH],
   },
+  category: "nonprofit",
 };
 
 export default function RootLayout({

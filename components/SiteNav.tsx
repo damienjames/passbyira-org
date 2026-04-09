@@ -156,7 +156,7 @@ export default function SiteNav() {
           <Link href="/" className="nav-brand" aria-label="Pass by Ira — Home">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/images/logo.jpg"
+              src="/images/logo.webp"
               alt=""
               className="nav-brand-logotype"
               width={58}
