@@ -8,7 +8,6 @@ import InquiryForm from "@/components/InquiryForm";
 import boardData from "@/data/board.json";
 import programsData from "@/data/programs.json";
 import {
-  additionalGalleryNote,
   galleryItems,
   partnershipWays,
   restFramework,
@@ -627,9 +626,6 @@ function renderGalleryPage() {
 
       <section className="section-shell">
         <div className="pbi-container">
-          <div className="feature-card" style={{ marginBottom: "1.5rem" }}>
-            <p>{additionalGalleryNote}</p>
-          </div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem", justifyContent: "center", marginBottom: "2rem" }}>
             {galleryItems.map((item) => (
               <a key={item.id} href={`#${item.id}`} className="btn-pbi btn-outline-blue" style={{ padding: "0.55rem 1.2rem", fontSize: "0.85rem" }}>

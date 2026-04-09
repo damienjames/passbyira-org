@@ -189,9 +189,6 @@ export const galleryItems: readonly GalleryItem[] = [
   },
 ] as const;
 
-export const additionalGalleryNote =
-  "The gallery labels now follow the live site's naming more closely: 2023 Thanksgiving Dinner, Coats & Cocoa, and 2024 Team Retreat. Under the hood, those still map back to Pass by Ira's SERVE and REST program structure.";
-
 export const restFramework = [
   {
     title: "Renew",
