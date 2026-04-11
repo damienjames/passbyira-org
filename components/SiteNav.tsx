@@ -157,7 +157,7 @@ export default function SiteNav() {
           <Link href="/" className="nav-brand" aria-label="Pass by Ira — Home">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/images/logo.webp"
+              src="/images/logo-nav.webp"
               alt=""
               className="nav-brand-logotype"
               width={58}
@@ -165,7 +165,7 @@ export default function SiteNav() {
               aria-hidden="true"
               onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
             />
-            <span className="nav-brand-name">Pass by Ira</span>
+            <span className="nav-brand-name">PASS BY IRA</span>
           </Link>
 
           {/* Desktop nav */}
@@ -238,7 +238,16 @@ export default function SiteNav() {
             onClick={() => setMobileOpen(false)}
             aria-label="Pass by Ira — Home"
           >
-            <span className="nav-brand-name" style={{ fontSize: '1.2rem' }}>Pass by Ira</span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/logo-nav.webp"
+              alt=""
+              className="nav-brand-logotype"
+              width={58}
+              height={42}
+              aria-hidden="true"
+            />
+            <span className="nav-brand-name nav-brand-name--mobile">PASS BY IRA</span>
           </Link>
           <button
             type="button"

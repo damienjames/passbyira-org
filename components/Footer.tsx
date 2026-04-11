@@ -9,7 +9,7 @@ export default function Footer() {
 
           {/* Brand column */}
           <div>
-            <h5>Pass by Ira</h5>
+            <h5>PASS BY IRA</h5>
             <p style={{ fontSize: '0.88rem', lineHeight: 1.65, maxWidth: '32ch' }}>
               A 501(c)(3) nonprofit dedicated to eradicating homelessness in the
               Dallas–Fort Worth Metroplex through outreach, education, and advocacy.
