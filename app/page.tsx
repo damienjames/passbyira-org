@@ -198,13 +198,13 @@ export default function HomePage() {
           aria-hidden="true"
         />
         <div className="pbi-hero-content">
-          <div className="hero-eyebrow">#IRAdicateHomelessness · DFW Metroplex</div>
+          <div className="hero-eyebrow">PASS BY IRA · DFW NONPROFIT</div>
           <h1>
-            Eradicating homelessness by increasing access to{" "}
+            PASS BY IRA is working to eradicate homelessness by increasing access to{" "}
             <em>basic human rights</em>.
           </h1>
           <p className="hero-lead">
-            Pass by Ira began with one bottle of water and one repeated act of care. Today, that same spirit guides our work to increase access to shelter, food, water, healthcare, education, and a livable income across DFW.
+            What began with one bottle of water and one repeated act of care now guides our work to increase access to shelter, food, water, healthcare, education, and a livable income across DFW.
           </p>
           <div className="hero-cta-group">
             <a
@@ -272,7 +272,7 @@ export default function HomePage() {
             <div className="section-eyebrow">Who We Are</div>
             <h2 id="mission-heading" className="section-title">Our Mission &amp; Vision</h2>
             <p className="section-lead" style={{ margin: "0 auto" }}>
-              What started as a personal act of care has grown into a community response rooted in dignity, consistency, and relationship.
+              Pass By Ira started as a personal act of care and has grown into a community response rooted in dignity, consistency, and relationship.
             </p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1.5rem" }}>
