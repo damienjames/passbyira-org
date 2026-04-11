@@ -1,8 +1,8 @@
 export const SITE_NAME = "Pass by Ira";
 export const FALLBACK_SITE_URL = "https://proud-mushroom-030eb6910.1.azurestaticapps.net";
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || FALLBACK_SITE_URL).replace(/\/$/, "");
-export const OG_IMAGE_PATH = "/images/hero/support-banner.webp";
-export const OG_IMAGE_ALT = "Pass by Ira volunteers and community members during outreach";
+export const OG_IMAGE_PATH = "/images/gallery/wix-archive/010-129b3c_18868cc8893741f785f3d80f54ea7aa4-mv2.webp";
+export const OG_IMAGE_ALT = "Dallas skyline with Pass by Ira outreach in the city";
 
 export const CONTACT_FORM_ENDPOINT = process.env.NEXT_PUBLIC_CONTACT_FORM_ENDPOINT || "";
 export const NEWSLETTER_FORM_ENDPOINT = process.env.NEXT_PUBLIC_NEWSLETTER_FORM_ENDPOINT || "";
