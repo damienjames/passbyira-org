@@ -1,41 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import InquiryForm from "@/components/InquiryForm";
+import BoardCard, { type BoardMember } from "@/components/BoardCard";
+import PillarCard, { type Pillar } from "@/components/PillarCard";
 import boardData from "@/data/board.json";
 import programsData from "@/data/programs.json";
 import { siteImages } from "@/data/site-content";
-
-// ─── Types ────────────────────────────────────────────────────
-interface BoardMember {
-  group: "board" | "advisor";
-  name: string;
-  title: string;
-  initials: string;
-  bio: string;
-  photo: string | null;
-  email?: string;
-  linkedinUrl?: string;
-}
-
-interface Program {
-  name: string;
-  description: string;
-  icon: string;
-  season?: string;
-  hashtag?: string;
-  volunteerUrl?: string;
-  advertiseUrl?: string;
-  donationNeeds?: string[];
-  comingSoon?: boolean;
-}
-
-interface Pillar {
-  id: string;
-  label: string;
-  title: string;
-  description: string;
-  programs: Program[];
-}
 
 const homepageEventSpotlights = [
   {
@@ -67,116 +37,6 @@ const homepageEventSpotlights = [
     secondaryExternal: true,
   },
 ] as const;
-
-// ─── Component: Board Card ─────────────────────────────────────
-function BoardCard({ member }: { member: BoardMember }) {
-  return (
-    <article className="board-card">
-      {member.photo ? (
-        <Image
-          src={member.photo}
-          alt={`${member.name}, ${member.title}`}
-          width={400}
-          height={400}
-          className="board-card__avatar"
-        />
-      ) : (
-        <div className="board-card__initials" aria-hidden="true">
-          {member.initials}
-        </div>
-      )}
-      <div className="board-card__body">
-        <h3 className="board-card__name">{member.name}</h3>
-        <p className="board-card__role">{member.title}</p>
-        <p className="board-card__bio">{member.bio}</p>
-        {member.linkedinUrl ? (
-          <div className="board-card__actions">
-            <a
-              href={member.linkedinUrl}
-              className="board-card__linkedin"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`View ${member.name} on LinkedIn`}
-              title="LinkedIn"
-            >
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19ZM8.03 9.03A1.23 1.23 0 1 0 8 6.57A1.23 1.23 0 0 0 8.03 9.03ZM9.1 10.97H6.94V17.5H9.1V10.97ZM17.5 13.44C17.5 11.24 16.33 10.74 15.27 10.74C14.41 10.74 13.83 11.21 13.59 11.66H13.56V10.97H11.49V17.5H13.65V14.27C13.65 13.42 13.81 12.59 14.86 12.59C15.89 12.59 15.9 13.55 15.9 14.33V17.5H18.06L17.5 13.44Z" fill="currentColor" />
-              </svg>
-            </a>
-          </div>
-        ) : null}
-      </div>
-    </article>
-  );
-}
-
-// ─── Component: Pillar Card ────────────────────────────────────
-function PillarCard({ pillar }: { pillar: Pillar }) {
-  return (
-    <article className="pillar-card">
-      <div className="pillar-card__header">
-        <span className="section-eyebrow">{pillar.label}</span>
-        <h3>{pillar.title}</h3>
-        <p style={{ color: "rgba(255,255,255,0.82)", fontSize: "0.9rem", marginTop: "0.5rem", lineHeight: 1.6 }}>
-          {pillar.description}
-        </p>
-      </div>
-      <div className="pillar-card__body">
-        {pillar.programs.map((program) => (
-          <div key={program.name} className="program-item">
-            <h4>
-              <span aria-hidden="true" style={{ marginRight: "0.4rem" }}>{program.icon}</span>
-              {program.name}
-              {program.comingSoon && (
-                <span style={{
-                  display: "inline-block",
-                  marginLeft: "0.5rem",
-                  fontSize: "0.7rem",
-                  fontFamily: "var(--font-body)",
-                  fontWeight: 700,
-                  letterSpacing: "0.05em",
-                  textTransform: "uppercase",
-                  color: "var(--color-pbi-accent-strong)",
-                  border: "1px solid rgba(201,162,39,0.4)",
-                  borderRadius: "999px",
-                  padding: "0.1rem 0.5rem",
-                }}>
-                  Coming Soon
-                </span>
-              )}
-            </h4>
-            <p>{program.description}</p>
-            {program.volunteerUrl && (
-              <a
-                href={program.volunteerUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  fontSize: "0.82rem",
-                  fontWeight: 700,
-                  color: "var(--color-pbi-primary)",
-                  textDecoration: "none",
-                  marginTop: "0.25rem",
-                }}
-              >
-                Sign up to volunteer →
-              </a>
-            )}
-            {program.hashtag && (
-              <span style={{
-                fontSize: "0.82rem",
-                fontWeight: 700,
-                  color: "var(--color-pbi-accent-strong)",
-              }}>
-                {program.hashtag}
-              </span>
-            )}
-          </div>
-        ))}
-      </div>
-    </article>
-  );
-}
 
 // ─── Page ──────────────────────────────────────────────────────
 export default function HomePage() {
@@ -415,8 +275,8 @@ export default function HomePage() {
             </p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1.5rem" }}>
-            {pillars.map((pillar) => (
-              <PillarCard key={pillar.id} pillar={pillar} />
+            {pillars.map((pillar, index) => (
+              <PillarCard key={pillar.id} pillar={pillar} defaultExpandedMobile={index === 0} />
             ))}
           </div>
           <div style={{ textAlign: "center", marginTop: "2.5rem" }}>
@@ -547,7 +407,7 @@ export default function HomePage() {
               Support the mission with your time, your resources, or your voice.
             </p>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))", gap: "1.25rem" }}>
+          <div className="involve-grid">
             {[
               {
                 icon: "💛",

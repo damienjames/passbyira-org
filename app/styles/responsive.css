@@ -1,0 +1,141 @@
+/* ─── Responsive ────────────────────────────────────────────── */
+@media (max-width: 1023px) {
+  .nav-links-list { display: none; }
+  .nav-cta { display: none; }
+  .hamburger-btn { display: inline-flex; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .board-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .board-grid--leadership { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 768px) {
+  .inquiry-form__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .field-group--full {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 900px) {
+  .page-hero-grid,
+  .responsive-split--wide {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  }
+
+  .responsive-split--balanced {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-event-card {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  }
+}
+
+@media (max-width: 767px) {
+  body { padding-bottom: calc(6.5rem + env(safe-area-inset-bottom, 0px)); }
+  .hero-stats { grid-template-columns: 1fr; }
+  .stats-banner-grid { grid-template-columns: repeat(2, 1fr); }
+  .board-grid { grid-template-columns: 1fr; }
+  .board-grid--leadership { grid-template-columns: 1fr; }
+  .board-card__summary {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+  .board-card__toggle,
+  .pillar-card__toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(46, 108, 176, 0.16);
+    border-radius: 999px;
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
+  }
+  .board-card__toggle {
+    flex-shrink: 0;
+    padding: 0.52rem 0.82rem;
+    background: rgba(46, 108, 176, 0.08);
+    color: var(--color-pbi-primary-dark);
+  }
+  .pillar-card__toggle {
+    width: 100%;
+    margin-top: 0.25rem;
+    padding: 0.8rem 1rem;
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+  }
+  .pillar-card__body {
+    padding: 0 1.35rem 1.35rem;
+  }
+  .involve-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-copy { flex-direction: column; text-align: center; }
+  .gallery-grid--featured { grid-template-columns: 1fr; }
+  .event-gallery-card { grid-template-columns: 1fr; }
+  .gallery-modal { padding: 0.75rem; }
+  .gallery-modal__panel { max-height: calc(100dvh - 1.5rem); padding: 1rem; }
+  .gallery-modal__stage { grid-template-columns: 1fr; }
+  .gallery-modal__nav { width: 2.75rem; height: 2.75rem; }
+  .gallery-modal__thumbs { grid-template-columns: repeat(auto-fit, minmax(72px, 1fr)); }
+  .feature-card,
+  .involve-card,
+  .form-shell {
+    padding: 1.35rem;
+  }
+  .hero-cta-group,
+  .event-gallery-card__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hero-cta-group .btn-pbi,
+  .home-events-footer .btn-pbi,
+  .event-gallery-card__actions .btn-pbi,
+  .cta-band .btn-pbi {
+    width: 100%;
+  }
+  .pbi-container { padding: 0 1rem; }
+  .section-shell { padding: 3.25rem 0; }
+  .mobile-dock {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1200;
+    display: block;
+    padding: 0.7rem 0.8rem calc(0.7rem + env(safe-area-inset-bottom, 0px));
+    background: linear-gradient(180deg, rgba(244, 247, 251, 0), rgba(244, 247, 251, 0.97) 35%);
+    transition: transform 220ms ease, opacity 220ms ease;
+  }
+  .mobile-dock.is-hidden {
+    transform: translateY(calc(100% + env(safe-area-inset-bottom, 0px)));
+    opacity: 0;
+  }
+}
+
+@media (max-width: 479px) {
+  .pbi-hero-content { padding: 6rem 1rem 4rem; }
+  .board-card__summary {
+    flex-direction: column;
+  }
+  .board-card__toggle {
+    align-self: flex-start;
+  }
+  .nav-brand-logotype { width: 50px; }
+  .nav-brand-name { font-size: 0.95rem; letter-spacing: 0.07em; }
+  .nav-brand-name--mobile { font-size: 1.45rem; }
+  .mobile-dock__inner { gap: 0.4rem; }
+  .mobile-dock__action { padding: 0.62rem 0.2rem 0.55rem; border-radius: 16px; }
+  .mobile-dock__label { font-size: 0.67rem; }
+}

@@ -1,0 +1,273 @@
+/* ─── Hero ──────────────────────────────────────────────────── */
+.pbi-hero {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.pbi-hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(160deg, rgba(29, 79, 134, 0.82) 0%, rgba(46, 108, 176, 0.5) 46%, rgba(201, 162, 39, 0.18) 100%),
+    var(--hero-img, #2E6CB0) center / cover no-repeat;
+  z-index: 0;
+}
+
+.pbi-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 25%, rgba(247, 222, 173, 0.16), transparent 26%),
+    radial-gradient(circle at 82% 18%, rgba(201, 162, 39, 0.14), transparent 24%),
+    radial-gradient(circle at 50% 100%, rgba(255, 255, 255, 0.1), transparent 34%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.pbi-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 960px;
+  padding: 8rem 1.5rem 6rem;
+}
+
+.hero-eyebrow {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 0.42rem 1rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff3d2;
+  background: rgba(29, 79, 134, 0.38);
+  border: 1px solid rgba(231, 204, 135, 0.65);
+  box-shadow: 0 8px 20px rgba(29, 79, 134, 0.18);
+  margin-bottom: 1.25rem;
+}
+
+.pbi-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 4.5vw + 0.8rem, 4.2rem);
+  line-height: 1.05;
+  font-weight: 700;
+  text-wrap: balance;
+  margin-bottom: 1.5rem;
+}
+
+.pbi-hero h1 em {
+  font-style: italic;
+  color: var(--color-pbi-accent-soft);
+}
+
+.pbi-hero .hero-lead {
+  font-size: clamp(1rem, 1.1vw + 0.75rem, 1.18rem);
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 640px;
+  margin: 0 auto 2.25rem;
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+.hero-cta-group {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-bottom: 3rem;
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+  max-width: 660px;
+  margin: 0 auto;
+}
+
+.hero-stat {
+  background: rgba(255, 248, 242, 0.12);
+  border: 1px solid rgba(255, 241, 227, 0.2);
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+  padding: 1rem;
+  text-align: left;
+}
+
+.hero-stat strong {
+  display: block;
+  font-size: 1rem;
+  color: var(--color-pbi-accent-soft);
+  margin-bottom: 0.15rem;
+}
+
+.hero-stat span {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.35;
+  display: block;
+}
+
+/* ─── Buttons ───────────────────────────────────────────────── */
+.btn-pbi {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1;
+  text-decoration: none;
+  transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease, border-color 140ms ease;
+  padding: 0.78rem 1.75rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  min-height: 3.15rem;
+}
+
+.btn-pbi:focus-visible {
+  outline: 3px solid var(--color-pbi-accent-soft);
+  outline-offset: 3px;
+}
+
+.btn-pbi[disabled] {
+  opacity: 0.72;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, var(--color-pbi-accent), #a67b22);
+  color: var(--color-pbi-primary-dark);
+  box-shadow: 0 6px 16px rgba(201, 162, 39, 0.35);
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(201, 162, 39, 0.48);
+}
+
+.btn-outline-white {
+  border-color: rgba(255, 255, 255, 0.7);
+  color: #fff;
+  background: transparent;
+}
+
+.btn-outline-white:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #fff;
+}
+
+.btn-blue {
+  background: linear-gradient(135deg, var(--color-pbi-primary-light), var(--color-pbi-primary-dark));
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(46, 108, 176, 0.22);
+}
+
+.btn-blue:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(46, 108, 176, 0.3);
+}
+
+.btn-outline-blue {
+  border-color: rgba(46, 108, 176, 0.34);
+  color: var(--color-pbi-primary);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.btn-outline-blue:hover {
+  background: rgba(46, 108, 176, 0.08);
+  border-color: var(--color-pbi-primary);
+}
+
+/* ─── Section scaffold ──────────────────────────────────────── */
+.section-shell {
+  padding: clamp(4rem, 8vw, 6rem) 0;
+}
+
+.section-alt {
+  background: linear-gradient(180deg, rgba(238, 245, 252, 0.82), rgba(252, 254, 255, 0.96));
+}
+
+.pbi-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.page-hero-grid,
+.responsive-split {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.page-hero-grid > *,
+.responsive-split > * {
+  min-width: 0;
+}
+
+.responsive-split--center {
+  align-items: center;
+}
+
+.section-eyebrow {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 0.38rem 0.85rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-pbi-primary-dark);
+  background: rgba(201, 162, 39, 0.16);
+  border: 1px solid rgba(122, 90, 67, 0.24);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  color: var(--color-pbi-primary-dark);
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.5vw + 0.75rem, 2.5rem);
+  margin-bottom: 0.65rem;
+}
+
+.section-lead {
+  color: var(--color-pbi-muted);
+  font-size: clamp(0.95rem, 0.8vw + 0.75rem, 1.08rem);
+  line-height: 1.65;
+  text-wrap: pretty;
+  max-width: 58ch;
+}
+
+/* ─── Feature cards (no image) ──────────────────────────────── */
+.feature-card {
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(244, 247, 251, 0.96));
+  border: 1px solid rgba(46, 108, 176, 0.1);
+  box-shadow: 0 16px 36px rgba(46, 108, 176, 0.08);
+  padding: 2rem;
+  height: 100%;
+  overflow: hidden;
+}
+
+.feature-card h3 {
+  color: var(--color-pbi-primary-dark);
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  margin: 0.5rem 0 0.75rem;
+}
+
+.feature-card p {
+  color: var(--color-pbi-muted);
+  line-height: 1.65;
+  margin: 0;
+}
