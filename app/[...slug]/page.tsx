@@ -3,8 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { type BoardMember } from "@/components/BoardCard";
 import EventGallery from "@/components/EventGallery";
 import InquiryForm from "@/components/InquiryForm";
+import LeadershipSections from "@/components/LeadershipSections";
 import boardData from "@/data/board.json";
 import programsData from "@/data/programs.json";
 import {
@@ -19,16 +21,6 @@ import {
   OG_IMAGE_PATH,
   SITE_NAME,
 } from "@/lib/site";
-
-interface BoardMember {
-  group: "board" | "advisor";
-  name: string;
-  title: string;
-  initials: string;
-  bio: string;
-  photo: string | null;
-  linkedinUrl?: string;
-}
 
 interface Program {
   name: string;
@@ -334,38 +326,6 @@ function PageHero({
   );
 }
 
-function TeamCard({ member }: { member: BoardMember }) {
-  return (
-    <article className="board-card">
-      {member.photo ? (
-        <Image
-          src={member.photo}
-          alt={`${member.name}, ${member.title}`}
-          width={400}
-          height={400}
-          className="board-card__avatar"
-        />
-      ) : (
-        <div className="board-card__initials" aria-hidden="true">{member.initials}</div>
-      )}
-      <div className="board-card__body">
-        <h3 className="board-card__name">{member.name}</h3>
-        <p className="board-card__role">{member.title}</p>
-        <p className="board-card__bio">{member.bio}</p>
-        {member.linkedinUrl ? (
-          <div className="board-card__actions">
-            <a href={member.linkedinUrl} className="board-card__linkedin" target="_blank" rel="noopener noreferrer" aria-label={`View ${member.name} on LinkedIn`}>
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19ZM8.03 9.03A1.23 1.23 0 1 0 8 6.57A1.23 1.23 0 0 0 8.03 9.03ZM9.1 10.97H6.94V17.5H9.1V10.97ZM17.5 13.44C17.5 11.24 16.33 10.74 15.27 10.74C14.41 10.74 13.83 11.21 13.59 11.66H13.56V10.97H11.49V17.5H13.65V14.27C13.65 13.42 13.81 12.59 14.86 12.59C15.89 12.59 15.9 13.55 15.9 14.33V17.5H18.06L17.5 13.44Z" fill="currentColor" />
-              </svg>
-            </a>
-          </div>
-        ) : null}
-      </div>
-    </article>
-  );
-}
-
 function renderAboutPage() {
   return (
     <>
@@ -476,30 +436,14 @@ function renderTeamPage(boardMembers: BoardMember[], boardAdvisors: BoardMember[
 
       <section className="section-shell">
         <div className="pbi-container">
-          <div className="board-sections">
-            <div className="board-subsection">
-              <div className="board-subsection__header">
-                <h2 className="board-subsection__title">Board Members</h2>
-                <p className="board-subsection__copy">Current officers, founders, and general members serving on the board.</p>
-              </div>
-              <div className="board-grid board-grid--leadership">
-                {boardMembers.map((member) => (
-                  <TeamCard key={member.name + member.title} member={member} />
-                ))}
-              </div>
-            </div>
-            <div className="board-subsection">
-              <div className="board-subsection__header">
-                <h2 className="board-subsection__title">Board Advisors</h2>
-                <p className="board-subsection__copy">Advisors who support strategy, partnership-building, and long-term organizational growth.</p>
-              </div>
-              <div className="board-grid board-grid--leadership">
-                {boardAdvisors.map((member) => (
-                  <TeamCard key={member.name + member.title} member={member} />
-                ))}
-              </div>
-            </div>
-          </div>
+          <LeadershipSections
+            boardMembers={boardMembers}
+            boardAdvisors={boardAdvisors}
+            membersTitle="Board Members"
+            membersCopy="Current officers, founders, and general members serving on the board."
+            advisorsTitle="Board Advisors"
+            advisorsCopy="Advisors who support strategy, partnership-building, and long-term organizational growth."
+          />
         </div>
       </section>
     </>

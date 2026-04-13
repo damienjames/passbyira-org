@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import InquiryForm from "@/components/InquiryForm";
-import BoardCard, { type BoardMember } from "@/components/BoardCard";
+import { type BoardMember } from "@/components/BoardCard";
+import LeadershipSections from "@/components/LeadershipSections";
 import PillarCard, { type Pillar } from "@/components/PillarCard";
 import boardData from "@/data/board.json";
 import programsData from "@/data/programs.json";
@@ -357,36 +358,14 @@ export default function HomePage() {
               Our board brings together nonprofit, corporate, and community leadership to help steward the mission with care and accountability.
             </p>
           </div>
-          <div className="board-sections">
-            <div className="board-subsection">
-              <div className="board-subsection__header">
-                <h3 className="board-subsection__title">Board Members</h3>
-                <p className="board-subsection__copy">
-                  Current officers, founders, and general members serving on the board.
-                </p>
-              </div>
-              <div className="board-grid board-grid--leadership">
-                {boardMembers.map((member) => (
-                  <BoardCard key={member.name + member.title} member={member} />
-                ))}
-              </div>
-            </div>
-            {boardAdvisors.length ? (
-              <div className="board-subsection">
-                <div className="board-subsection__header">
-                  <h3 className="board-subsection__title">Board Advisors</h3>
-                  <p className="board-subsection__copy">
-                    Advisors who help strengthen strategy, care, and long-term community partnerships.
-                  </p>
-                </div>
-                <div className="board-grid board-grid--leadership">
-                  {boardAdvisors.map((member) => (
-                    <BoardCard key={member.name + member.title} member={member} />
-                  ))}
-                </div>
-              </div>
-            ) : null}
-          </div>
+          <LeadershipSections
+            boardMembers={boardMembers}
+            boardAdvisors={boardAdvisors}
+            membersTitle="Board Members"
+            membersCopy="Current officers, founders, and general members serving on the board."
+            advisorsTitle="Board Advisors"
+            advisorsCopy="Advisors who help strengthen strategy, care, and long-term community partnerships."
+          />
           <p style={{ textAlign: "center", marginTop: "2rem", fontSize: "0.85rem", color: "var(--color-pbi-muted)" }}>
             Board member profiles are updated as new members join. Contact{" "}
             <a href="mailto:connect@passbyira.org" style={{ color: "var(--color-pbi-primary)", fontWeight: 600 }}>
