@@ -818,8 +818,8 @@ function renderDonatePage() {
                       minWidth: "4.4rem",
                       padding: "0.65rem 0.95rem",
                       borderRadius: "999px",
-                      background: "rgba(201, 162, 39, 0.12)",
-                      border: "1px solid rgba(122, 90, 67, 0.18)",
+                      background: "rgba(122, 98, 79, 0.12)",
+                      border: "1px solid rgba(91, 70, 56, 0.18)",
                       color: "var(--color-pbi-primary-dark)",
                       fontWeight: 800,
                     }}

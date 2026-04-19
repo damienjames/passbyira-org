@@ -2,9 +2,9 @@
 .pillar-card {
   border-radius: 22px;
   overflow: hidden;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(244, 247, 251, 0.96));
-  border: 1px solid rgba(46, 108, 176, 0.1);
-  box-shadow: 0 16px 36px rgba(46, 108, 176, 0.08);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(246, 241, 234, 0.96));
+  border: 1px solid rgba(91, 112, 124, 0.12);
+  box-shadow: 0 16px 36px rgba(57, 55, 52, 0.08);
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -13,7 +13,7 @@
 
 .pillar-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 22px 48px rgba(46, 108, 176, 0.14);
+  box-shadow: 0 22px 48px rgba(57, 55, 52, 0.14);
 }
 
 .pillar-card__header {
@@ -31,7 +31,7 @@
 .pillar-card__header .section-eyebrow {
   color: var(--color-pbi-accent-soft);
   background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(201, 162, 39, 0.45);
+  border-color: rgba(216, 201, 184, 0.45);
 }
 
 .pillar-card__header h3 {
@@ -54,7 +54,7 @@
   flex-direction: column;
   gap: 0.22rem;
   padding: 0.9rem 0;
-  border-bottom: 1px solid rgba(46, 108, 176, 0.1);
+  border-bottom: 1px solid rgba(91, 112, 124, 0.12);
 }
 
 .program-item:last-child {
@@ -134,16 +134,16 @@
 
 .board-card {
   border-radius: 22px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(244, 247, 251, 0.96));
-  border: 1px solid rgba(46, 108, 176, 0.1);
-  box-shadow: 0 16px 36px rgba(46, 108, 176, 0.08);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(246, 241, 234, 0.96));
+  border: 1px solid rgba(91, 112, 124, 0.12);
+  box-shadow: 0 16px 36px rgba(57, 55, 52, 0.08);
   overflow: hidden;
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
 .board-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 22px 48px rgba(46, 108, 176, 0.14);
+  box-shadow: 0 22px 48px rgba(57, 55, 52, 0.14);
 }
 
 .board-card__avatar {
@@ -157,7 +157,7 @@
   aspect-ratio: 1;
   display: grid;
   place-items: center;
-  background: linear-gradient(135deg, #dfeaf8, var(--color-pbi-surface));
+  background: linear-gradient(135deg, rgba(183, 201, 211, 0.9), var(--color-pbi-surface));
   font-family: var(--font-display);
   font-size: 2.5rem;
   font-weight: 700;
@@ -222,9 +222,9 @@
   height: 2.45rem;
   border-radius: 999px;
   border: 1px solid rgba(74, 96, 128, 0.18);
-  background: rgba(244, 247, 251, 0.92);
+  background: rgba(246, 241, 234, 0.94);
   color: rgba(74, 96, 128, 0.92);
-  box-shadow: 0 8px 18px rgba(15, 45, 84, 0.06);
+  box-shadow: 0 8px 18px rgba(57, 55, 52, 0.08);
   transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease, color 180ms ease;
 }
 
@@ -232,8 +232,8 @@
   transform: translateY(-1px);
   background: rgba(255, 255, 255, 0.98);
   color: var(--color-pbi-primary);
-  border-color: rgba(27, 75, 138, 0.28);
-  box-shadow: 0 12px 24px rgba(15, 45, 84, 0.1);
+  border-color: rgba(91, 112, 124, 0.32);
+  box-shadow: 0 12px 24px rgba(57, 55, 52, 0.12);
 }
 
 .board-card__linkedin svg {
@@ -297,7 +297,7 @@
   padding: 1.4rem;
   border-radius: 22px;
   background: rgba(255, 255, 255, 0.86);
-  border: 1px solid rgba(46, 108, 176, 0.12);
+  border: 1px solid rgba(91, 112, 124, 0.12);
 }
 
 .gallery-modal {
@@ -324,7 +324,7 @@
   overflow: auto;
   border-radius: 24px;
   background: rgba(255, 255, 255, 0.98);
-  box-shadow: 0 28px 60px rgba(29, 79, 134, 0.2);
+  box-shadow: 0 28px 60px rgba(57, 55, 52, 0.22);
   padding: 1.25rem;
 }
 
@@ -342,7 +342,7 @@
   justify-content: center;
   width: 2.75rem;
   height: 2.75rem;
-  border: 1px solid rgba(27, 75, 138, 0.14);
+  border: 1px solid rgba(91, 112, 124, 0.16);
   border-radius: 999px;
   background: #fff;
   color: var(--color-pbi-primary-dark);
@@ -456,7 +456,7 @@
   left: 0;
   right: 0;
   padding: 0.75rem 1rem;
-  background: linear-gradient(180deg, transparent, rgba(15, 45, 84, 0.88));
+  background: linear-gradient(180deg, transparent, rgba(34, 31, 29, 0.88));
   color: #fff;
   font-size: 0.84rem;
   font-weight: 600;

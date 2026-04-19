@@ -10,21 +10,21 @@
    Colors here generate bg-*, text-*, border-* utility classes.
 ───────────────────────────────────────────────────────────────── */
 @theme {
-  /* Brand blue */
-  --color-pbi-primary:      #2E6CB0;
-  --color-pbi-primary-dark: #1D4F86;
-  --color-pbi-primary-light:#6F9FD1;
+  /* Brand slate */
+  --color-pbi-primary:      #5B707C;
+  --color-pbi-primary-dark: #393734;
+  --color-pbi-primary-light:#B7C9D3;
 
-  /* Brand gold */
-  --color-pbi-accent:       #C9A227;
-  --color-pbi-accent-soft:  #E7CC87;
-  --color-pbi-accent-strong:#7D5D10;
+  /* Warm accent */
+  --color-pbi-accent:       #7A624F;
+  --color-pbi-accent-soft:  #D8C9B8;
+  --color-pbi-accent-strong:#5B4638;
 
   /* Text & surfaces */
-  --color-pbi-ink:          #19304C;
-  --color-pbi-muted:        #617892;
-  --color-pbi-surface:      #F8FBFF;
-  --color-pbi-surface-alt:  #EEF5FC;
+  --color-pbi-ink:          #221F1D;
+  --color-pbi-muted:        #5F5A55;
+  --color-pbi-surface:      #F6F1EA;
+  --color-pbi-surface-alt:  #E4DCD1;
   --color-pbi-white:        #FFFFFF;
 
   /* Typography scale */
@@ -42,7 +42,7 @@ html { scroll-behavior: smooth; }
 body {
   font-family: var(--font-body);
   color: var(--color-pbi-ink);
-  background: linear-gradient(180deg, #fbfdff 0%, #f1f7fd 100%);
+  background: linear-gradient(180deg, #fbf7f1 0%, #efe5d7 100%);
   min-height: 100dvh;
   line-height: 1.5;
 }
@@ -77,19 +77,19 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 2000;
   padding: 0.7rem 0.95rem;
   border-radius: 999px;
-  background: #fff8da;
+  background: #f8efe3;
   color: var(--color-pbi-primary-dark);
   font-weight: 700;
   text-decoration: none;
-  box-shadow: 0 10px 20px rgba(15, 45, 84, 0.15);
+  box-shadow: 0 10px 20px rgba(57, 55, 52, 0.14);
 }
 .skip-link:focus { top: 1rem; }
 
 /* ─── Announcement bar ──────────────────────────────────────── */
 .announcement-bar {
-  background: linear-gradient(90deg, #2a5f99, var(--color-pbi-primary-dark), var(--color-pbi-primary));
+  background: linear-gradient(90deg, var(--color-pbi-primary), var(--color-pbi-primary-dark), var(--color-pbi-accent-strong));
   color: #fff;
-  border-bottom: 1px solid rgba(201, 162, 39, 0.25);
+  border-bottom: 1px solid rgba(216, 201, 184, 0.38);
   font-size: 0.88rem;
   font-weight: 600;
   letter-spacing: 0.01em;

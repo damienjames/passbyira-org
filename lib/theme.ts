@@ -8,28 +8,28 @@
  */
 
 export const pbiColors = {
-  /** Brand blue — core anchor */
-  primary: '#1B4B8A',
-  /** Deep navy — headers, nav, footer */
-  primaryDark: '#0F2D54',
-  /** Medium blue for gradients and emphasis */
-  primaryLight: '#3F6797',
-  /** Gold accent — CTAs and highlights */
-  accent: '#C9A227',
-  /** Lighter gold — text on dark backgrounds, hover highlights */
-  accentSoft: '#E7CC87',
-  /** Darker gold for text and small UI labels on light surfaces */
-  accentStrong: '#7D5D10',
-  /** Muted gold alpha — pill backgrounds */
-  accentMuted: 'rgba(201,162,39,0.14)',
-  /** Near-black navy for body text */
-  ink: '#162235',
-  /** Cool slate for secondary text */
-  muted: '#5A6B80',
-  /** Cool off-white surface */
-  surface: '#F4F7FB',
-  /** Slightly deeper cool surface for alternating sections */
-  surfaceAlt: '#E8EEF6',
+  /** Dusty slate — core anchor */
+  primary: '#5B707C',
+  /** Deep charcoal — headings, nav, footer */
+  primaryDark: '#393734',
+  /** Soft blue-gray for gradients and emphasis */
+  primaryLight: '#B7C9D3',
+  /** Warm brown accent — CTAs and highlights */
+  accent: '#7A624F',
+  /** Light sand accent for overlays and soft highlights */
+  accentSoft: '#D8C9B8',
+  /** Darker brown for stronger emphasis */
+  accentStrong: '#5B4638',
+  /** Warm accent alpha — pill backgrounds */
+  accentMuted: 'rgba(122,98,79,0.14)',
+  /** Near-black brown for body text */
+  ink: '#221F1D',
+  /** Warm taupe for secondary text */
+  muted: '#5F5A55',
+  /** Warm off-white surface */
+  surface: '#F6F1EA',
+  /** Slightly deeper sand surface for alternating sections */
+  surfaceAlt: '#E4DCD1',
   white: '#FFFFFF',
 } as const;
 
@@ -41,10 +41,10 @@ export const pbiRadius = {
 } as const;
 
 export const pbiShadow = {
-  card: '0 16px 36px rgba(15, 45, 84, 0.08)',
-  cardHover: '0 22px 48px rgba(15, 45, 84, 0.14)',
-  nav: '0 10px 30px rgba(15, 45, 84, 0.22)',
-  cta: '0 6px 16px rgba(201, 162, 39, 0.35)',
+  card: '0 16px 36px rgba(57, 55, 52, 0.08)',
+  cardHover: '0 22px 48px rgba(57, 55, 52, 0.14)',
+  nav: '0 10px 30px rgba(57, 55, 52, 0.18)',
+  cta: '0 6px 16px rgba(122, 98, 79, 0.28)',
 } as const;
 
 export const pbiFonts = {
