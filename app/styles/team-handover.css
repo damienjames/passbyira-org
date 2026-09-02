@@ -1063,7 +1063,13 @@
   .pb-handover-inventory > div,
   .pb-handover-inventory > div:nth-child(n) {
     padding: 1rem 0;
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
     border-right: 0;
+  }
+
+  .pb-handover-inventory dd {
+    overflow-wrap: anywhere;
   }
 
   .pb-handover-choice article {

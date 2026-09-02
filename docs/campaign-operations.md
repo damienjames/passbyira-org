@@ -1,6 +1,6 @@
 # Campaign Operations
 
-Pass by Ira campaigns are now managed as structured TinaCMS content, published to a private Azure Blob container, and served through an Azure Function that evaluates each campaign window using server UTC.
+This operations guide explains how Pass by Ira campaigns move from structured TinaCMS content to a private Azure Blob container and then to the public site. The Azure Function evaluates every campaign window against its UTC clock.
 
 ## What editors can control
 
@@ -8,7 +8,7 @@ In TinaCMS, open **Campaigns** to create or update a campaign. Editors can manag
 
 - campaign copy, status, URL slug, and one or two calls to action;
 - public start and end instants plus an editorial time zone;
-- homepage and/or announcement placement and promotion priority;
+- homepage placement, announcement placement, or both, plus promotion priority;
 - hide, archive, or redirect behavior after expiration;
 - a hero image and ordered supporting images, each with alt text, caption, optional credit, and an approved focal point;
 - one of three brand-safe color themes, one of three hero treatments, and an approved CTA treatment; and
@@ -36,7 +36,7 @@ Production provisioning was completed September 1, 2026:
 - catalog blob: `published/campaigns.json`
 - Static Web App: `passbyira-org-swa`
 
-The connection string is configured in both the Static Web App and the GitHub Actions repository secret. The initial validated catalog has been published. The following instructions remain the rotation/recovery runbook.
+The connection string is configured in both the Static Web App and the GitHub Actions repository secret. The initial validated catalog has been published. Use the following instructions only when rebuilding or recovering this configuration.
 
 Create a private Blob container, then add these values to the Azure Static Web Apps production environment:
 

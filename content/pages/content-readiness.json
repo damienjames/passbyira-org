@@ -1,8 +1,8 @@
 {
   "review": {
-    "eyebrow": "Local content workspace",
-    "title": "Conversion and trust content readiness",
-    "description": "These drafts define the evidence, stories, and service information still needed before launch. Placeholder language is for internal review only and must not be published as fact.",
+    "eyebrow": "Content planning workspace",
+    "title": "Website content readiness",
+    "description": "This workspace identifies the evidence, stories, and service information needed before launch. Placeholder language is for internal review only and must not be published as fact.",
     "contentOwner": "Pass by Ira leadership and communications team",
     "lastReviewed": "September 1, 2026"
   },
@@ -14,7 +14,7 @@
       "status": "Needs verified data",
       "publishReady": false,
       "publicPlacement": "Homepage after the mission; expanded on an impact or transparency page",
-      "reason": "Donors need proof of what Pass by Ira accomplished, not only statistics describing homelessness across DFW.",
+      "reason": "Donors need evidence of what Pass by Ira accomplished, not only statistics describing homelessness across DFW.",
       "owner": "Executive director and program leads",
       "draftHeadline": "What your support made possible in [reporting year].",
       "draftBody": "[Add a 35–50 word summary connecting verified outputs to the organization’s mission. Distinguish Pass by Ira results from regional homelessness statistics.]",
@@ -59,17 +59,17 @@
     },
     {
       "id": "outcome-story",
-      "title": "Current human outcome story",
+      "title": "Current impact story",
       "priority": "Launch critical",
       "status": "Needs story and consent",
       "publishReady": false,
-      "publicPlacement": "Homepage near impact proof; full story in Events & Stories",
+      "publicPlacement": "Homepage near impact evidence; full story in Events & Stories",
       "reason": "Ira’s origin story explains why the organization began. A current story shows what the work means for people today.",
-      "owner": "Program lead, story subject, and communications lead",
+      "owner": "Program and communications leads, with story subject approval",
       "draftHeadline": "[First name or approved descriptor]: one moment of care, followed through.",
-      "draftBody": "[Write a 90–140 word dignity-first story with a clear beginning, the support provided, and a specific present-day outcome. Avoid savior language and unverified transformation claims.]",
+      "draftBody": "[Write a 90–140 word story grounded in dignity and individual agency. Include a clear beginning, the support provided, and a specific present-day outcome. Avoid savior language and unverified transformation claims.]",
       "requiredInputs": [
-        "Consented story subject or approved anonymous framing",
+        "Story subject with documented consent, or approved anonymous framing",
         "Concrete support Pass by Ira provided",
         "Specific and current outcome",
         "Approved documentary photograph and alt text"
@@ -77,7 +77,7 @@
       "verificationGate": [
         "Written consent covers story and image use",
         "Subject has reviewed sensitive details where appropriate",
-        "Language preserves dignity and agency",
+        "Language preserves the subject’s dignity and agency",
         "Outcome can be confirmed by the program team"
       ],
       "contentFields": [
@@ -147,12 +147,12 @@
     },
     {
       "id": "find-help",
-      "title": "Need help and referral pathway",
+      "title": "Help and referral pathway",
       "priority": "Launch critical",
       "status": "Needs scope decision",
       "publishReady": false,
       "publicPlacement": "Persistent utility link in the header or footer; dedicated resource page",
-      "reason": "People experiencing homelessness and concerned community members need an immediate, accurate path—even when Pass by Ira is not the direct provider.",
+      "reason": "People who need assistance—and the people supporting them—need a clear, timely path, even when Pass by Ira is not the direct service provider.",
       "owner": "Executive director and program lead",
       "draftHeadline": "Need help right now? Start with the right local resource.",
       "draftBody": "[State plainly what Pass by Ira can and cannot provide. Add verified DFW crisis, shelter, food, rental-assistance, and coordinated-entry resources with operating details.]",
@@ -183,7 +183,7 @@
         },
         {
           "label": "Emergency guidance",
-          "value": "[Approved urgent-care language]",
+          "value": "[Approved urgent-response language]",
           "guidance": "Separate emergencies from routine service navigation.",
           "verified": false
         }
@@ -235,7 +235,7 @@
     },
     {
       "id": "donation-case",
-      "title": "Donation case and sustaining support",
+      "title": "Case for support and sustaining gifts",
       "priority": "Launch critical",
       "status": "Needs program costing",
       "publishReady": false,
@@ -279,12 +279,12 @@
     },
     {
       "id": "partners",
-      "title": "Partners and community validation",
+      "title": "Community partnerships",
       "priority": "High value",
       "status": "Needs approvals",
       "publishReady": false,
       "publicPlacement": "Homepage trust band and partnership page",
-      "reason": "Approved partner recognition helps donors understand Pass by Ira’s role within the larger DFW homelessness response system.",
+      "reason": "Accurate partner recognition helps supporters understand Pass by Ira’s role within the larger DFW homelessness response system.",
       "owner": "Executive director and partnership lead",
       "draftHeadline": "Working alongside organizations committed to a stronger DFW.",
       "draftBody": "[Add a short statement describing how Pass by Ira collaborates with service providers, businesses, funders, and community groups. Do not imply formal partnerships without approval.]",
@@ -323,12 +323,12 @@
     },
     {
       "id": "current-needs",
-      "title": "Current-needs freshness",
+      "title": "Current needs and update cadence",
       "priority": "Launch critical",
       "status": "Needs operating cadence",
       "publishReady": false,
       "publicPlacement": "Announcement bar and Get Involved page",
-      "reason": "A current-needs list converts quickly only when donors can trust that it is current and know exactly how to deliver items.",
+      "reason": "A current-needs list is useful only when supporters can trust that it is current and know exactly how to deliver items.",
       "owner": "Outreach lead and communications lead",
       "draftHeadline": "What is needed now—updated [date].",
       "draftBody": "[Add accepted conditions, quantities or priority items, delivery instructions, and a contact or wishlist link. Remove items promptly when the need changes.]",

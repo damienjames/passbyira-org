@@ -1,6 +1,6 @@
 # Azure Production Configuration
 
-Provisioned September 1, 2026 for the production Pass by Ira site. This file records resource names and operational behavior only; no credentials or connection strings are stored in the repository.
+This technical handover record documents the Azure environment provisioned for the Pass by Ira website on September 1, 2026. It contains resource names, current production behavior, and remaining onboarding decisions. It does not contain credentials or connection strings.
 
 ## Resource inventory
 
@@ -72,7 +72,7 @@ The Azure deployment token is refreshed from `passbyira-org-swa`. The workflow n
 
 Same-repository pull requests may create Azure preview environments, but they cannot publish the production campaign catalog. Fork pull requests cannot receive deployment secrets and are therefore validation-only outside this workflow. Concurrency controls cancel superseded runs for the same branch or pull request.
 
-`HANDOVER_ENABLED` is currently `true`, so `/handover`, `/team-handover`, `/team-brief`, and `/content-readiness` are included in the public static build for team review. Set the variable to `false` and redeploy when those review materials should be removed from public access.
+`HANDOVER_ENABLED` is currently `true`, so `/handover`, `/team-handover`, `/team-brief`, and `/content-readiness` are included in the public static build for team review. These routes use no-index metadata, but that is not access control. Set the variable to `false` and redeploy when the review period ends.
 
 ## Secret rotation
 

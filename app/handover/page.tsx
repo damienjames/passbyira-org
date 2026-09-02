@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Website Handover | Pass by Ira",
-  description: "Internal portal for the Pass by Ira website transition materials and editor.",
+  description: "Review portal for the Pass by Ira website transition resources and content editor.",
   robots: {
     index: false,
     follow: false,
@@ -71,7 +71,7 @@ export default function HandoverPage() {
           </div>
           <div className="pb-handover-hub__intro">
             <p className="pb-kicker">One link · four resources</p>
-            <h1>Everything they need to take it from here.</h1>
+            <h1>Everything your team needs to take it from here.</h1>
           </div>
         </div>
       </header>
@@ -88,9 +88,9 @@ export default function HandoverPage() {
               <TeamBriefIcon />
               <div>
                 <h3>Team brief</h3>
-                <p>The visual, audience, content, and launch decisions in an 11-slide presentation.</p>
+                <p>The website direction, audience needs, content priorities, and launch decisions in an 11-slide presentation.</p>
               </div>
-              <small>Presentation · use in the kickoff meeting</small>
+              <small>Presentation · use for review and alignment</small>
             </Link>
 
             <Link className="pb-handover-card pb-handover-card--warm" href="/team-handover">
@@ -101,9 +101,9 @@ export default function HandoverPage() {
               <TechnicalHandoverIcon />
               <div>
                 <h3>Technical handover</h3>
-                <p>The GitHub, Azure, CMS, deployment, domain, rollback, and acceptance runbook.</p>
+                <p>The operational runbook for GitHub, Azure, the CMS, deployment, domain transfer, rollback, and acceptance.</p>
               </div>
-              <small>Runbook · update as Azure resources are created</small>
+              <small>Runbook · complete during ownership transfer</small>
             </Link>
 
             <Link className="pb-handover-card" href="/content-readiness">
@@ -114,9 +114,9 @@ export default function HandoverPage() {
               <ReadinessIcon />
               <div>
                 <h3>Content readiness</h3>
-                <p>The owners, missing inputs, approval gates, and publish status for launch content.</p>
+                <p>The owners, required inputs, approval gates, and publishing status for each launch content priority.</p>
               </div>
-              <small>Workspace · eight launch content blocks</small>
+              <small>Workspace · eight content priorities for review</small>
             </Link>
 
             <Link className="pb-handover-card pb-handover-card--paper" href="/admin/index.html">
@@ -127,7 +127,7 @@ export default function HandoverPage() {
               <CmsIcon />
               <div>
                 <h3>TinaCMS editor</h3>
-                <p>The editing interface for approved page copy, programs, people, events, and media.</p>
+                <p>The editing interface for approved page copy, programs, people, events, campaigns, and media.</p>
               </div>
               <small>Editor · production sign-in required</small>
             </Link>
@@ -153,8 +153,8 @@ export default function HandoverPage() {
       <footer className="pb-handover-hub__footer">
         <div className="pb-shell">
           <p>
-            Internal transition material. Enable with <code>HANDOVER_ENABLED=true</code> during the
-            production build. No-index metadata is not access control.
+            Transition material intended for team review. Production visibility is controlled by the
+            {" "}<code>HANDOVER_ENABLED</code> build setting. No-index metadata is not access control.
           </p>
           <Link href="/">Return to the public website <span aria-hidden="true">→</span></Link>
         </div>

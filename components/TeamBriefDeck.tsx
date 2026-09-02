@@ -15,7 +15,7 @@ const slides = [
   "Participation and care content",
   "CMS workflow",
   "Technical handover",
-  "Team decision",
+  "Team alignment",
 ] as const;
 
 function SlideNumber({ current }: { current: number }) {
@@ -87,10 +87,10 @@ export default function TeamBriefDeck() {
           <div className="pb-team-opening__grid">
             <div>
               <p className="pb-team-eyebrow">September 2026</p>
-              <h1>Preserve recognition. Improve conversion.</h1>
+              <h1>Preserve recognition. Make action easier.</h1>
               <p>
-                Why the current redesign is the right direction—and what evidence, stories, and
-                service details must be supplied before launch.
+                The case for the current redesign—and the evidence, stories, and service details
+                needed before launch.
               </p>
             </div>
             <div className="pb-team-opening__mark">
@@ -109,16 +109,16 @@ export default function TeamBriefDeck() {
             <div className="pb-team-ratio__number">80</div>
             <div className="pb-team-ratio__copy">
               <p>Stay the course</p>
-              <h2>The current visual system and information architecture are working.</h2>
+              <h2>The current visual system and information architecture provide a strong foundation.</h2>
             </div>
             <div className="pb-team-ratio__number pb-team-ratio__number--accent">20</div>
             <div className="pb-team-ratio__copy">
               <p>Strengthen the substance</p>
-              <h2>Add proof, specificity, transparency, and service navigation.</h2>
+              <h2>Add evidence, specificity, transparency, and service navigation.</h2>
             </div>
           </div>
           <p className="pb-team-ratio__bottom">
-            This is a content-and-credibility pivot—not another visual redesign.
+            The next phase should strengthen content and credibility, not restart the visual design.
           </p>
           <SlideNumber current={2} />
         </section>
@@ -128,7 +128,7 @@ export default function TeamBriefDeck() {
             <span>What changed</span>
             <span>Three versions, one lesson</span>
           </div>
-          <h2 className="pb-team-title">The new version keeps the right parts of both predecessors.</h2>
+          <h2 className="pb-team-title">The current version carries forward the strongest qualities of both predecessors.</h2>
           <div className="pb-team-comparison">
             <figure>
               <Image
@@ -136,11 +136,12 @@ export default function TeamBriefDeck() {
                 alt="Original Pass by Ira homepage"
                 width={1440}
                 height={900}
+                loading="eager"
               />
               <figcaption>
                 <span>Original</span>
-                <strong>Recognizable, but difficult to use.</strong>
-                <small>Authentic identity; weak hierarchy, proof, and mobile behavior.</small>
+                <strong>A recognizable foundation with usability limits.</strong>
+                <small>Authentic identity; clearer hierarchy, evidence, and mobile behavior were needed.</small>
               </figcaption>
             </figure>
             <figure>
@@ -149,24 +150,26 @@ export default function TeamBriefDeck() {
                 alt="First Azure redesign homepage"
                 width={1440}
                 height={900}
+                loading="eager"
               />
               <figcaption>
                 <span>Azure revamp</span>
-                <strong>More substance, too much density.</strong>
-                <small>Stronger program detail; institutional tone and competing actions.</small>
+                <strong>More program detail, with less visual focus.</strong>
+                <small>Stronger substance; dense presentation, formal tone, and competing actions.</small>
               </figcaption>
             </figure>
             <figure>
               <Image
                 src="/images/internal/team-brief/local-home.png"
-                alt="Current local Pass by Ira homepage redesign"
+                alt="Current Pass by Ira homepage redesign"
                 width={1440}
                 height={900}
+                loading="eager"
               />
               <figcaption>
-                <span>Current local build</span>
-                <strong>Clear, human, and donor-first.</strong>
-                <small>Best hierarchy and mobile experience; proof must now catch up.</small>
+                <span>Current redesign</span>
+                <strong>Clear, human, and supporter-focused.</strong>
+                <small>Strong hierarchy and mobile experience; verified evidence is the next priority.</small>
               </figcaption>
             </figure>
           </div>
@@ -176,14 +179,14 @@ export default function TeamBriefDeck() {
         <section className="pb-team-slide pb-team-slide--sand" data-active={activeSlide === 3}>
           <div className="pb-team-slide__topline">
             <span>Brand continuity</span>
-            <span>What we protected</span>
+            <span>What remains familiar</span>
           </div>
           <div className="pb-team-split">
             <div>
-              <h2 className="pb-team-title">The redesign is new without making existing materials look obsolete.</h2>
+              <h2 className="pb-team-title">The redesign feels current while remaining consistent with existing materials.</h2>
               <ul className="pb-team-large-list">
                 <li><span>01</span>The official logo remains a primary brand asset.</li>
-                <li><span>02</span>The warm ivory, taupe, charcoal, and skyline language remain recognizable.</li>
+                <li><span>02</span>The warm ivory, taupe, charcoal, and skyline visual language remains recognizable.</li>
                 <li><span>03</span>Ira’s story still anchors the organization’s purpose.</li>
                 <li><span>04</span>Dallas–Fort Worth remains visually and verbally explicit.</li>
               </ul>
@@ -191,9 +194,10 @@ export default function TeamBriefDeck() {
             <div className="pb-team-split__image">
               <Image
                 src="/images/internal/team-brief/local-home.png"
-                alt="Current local homepage showing the preserved Pass by Ira palette and logo"
+                alt="Current homepage showing the preserved Pass by Ira palette and logo"
                 width={1440}
                 height={900}
+                loading="eager"
               />
             </div>
           </div>
@@ -205,12 +209,12 @@ export default function TeamBriefDeck() {
             <span>Audience</span>
             <span>Who the site serves</span>
           </div>
-          <h2 className="pb-team-title">We now capture first-time donors; the trust gap remains.</h2>
+          <h2 className="pb-team-title">The redesign serves first-time donors well; other audience paths need more support.</h2>
           <div className="pb-team-audience">
             <div className="pb-team-audience__primary">
               <span>Primary</span>
               <h3>Individual donors</h3>
-              <p>Emotion, identity, urgency, and a visible Donate path are now strong.</p>
+              <p>The story, visual identity, sense of urgency, and donation path are clear.</p>
             </div>
             <div>
               <span>Secondary</span>
@@ -218,18 +222,18 @@ export default function TeamBriefDeck() {
               <p>The invitation is clear, but roles, schedules, and expectations are still abstract.</p>
             </div>
             <div>
-              <span>Underserved</span>
+              <span>Needs more support</span>
               <h3>Evidence-seeking supporters</h3>
               <p>Grantmakers, partners, and repeat donors need current impact and transparency.</p>
             </div>
             <div>
-              <span>Missing path</span>
+              <span>Path to add</span>
               <h3>People seeking help</h3>
               <p>Visitors need a direct statement of scope and accurate DFW referral resources.</p>
             </div>
           </div>
           <p className="pb-team-callout">
-            The audience strategy is correct. The unfinished work is reducing uncertainty for the next decision.
+            The audience strategy is sound. The remaining content should clarify each visitor&apos;s next step.
           </p>
           <SlideNumber current={5} />
         </section>
@@ -237,7 +241,7 @@ export default function TeamBriefDeck() {
         <section className="pb-team-slide pb-team-slide--dark" data-active={activeSlide === 5}>
           <div className="pb-team-slide__topline">
             <span>Research</span>
-            <span>Current nonprofit patterns</span>
+            <span>Patterns across effective nonprofit sites</span>
           </div>
           <div className="pb-team-evidence">
             <div className="pb-team-evidence__stat">
@@ -249,7 +253,7 @@ export default function TeamBriefDeck() {
               <span>of online nonprofit revenue came from monthly giving.</span>
             </div>
             <div className="pb-team-evidence__peer">
-              <h2>DFW peers answer practical questions before asking for commitment.</h2>
+              <h2>DFW peer organizations answer practical questions before asking for commitment.</h2>
               <ul>
                 <li>Current organizational impact—not only regional need</li>
                 <li>Specific volunteer roles, schedules, and group options</li>
@@ -269,7 +273,7 @@ export default function TeamBriefDeck() {
 
         <section className="pb-team-slide" data-active={activeSlide === 6}>
           <div className="pb-team-slide__topline">
-            <span>Missing content</span>
+            <span>Content priorities</span>
             <span>Giving and trust</span>
           </div>
           <h2 className="pb-team-title">Four content blocks turn interest into confidence.</h2>
@@ -282,11 +286,11 @@ export default function TeamBriefDeck() {
             <article>
               <span>02</span>
               <h3>Current outcome story</h3>
-              <p>A consented, dignity-first story showing what the work means today.</p>
+              <p>A current story, shared with informed consent, that reflects dignity and individual agency.</p>
             </article>
             <article>
               <span>03</span>
-              <h3>Donation case</h3>
+              <h3>Case for support</h3>
               <p>What unrestricted support enables, plus honest cost examples and monthly giving.</p>
             </article>
             <article>
@@ -304,7 +308,7 @@ export default function TeamBriefDeck() {
 
         <section className="pb-team-slide pb-team-slide--sand" data-active={activeSlide === 7}>
           <div className="pb-team-slide__topline">
-            <span>Missing content</span>
+            <span>Content priorities</span>
             <span>Participation and care</span>
           </div>
           <h2 className="pb-team-title">Four more blocks make action easier and expectations clearer.</h2>
@@ -316,7 +320,7 @@ export default function TeamBriefDeck() {
             </article>
             <article>
               <span>06</span>
-              <h3>Need-help pathway</h3>
+              <h3>Help and referral pathway</h3>
               <p>What Pass by Ira can provide, what it cannot, and where to seek immediate DFW help.</p>
             </article>
             <article>
@@ -341,24 +345,25 @@ export default function TeamBriefDeck() {
         <section className="pb-team-slide" data-active={activeSlide === 8}>
           <div className="pb-team-slide__topline">
             <span>CMS workflow</span>
-            <span>How missing content becomes publishable</span>
+            <span>How priority content becomes publishable</span>
           </div>
           <div className="pb-team-workflow">
             <div className="pb-team-workflow__image">
               <Image
                 src="/images/internal/team-brief/content-readiness.png"
-                alt="Local content readiness workspace"
+                alt="Content readiness workspace"
                 width={1440}
                 height={900}
+                loading="eager"
               />
             </div>
             <div>
               <h2 className="pb-team-title">The new workspace makes every gap actionable.</h2>
               <ol>
-                <li><span>01</span><strong>Populate</strong><small>Owner supplies the required inputs.</small></li>
+                <li><span>01</span><strong>Populate</strong><small>The content owner supplies the required inputs.</small></li>
                 <li><span>02</span><strong>Verify</strong><small>Numbers, links, consent, and scope are checked.</small></li>
                 <li><span>03</span><strong>Approve</strong><small>Leadership or the board clears public wording.</small></li>
-                <li><span>04</span><strong>Publish</strong><small>The control is enabled only after the gate is complete.</small></li>
+                <li><span>04</span><strong>Publish</strong><small>Publishing is enabled only after approval.</small></li>
               </ol>
               <Link href="/content-readiness" className="pb-team-inline-link">
                 Open the content readiness workspace →
@@ -371,16 +376,15 @@ export default function TeamBriefDeck() {
         <section className="pb-team-slide pb-team-slide--dark" data-active={activeSlide === 9}>
           <div className="pb-team-slide__topline">
             <span>Technical handover</span>
-            <span>Code package → operational ownership</span>
+            <span>Application → operational ownership</span>
           </div>
           <div className="pb-team-handover-slide">
             <div>
-              <p className="pb-team-eyebrow">Next project phase</p>
-              <h2>The code is ready. Azure provisioning comes next.</h2>
+              <p className="pb-team-eyebrow">Transition status</p>
+              <h2>The application and Azure are ready. Ownership transfer comes next.</h2>
               <p>
-                The migration and maintenance runbook is separate from this presentation so it can
-                track real resource names, owners, credentials, verification, and domain cutover as
-                the infrastructure is created.
+                The runbook records production resources, ownership decisions, acceptance tests,
+                and domain cutover as the transition is completed.
               </p>
               <Link href="/team-handover" className="pb-team-inline-link pb-team-inline-link--light">
                 Open the Azure handover runbook →
@@ -388,8 +392,8 @@ export default function TeamBriefDeck() {
             </div>
             <ol>
               <li><span>Prepared</span><strong>Application, content, CMS, Functions, and workflow</strong></li>
-              <li><span>Provision next</span><strong>Static Web App, storage, secrets, and first CMS owner</strong></li>
-              <li><span>Accept last</span><strong>Publishing, rollback, domain, billing, and access ownership</strong></li>
+              <li><span>Provisioned</span><strong>Static Web App, storage, secrets, and campaign publishing</strong></li>
+              <li><span>Complete next</span><strong>CMS onboarding, domain cutover, billing, and access ownership</strong></li>
             </ol>
           </div>
           <SlideNumber current={10} />
@@ -397,7 +401,7 @@ export default function TeamBriefDeck() {
 
         <section className="pb-team-slide pb-team-slide--closing" data-active={activeSlide === 10}>
           <div className="pb-team-slide__topline">
-            <span>Team decision</span>
+            <span>Team alignment</span>
             <span>What happens next</span>
           </div>
           <div className="pb-team-closing">
@@ -408,8 +412,8 @@ export default function TeamBriefDeck() {
             <div className="pb-team-closing__asks">
               <p><span>01</span>Confirm the current visual and information-architecture direction.</p>
               <p><span>02</span>Assign one accountable owner to each of the eight content blocks.</p>
-              <p><span>03</span>Supply verified metrics, documents, operating details, and consented stories.</p>
-              <p><span>04</span>Launch each block only after its verification gate is complete.</p>
+              <p><span>03</span>Supply verified metrics, documents, operating details, and stories with documented consent.</p>
+              <p><span>04</span>Publish each block only after its verification gate is complete.</p>
             </div>
           </div>
           <blockquote>Modernization earns attention. Evidence earns trust.</blockquote>

@@ -8,7 +8,7 @@ import siteSettings from "@/content/site/settings.json";
 
 export const metadata: Metadata = {
   title: "Content Readiness | Pass by Ira",
-  description: "Internal content collection workspace for the Pass by Ira website redesign.",
+  description: "Content planning and approval workspace for the Pass by Ira website redesign.",
   robots: {
     index: false,
     follow: false,
@@ -59,7 +59,7 @@ export default function ContentReadinessPage() {
             />
             <p>
               <strong>Internal review only</strong>
-              Unverified numbers, draft stories, and incomplete service details must remain unpublished.
+              Keep unverified numbers, draft stories, and incomplete service details unpublished.
             </p>
           </div>
         </div>
@@ -90,7 +90,7 @@ export default function ContentReadinessPage() {
         <div className="pb-shell">
           <div className="pb-readiness-heading">
             <p className="pb-kicker">Collection map</p>
-            <h2 id="readiness-index-heading">What the team needs to complete.</h2>
+            <h2 id="readiness-index-heading">What the team will complete.</h2>
             <p>
               Each block includes a reason, accountable owner, draft framing, required inputs, and a
               verification gate. Publish controls remain off until the content is approved.
@@ -189,12 +189,12 @@ export default function ContentReadinessPage() {
         <div className="pb-shell pb-readiness-close__grid">
           <div>
             <p className="pb-kicker">Launch rule</p>
-            <h2 id="readiness-close-heading">Nothing publishes merely because a field was filled.</h2>
+            <h2 id="readiness-close-heading">Publish content only after it is verified and approved.</h2>
           </div>
           <div>
             <p>
-              A content owner must confirm the source, verification gate, consent requirements, and
-              public wording before changing a block to publish-ready.
+              A content owner must confirm each source, complete the verification steps, meet all
+              consent requirements, and approve the public wording before marking a block publish-ready.
             </p>
             <a className="pb-button pb-button--light" href="mailto:connect@passbyira.org">
               Assign content owners <span aria-hidden="true">→</span>

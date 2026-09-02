@@ -5,7 +5,7 @@ import TeamBriefDeck from "@/components/TeamBriefDeck";
 
 export const metadata: Metadata = {
   title: "Website Redesign Team Brief | Pass by Ira",
-  description: "Internal team presentation on the Pass by Ira website redesign and content priorities.",
+  description: "Team presentation on the Pass by Ira website direction, audience needs, and content priorities.",
   robots: {
     index: false,
     follow: false,
