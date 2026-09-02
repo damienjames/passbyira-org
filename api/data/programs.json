@@ -1,0 +1,68 @@
+{
+  "pillars": [
+    {
+      "id": "outreach",
+      "label": "Outreach",
+      "title": "Meeting Needs in the Field",
+      "description": "Our outreach programs directly serve unsheltered individuals across the Dallas–Fort Worth Metroplex — putting resources in the hands of those who need them most.",
+      "programs": [
+        {
+          "name": "SERVE",
+          "season": "Spring",
+          "description": "Each Spring, we prepare and deliver warm meals to various homeless communities across the Dallas–Fort Worth Metroplex.",
+          "icon": "🍽️",
+          "volunteerUrl": "https://forms.gle/6R56X5v6z9dCuvWS9"
+        },
+        {
+          "name": "THIRST",
+          "season": "Summer",
+          "description": "During the summer, we distribute water and hydration supplies to various homeless communities throughout the DFW area.",
+          "icon": "💧",
+          "volunteerUrl": "https://forms.gle/6R56X5v6z9dCuvWS9"
+        },
+        {
+          "name": "Coats & Cocoa",
+          "season": "Winter",
+          "description": "Every winter, we distribute coats, blankets, socks, hats, scarves, and gloves along with hot beverages to unsheltered communities across DFW.",
+          "icon": "🧥",
+          "volunteerUrl": "https://forms.gle/6R56X5v6z9dCuvWS9",
+          "donationNeeds": ["Blankets", "Socks / Gloves / Scarves / Hats", "Travel-size toiletries", "Water", "Feminine products"]
+        }
+      ]
+    },
+    {
+      "id": "education",
+      "label": "Education",
+      "title": "Raising Awareness & Building Knowledge",
+      "description": "Education drives empathy and action. Our programs work to inform the public, reduce stigma, and build the leadership capacity needed to address systemic homelessness.",
+      "programs": [
+        {
+          "name": "IRAdicating Homelessness",
+          "description": "An ongoing social media campaign designed to increase public education about homelessness, promote policy advocacy for affordable housing, and decrease stigma surrounding unhoused individuals.",
+          "icon": "📣",
+          "hashtag": "#IRAdicateHomelessness"
+        },
+        {
+          "name": "REST Leadership Retreat",
+          "description": "An annual collaboration bringing together nonprofit and small business leaders from across DFW to develop knowledge, skills, and partnerships that advance collective missions and strengthen communities.",
+          "icon": "🤝",
+          "advertiseUrl": "https://docs.google.com/forms/d/e/1FAIpQLScvTciz2SDzOsRxr17EjSSc6viOmdta4mlOuXmUH5ush5RwnA/viewform?usp=sharing"
+        }
+      ]
+    },
+    {
+      "id": "advocacy",
+      "label": "Advocacy",
+      "title": "Driving Systemic Change",
+      "description": "We believe lasting change requires changing the systems that perpetuate homelessness. Our advocacy pillar is growing.",
+      "programs": [
+        {
+          "name": "Advocacy Programming",
+          "description": "This area of our work is expanding. Stay connected through our newsletter for updates on how you can raise your voice to help end homelessness in DFW.",
+          "icon": "📋",
+          "comingSoon": true
+        }
+      ]
+    }
+  ]
+}

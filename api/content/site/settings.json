@@ -1,0 +1,31 @@
+{
+  "organizationName": "Pass by Ira",
+  "logo": "/images/logo.webp",
+  "announcement": {
+    "label": "Current need",
+    "message": "We are accepting blankets, socks, gloves, toiletries, water, and feminine products.",
+    "linkLabel": "Arrange a donation",
+    "linkHref": "mailto:donate@passbyira.org"
+  },
+  "primaryNavigation": [
+    { "label": "Our Work", "href": "/event" },
+    { "label": "Who We Are", "href": "/about-3" },
+    { "label": "Events & Stories", "href": "/past-events" },
+    { "label": "Get Involved", "href": "/support-us" },
+    { "label": "Contact", "href": "/contact" }
+  ],
+  "donateUrl": "https://givebutter.com/Give4Ira",
+  "volunteerUrl": "https://forms.gle/6R56X5v6z9dCuvWS9",
+  "contact": {
+    "generalEmail": "connect@passbyira.org",
+    "eventsEmail": "events@passbyira.org",
+    "donationsEmail": "donate@passbyira.org",
+    "location": "Dallas–Fort Worth Metroplex, Texas",
+    "ein": "93-4207322"
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/passbyira",
+    "facebook": "https://www.facebook.com/profile.php?id=61557703994254",
+    "linkedin": "https://www.linkedin.com/company/pass-by-ira"
+  }
+}

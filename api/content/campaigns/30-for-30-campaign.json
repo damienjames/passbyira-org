@@ -1,0 +1,58 @@
+{
+  "status": "published",
+  "slug": "30-for-30-campaign",
+  "eyebrow": "Campaign archive",
+  "title": "30 for 30 Campaign",
+  "summary": "The 30 for 30 campaign invited supporters to strengthen Pass by Ira's outreach, advocacy, and community care through generosity and practical action.",
+  "body": [
+    "The 30 for 30 campaign was a call to support the mission with generosity, visibility, and practical action. Contributions helped strengthen outreach efforts and deepen community impact.",
+    "This campaign has concluded, but the need for dignified, relationship-centered support across Dallas–Fort Worth continues. Visit the support page to see current ways to help."
+  ],
+  "startsAt": "2024-01-01T00:00:00-06:00",
+  "endsAt": "2025-12-31T23:59:59-06:00",
+  "timezone": "America/Chicago",
+  "promotionPlacement": "none",
+  "promotionPriority": 0,
+  "postExpiration": {
+    "behavior": "archive",
+    "redirectUrl": ""
+  },
+  "visual": {
+    "theme": "warmth",
+    "heroTreatment": "split",
+    "ctaStyle": "solid"
+  },
+  "heroImage": {
+    "src": "/images/gallery/wix-archive/003-129b3c_c8014410ad354faa9cea95febd8a87fb-mv2.webp",
+    "alt": "Pass by Ira volunteers handing prepared meals to community members",
+    "caption": "Community outreach led with dignity and direct care.",
+    "credit": "Pass by Ira",
+    "focalPoint": "center"
+  },
+  "supportingImages": [
+    {
+      "order": 1,
+      "src": "/images/gallery/wix-archive/001-129b3c_5d17920a9f504fe8af22b93c06f15b05-mv2.webp",
+      "alt": "Pass by Ira volunteers gathering during a community outreach event",
+      "caption": "Volunteers make each outreach effort possible.",
+      "credit": "Pass by Ira",
+      "focalPoint": "center"
+    }
+  ],
+  "ctas": [
+    {
+      "label": "Donate to current work",
+      "href": "https://givebutter.com/Give4Ira",
+      "kind": "primary"
+    },
+    {
+      "label": "Contact the events team",
+      "href": "mailto:events@passbyira.org",
+      "kind": "secondary"
+    }
+  ],
+  "seo": {
+    "title": "30 for 30 Campaign Archive | Pass by Ira",
+    "description": "Read the archive of Pass by Ira's 30 for 30 campaign and find current ways to support dignified community outreach across Dallas–Fort Worth."
+  }
+}

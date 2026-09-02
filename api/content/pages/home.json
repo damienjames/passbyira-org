@@ -1,0 +1,45 @@
+{
+  "hero": {
+    "eyebrow": "A DFW nonprofit built on one repeated act of care",
+    "title": "Everyone deserves a place to call home.",
+    "lead": "Pass by Ira works to eradicate homelessness by increasing access to shelter, food, water, healthcare, education, and a livable income across Dallas–Fort Worth.",
+    "image": "/images/hero/home-hero.webp",
+    "imageAlt": "Aerial view of the Dallas skyline and surrounding neighborhoods"
+  },
+  "mission": {
+    "eyebrow": "The mission",
+    "title": "Meet urgent needs. Build lasting change.",
+    "body": "Homelessness is immediate and systemic. Our work brings direct care, public education, and advocacy together so neighbors are seen, supported, and connected to opportunity.",
+    "quote": "No one should be unseen, underserved, or without a place to call home."
+  },
+  "currentNeed": {
+    "eyebrow": "What is needed now",
+    "title": "Simple essentials can change a day.",
+    "body": "In-kind donations help our outreach teams respond quickly and with dignity. New, clean, travel-friendly items are easiest to distribute in the field.",
+    "items": ["Blankets", "Socks & gloves", "Travel-size toiletries", "Bottled water", "Feminine products"],
+    "image": "/images/hero/support-banner.webp",
+    "imageAlt": "Pass by Ira volunteers and community members gathered during outreach"
+  },
+  "programsIntro": {
+    "eyebrow": "How the work happens",
+    "title": "Three connected paths to impact.",
+    "body": "Seasonal outreach meets people where they are. Education shifts understanding. Advocacy helps change the conditions that keep people without stable housing."
+  },
+  "story": {
+    "eyebrow": "Why Pass by Ira",
+    "title": "One bottle of water became a daily promise.",
+    "body": "The organization began when founder Jene’a met Ira asking for water on the way to work. Water became snacks, then breakfast, then a consistent relationship—proof that meaningful change can begin with one ordinary act, repeated with intention.",
+    "image": "/images/gallery/wix-archive/008-129b3c_6c4307da023f42f2b365003f5e8dff40-mv2.webp",
+    "imageAlt": "Pass by Ira volunteer connecting with a community member during outreach"
+  },
+  "eventsIntro": {
+    "eyebrow": "From the field",
+    "title": "Recent work and signature gatherings.",
+    "body": "See how volunteers, partners, and neighbors turn care into visible action across DFW."
+  },
+  "finalCta": {
+    "eyebrow": "Start with one act",
+    "title": "Give time, give resources, or help carry the story forward.",
+    "body": "Every donation, volunteer hour, and shared message helps Pass by Ira meet immediate needs while building toward long-term change."
+  }
+}

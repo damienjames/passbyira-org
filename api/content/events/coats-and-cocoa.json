@@ -1,0 +1,11 @@
+{
+  "order": 1,
+  "featured": true,
+  "category": "Winter outreach",
+  "title": "Coats & Cocoa",
+  "summary": "Warm layers, hot drinks, meals, and direct care for unsheltered neighbors during the coldest part of the year.",
+  "image": "/images/hero/support-banner.webp",
+  "imageAlt": "Pass by Ira volunteers and community members at Coats and Cocoa",
+  "href": "/past-events#coats-cocoa",
+  "ctaLabel": "View the outreach"
+}

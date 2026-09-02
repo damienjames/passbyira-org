@@ -20,9 +20,6 @@
 /public/admin/assets/
 /public/admin/index.html
 /tina/__generated__/
-/api/tina/__generated__/
-/api/content/
-/api/data/
 
 # production
 /build

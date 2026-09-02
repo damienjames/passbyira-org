@@ -1,0 +1,275 @@
+fragment SiteSettingsParts on SiteSettings {
+  __typename
+  organizationName
+  logo
+  announcement {
+    __typename
+    label
+    message
+    linkLabel
+    linkHref
+  }
+  primaryNavigation {
+    __typename
+    label
+    href
+  }
+  donateUrl
+  volunteerUrl
+  contact {
+    __typename
+    generalEmail
+    eventsEmail
+    donationsEmail
+    location
+    ein
+  }
+  social {
+    __typename
+    instagram
+    facebook
+    linkedin
+  }
+}
+
+fragment HomepageParts on Homepage {
+  __typename
+  hero {
+    __typename
+    eyebrow
+    title
+    lead
+    image
+    imageAlt
+  }
+  mission {
+    __typename
+    eyebrow
+    title
+    body
+    quote
+  }
+  currentNeed {
+    __typename
+    eyebrow
+    title
+    body
+    items
+    image
+    imageAlt
+  }
+  programsIntro {
+    __typename
+    eyebrow
+    title
+    body
+  }
+  story {
+    __typename
+    eyebrow
+    title
+    body
+    image
+    imageAlt
+  }
+  eventsIntro {
+    __typename
+    eyebrow
+    title
+    body
+  }
+  finalCta {
+    __typename
+    eyebrow
+    title
+    body
+  }
+}
+
+fragment ContentReadinessParts on ContentReadiness {
+  __typename
+  review {
+    __typename
+    eyebrow
+    title
+    description
+    contentOwner
+    lastReviewed
+  }
+  sections {
+    __typename
+    id
+    title
+    priority
+    status
+    publishReady
+    publicPlacement
+    reason
+    owner
+    draftHeadline
+    draftBody
+    requiredInputs
+    verificationGate
+    contentFields {
+      __typename
+      label
+      value
+      guidance
+      verified
+    }
+  }
+}
+
+fragment CampaignParts on Campaign {
+  __typename
+  status
+  slug
+  eyebrow
+  title
+  summary
+  body
+  startsAt
+  endsAt
+  timezone
+  promotionPlacement
+  promotionPriority
+  postExpiration {
+    __typename
+    behavior
+    redirectUrl
+  }
+  visual {
+    __typename
+    theme
+    heroTreatment
+    ctaStyle
+  }
+  heroImage {
+    __typename
+    src
+    alt
+    caption
+    credit
+    focalPoint
+  }
+  supportingImages {
+    __typename
+    order
+    src
+    alt
+    caption
+    credit
+    focalPoint
+  }
+  ctas {
+    __typename
+    label
+    href
+    kind
+  }
+  seo {
+    __typename
+    title
+    description
+  }
+}
+
+fragment EventParts on Event {
+  __typename
+  order
+  featured
+  category
+  title
+  summary
+  image
+  imageAlt
+  href
+  ctaLabel
+}
+
+fragment GalleryParts on Gallery {
+  __typename
+  sourcePage
+  sourceCapturedAt
+  items {
+    __typename
+    id
+    title
+    subtitle
+    body
+    src
+    alt
+    images {
+      __typename
+      src
+      alt
+    }
+  }
+}
+
+fragment ProgramsParts on Programs {
+  __typename
+  pillars {
+    __typename
+    id
+    label
+    title
+    description
+    programs {
+      __typename
+      name
+      season
+      description
+      icon
+      volunteerUrl
+      advertiseUrl
+      hashtag
+      donationNeeds
+      comingSoon
+    }
+  }
+}
+
+fragment LeadershipParts on Leadership {
+  __typename
+  members {
+    __typename
+    group
+    name
+    title
+    initials
+    bio
+    photo
+    linkedinUrl
+  }
+}
+
+fragment NewsParts on News {
+  __typename
+  posts {
+    __typename
+    slug
+    title
+    date
+    summary
+    lead
+    imageSrc
+    imageAlt
+    bullets
+    body
+  }
+}
+
+fragment UserParts on User {
+  __typename
+  users {
+    __typename
+    username
+    name
+    email
+    password {
+      value
+      passwordChangeRequired
+    }
+  }
+}
