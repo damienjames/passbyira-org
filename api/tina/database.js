@@ -31,6 +31,16 @@ const hasRemoteConfig = Boolean(
 // of crashing the Azure Functions host before our error handler runs.
 let database;
 let readyPromise = null;
+
+function resolveGeneratedSchemaPath() {
+  const candidates = [
+    path.join(process.cwd(), "api", "tina", "__generated__", "_schema.json"),
+    path.join(process.cwd(), "tina", "__generated__", "_schema.json"),
+  ];
+
+  return candidates.find((candidate) => fs.existsSync(candidate)) || candidates[0];
+}
+
 try {
   if (isLocal || (!hasRemoteConfig && allowBuildLocalDb)) {
     database = createLocalDatabase();
@@ -78,7 +88,7 @@ async function ensureDatabaseReady() {
       return database;
     }
 
-    const schemaPath = path.join(process.cwd(), "api", "tina", "__generated__", "_schema.json");
+    const schemaPath = resolveGeneratedSchemaPath();
     if (!fs.existsSync(schemaPath)) {
       throw new Error(`Tina generated schema file not found at ${schemaPath}`);
     }
