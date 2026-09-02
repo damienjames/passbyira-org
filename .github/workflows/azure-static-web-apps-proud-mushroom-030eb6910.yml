@@ -21,6 +21,7 @@ concurrency:
 env:
   NODE_VERSION: "22"
   NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL || 'https://www.passbyira.org' }}
+  HANDOVER_ENABLED: ${{ vars.HANDOVER_ENABLED || 'false' }}
 
 jobs:
   build_and_deploy_job:
@@ -60,6 +61,12 @@ jobs:
           test -f api/tina/__generated__/_schema.json || { echo "Missing Tina API schema" >&2; exit 1; }
           test -f api/tina/__generated__/databaseClient.js || { echo "Missing Tina API database client" >&2; exit 1; }
           test -f api/content/users/index.json || { echo "Missing bundled Tina content" >&2; exit 1; }
+          if [ "$HANDOVER_ENABLED" = "true" ]; then
+            test -f out/handover.html || { echo "Missing public handover route" >&2; exit 1; }
+            test -f out/team-handover.html || { echo "Missing public team handover route" >&2; exit 1; }
+            test -f out/team-brief.html || { echo "Missing public team brief route" >&2; exit 1; }
+            test -f out/content-readiness.html || { echo "Missing public content readiness route" >&2; exit 1; }
+          fi
       - name: Verify deployment configuration
         env:
           SWA_DEPLOYMENT_TOKEN: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_PROUD_MUSHROOM_030EB6910 }}

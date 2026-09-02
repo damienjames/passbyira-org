@@ -47,6 +47,7 @@ Repository secrets:
 Repository variables:
 
 - `NEXT_PUBLIC_SITE_URL`
+- `HANDOVER_ENABLED`
 - `AZURE_SUBSCRIPTION_ID`
 - `AZURE_RESOURCE_GROUP`
 - `AZURE_STATIC_WEB_APP_NAME`
@@ -70,6 +71,8 @@ The Azure deployment token is refreshed from `passbyira-org-swa`. The workflow n
 5. publishes the validated campaign catalog only after a successful production deployment.
 
 Same-repository pull requests may create Azure preview environments, but they cannot publish the production campaign catalog. Fork pull requests cannot receive deployment secrets and are therefore validation-only outside this workflow. Concurrency controls cancel superseded runs for the same branch or pull request.
+
+`HANDOVER_ENABLED` is currently `true`, so `/handover`, `/team-handover`, `/team-brief`, and `/content-readiness` are included in the public static build for team review. Set the variable to `false` and redeploy when those review materials should be removed from public access.
 
 ## Secret rotation
 
