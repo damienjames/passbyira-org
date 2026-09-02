@@ -1,3 +1,5 @@
+import galleryData from "@/content/gallery/events.json";
+
 export interface GalleryImage {
   src: string;
   alt: string;
@@ -76,118 +78,7 @@ export const homepageFeaturedEvents = [
   },
 ] as const;
 
-export const galleryItems: readonly GalleryItem[] = [
-  {
-    id: "serve",
-    title: "2023 Thanksgiving Dinner",
-    subtitle: "SERVE annual holiday meal drive",
-    src: "/images/gallery/wix-archive/008-129b3c_6c4307da023f42f2b365003f5e8dff40-mv2.webp",
-    alt: "Pass by Ira volunteer connecting with a community member during outreach",
-    body: "A SERVE event built around warm meals, steady outreach, and direct community care during the 2023 holiday season.",
-    images: [
-      {
-        src: "/images/gallery/wix-archive/001-129b3c_5d17920a9f504fe8af22b93c06f15b05-mv2.webp",
-        alt: "Pass by Ira volunteers serving hot meals during SERVE outreach",
-      },
-      {
-        src: "/images/gallery/wix-archive/004-129b3c_428b7d7a55eb4afba4875e0bcd86df93-mv2.webp",
-        alt: "Pass by Ira volunteer holding a plated meal during SERVE outreach",
-      },
-      {
-        src: "/images/gallery/wix-archive/008-129b3c_6c4307da023f42f2b365003f5e8dff40-mv2.webp",
-        alt: "Pass by Ira volunteer connecting with a community member during SERVE outreach",
-      },
-      {
-        src: "/images/gallery/wix-archive/010-129b3c_18868cc8893741f785f3d80f54ea7aa4-mv2.webp",
-        alt: "Dallas skyline and outreach setting during a Pass by Ira SERVE event",
-      },
-      {
-        src: "/images/gallery/wix-archive/011-129b3c_9502441c8934426ea707f5de634bbce5-mv2.webp",
-        alt: "Pass by Ira volunteers preparing meals together for SERVE",
-      },
-    ],
-  },
-  {
-    id: "coats-cocoa",
-    title: "Coats & Cocoa",
-    subtitle: "Winter outreach, meals, and direct distribution",
-    src: siteImages.coatsAndCocoa.src,
-    alt: siteImages.coatsAndCocoa.alt,
-    body: "These photos belong with Coats & Cocoa: volunteers preparing warm meals, packing food, and meeting neighbors directly with winter-season care and visible support.",
-    images: [
-      {
-        src: "/images/gallery/wix-archive/009-129b3c_a5172118cb874ef5a1bc0656ff35664e-mv2.webp",
-        alt: "Pass by Ira volunteers setting up meal service for Coats and Cocoa",
-      },
-      {
-        src: "/images/gallery/wix-archive/003-129b3c_c8014410ad354faa9cea95febd8a87fb-mv2.webp",
-        alt: "Pass by Ira volunteers preparing meals for Coats and Cocoa",
-      },
-      {
-        src: "/images/gallery/wix-archive/001-129b3c_5d17920a9f504fe8af22b93c06f15b05-mv2.webp",
-        alt: "Pass by Ira volunteers serving hot meals during Coats and Cocoa",
-      },
-      {
-        src: "/images/gallery/wix-archive/004-129b3c_428b7d7a55eb4afba4875e0bcd86df93-mv2.webp",
-        alt: "Pass by Ira volunteer holding a plated meal during Coats and Cocoa",
-      },
-      {
-        src: "/images/gallery/wix-archive/007-4db8fe_883fc845fe7e4c1bb457cc85c38a8901-mv2.webp",
-        alt: "Pass by Ira volunteers sharing a plated meal together during Coats and Cocoa",
-      },
-      {
-        src: "/images/gallery/wix-archive/008-129b3c_6c4307da023f42f2b365003f5e8dff40-mv2.webp",
-        alt: "Pass by Ira volunteer connecting with a community member during Coats and Cocoa outreach",
-      },
-      {
-        src: "/images/gallery/wix-archive/002-129b3c_1436c874fe7c45c58dfb5236d0aa3dae-mv2.webp",
-        alt: "Pass by Ira volunteers distributing meals during Coats and Cocoa in downtown Dallas",
-      },
-      {
-        src: "/images/hero/support-banner.webp",
-        alt: "Pass by Ira volunteers and community members at Coats and Cocoa",
-      },
-    ],
-  },
-  {
-    id: "rest",
-    title: "2024 Team Retreat",
-    subtitle: "REST leadership retreat",
-    src: "/images/gallery/wix-archive/021-4db8fe_ab01646ecc6d448d91676b695327ddbe-mv2.webp",
-    alt: "REST Retreat speaker leading a session with attendees",
-    body: "A retreat gallery showing REST's workshops, collaboration, and relationship-building moments from the 2024 team retreat.",
-    images: [
-      {
-        src: "/images/gallery/wix-archive/021-4db8fe_ab01646ecc6d448d91676b695327ddbe-mv2.webp",
-        alt: "REST Retreat speaker leading a session with attendees",
-      },
-      {
-        src: "/images/gallery/wix-archive/020-4db8fe_c292ada5e42246efba82b536122c0f20-mv2.webp",
-        alt: "REST Retreat collaboration session with attendees gathered in discussion",
-      },
-      {
-        src: "/images/gallery/wix-archive/014-4db8fe_300e78648b0146a19e796e1e3f990915-mv2.webp",
-        alt: "REST Retreat facilitator welcoming guests in the main event space",
-      },
-      {
-        src: "/images/gallery/wix-archive/025-4db8fe_26d40945f1fb4796822df4153fdb3310-mv2.webp",
-        alt: "REST Retreat participants listening during a group session",
-      },
-      {
-        src: "/images/gallery/wix-archive/016-4db8fe_6ead3b08e245489f9e8075403d3632f2-mv2.webp",
-        alt: "REST Retreat guests gathered beneath the event balloon installation",
-      },
-      {
-        src: "/images/gallery/wix-archive/026-4db8fe_cad34d6f0e2b47a39f72d22b114891dc-mv2.webp",
-        alt: "Pass by Ira leadership team gathered at the REST Retreat",
-      },
-      {
-        src: "/images/gallery/wix-archive/019-4db8fe_f7928a0b5ad144d08420f57f390600e4-mv2.webp",
-        alt: "REST Retreat guests posing beneath a balloon installation",
-      },
-    ],
-  },
-] as const;
+export const galleryItems = galleryData.items as readonly GalleryItem[];
 
 export const restFramework = [
   {

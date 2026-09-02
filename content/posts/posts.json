@@ -1,0 +1,58 @@
+{
+  "posts": [
+    {
+      "slug": "post/quarterly-newsletter-february-2025",
+      "title": "Quarterly Newsletter: February 2025",
+      "date": "Feb 16, 2025",
+      "summary": "Quarterly highlights, updates across the mission, and ways the community can stay engaged.",
+      "lead": "A snapshot of recent momentum across outreach, education, advocacy, and community engagement.",
+      "imageSrc": "/images/hero/volunteer-header.webp",
+      "imageAlt": "February 2025 newsletter header",
+      "bullets": [
+        "Mission updates and current momentum across outreach, education, and advocacy work.",
+        "A concise snapshot of recent activity for supporters following Pass by Ira's progress.",
+        "Clear next steps for staying connected through programs, events, and future updates."
+      ],
+      "body": [
+        "This quarterly update highlights the steady work required to address homelessness with consistency, compassion, and practical support. It reflects the organization's continued focus on showing up for neighbors across the DFW Metroplex through outreach, education, and advocacy.",
+        "For supporters, updates like this offer a concise way to follow the mission, celebrate progress, and stay connected to the programs and partnerships shaping the work ahead."
+      ]
+    },
+    {
+      "slug": "post/special-edition-newsletter-coats-cocoa-2024-the-recap",
+      "title": "Special Edition Newsletter: Coats & Cocoa 2024 THE RECAP",
+      "date": "Dec 14, 2024",
+      "summary": "A recap of Coats & Cocoa 2024 and the community support behind the winter outreach effort.",
+      "lead": "A recap of winter outreach centered on warmth, essential items, and community care.",
+      "imageSrc": "/images/hero/support-banner.webp",
+      "imageAlt": "Coats and Cocoa recap image",
+      "bullets": [
+        "A winter-outreach recap centered on coats, cocoa, and direct community care.",
+        "Recognition of the people and support that helped make the seasonal event possible.",
+        "A preserved campaign-style update that now connects naturally to the new gallery and support pages."
+      ],
+      "body": [
+        "Coats & Cocoa reflects Pass by Ira's cold-weather response work: meeting immediate needs with coats, blankets, gloves, hot drinks, and visible care for neighbors facing winter conditions.",
+        "This recap highlights the people, generosity, and hands-on support that make seasonal outreach possible and underscores how community action can meet urgent needs with dignity."
+      ]
+    },
+    {
+      "slug": "post/quarterly-newsletter-november-2024",
+      "title": "Quarterly Newsletter: November 2024",
+      "date": "Dec 7, 2024",
+      "summary": "A late-2024 mission update covering outreach momentum, seasonal needs, and community engagement.",
+      "lead": "A snapshot of Pass by Ira's work and priorities heading into the winter season.",
+      "imageSrc": "/images/gallery/wix-archive/026-4db8fe_cad34d6f0e2b47a39f72d22b114891dc-mv2.webp",
+      "imageAlt": "Pass by Ira team at a community gathering",
+      "bullets": [
+        "Seasonal outreach context and the importance of winter support.",
+        "A broader look at community engagement and ongoing organizational momentum.",
+        "An additional archived newsletter entry preserved from the live Wix blog."
+      ],
+      "body": [
+        "This archived newsletter reflects the rhythm of Pass by Ira's work near the close of 2024: consistent outreach, growing community visibility, and preparation for seasonal needs that become more urgent in colder months.",
+        "Keeping this archived newsletter available helps preserve the continuity of Pass by Ira's public story and gives supporters a fuller picture of the work over time."
+      ]
+    }
+  ]
+}

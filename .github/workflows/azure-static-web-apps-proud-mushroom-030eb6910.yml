@@ -8,17 +8,61 @@ on:
     types: [opened, synchronize, reopened, closed]
     branches:
       - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: azure-static-web-apps-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: "22"
+  NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL || 'https://www.passbyira.org' }}
 
 jobs:
   build_and_deploy_job:
-    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    if: >-
+      github.event_name == 'push' ||
+      (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main') ||
+      (github.event_name == 'pull_request' &&
+       github.event.action != 'closed' &&
+       github.event.pull_request.head.repo.full_name == github.repository)
     runs-on: ubuntu-latest
-    name: Build and Deploy Job
+    timeout-minutes: 30
+    name: Validate, Build, and Deploy
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: false
           lfs: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+      - name: Install website dependencies
+        run: npm ci
+      - name: Install API dependencies
+        run: npm ci --prefix api
+      - name: Lint
+        run: npm run lint
+      - name: Test campaign publishing rules
+        run: npm run test:campaigns
+      - name: Validate Azure Function sources
+        run: npm run validate:api
+      - name: Build site and CMS
+        run: npm run build:deploy
+      - name: Verify deployment configuration
+        env:
+          SWA_DEPLOYMENT_TOKEN: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_PROUD_MUSHROOM_030EB6910 }}
+          CAMPAIGN_CONNECTION: ${{ secrets.CAMPAIGN_STORAGE_CONNECTION_STRING }}
+        run: |
+          test -n "$SWA_DEPLOYMENT_TOKEN" || { echo "Missing Azure Static Web Apps deployment token" >&2; exit 1; }
+          if [ "$GITHUB_EVENT_NAME" != "pull_request" ]; then
+            test -n "$CAMPAIGN_CONNECTION" || { echo "Missing campaign storage connection string" >&2; exit 1; }
+          fi
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
@@ -28,14 +72,26 @@ jobs:
           action: "upload"
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-          app_location: "/" # App source code path
-          api_location: "" # Api source code path - optional
-          output_location: "out" # Built app content directory - optional
+          app_location: "out" # Prebuilt static site and Tina admin
+          api_location: "api" # Self-hosted TinaCMS API
+          skip_app_build: true
+          output_location: "" # Empty because the site is prebuilt
           ###### End of Repository/Build Configurations ######
+      - name: Publish validated campaigns
+        if: github.event_name != 'pull_request'
+        run: npm run campaigns:publish
+        env:
+          CAMPAIGN_STORAGE_CONNECTION_STRING: ${{ secrets.CAMPAIGN_STORAGE_CONNECTION_STRING }}
+          CAMPAIGN_STORAGE_CONTAINER: ${{ vars.CAMPAIGN_STORAGE_CONTAINER || 'passbyira-campaigns' }}
+          CAMPAIGN_STORAGE_BLOB: ${{ vars.CAMPAIGN_STORAGE_BLOB || 'published/campaigns.json' }}
 
   close_pull_request_job:
-    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    if: >-
+      github.event_name == 'pull_request' &&
+      github.event.action == 'closed' &&
+      github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     name: Close Pull Request Job
     steps:
       - name: Close Pull Request

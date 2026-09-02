@@ -1,512 +1,296 @@
 import Image from "next/image";
 import Link from "next/link";
-import InquiryForm from "@/components/InquiryForm";
-import { type BoardMember } from "@/components/BoardCard";
-import LeadershipSections from "@/components/LeadershipSections";
-import PillarCard, { type Pillar } from "@/components/PillarCard";
-import boardData from "@/data/board.json";
-import programsData from "@/data/programs.json";
-import { siteImages } from "@/data/site-content";
 
-const homepageEventSpotlights = [
+import CampaignPromotion from "@/components/CampaignPromotion";
+import homeContent from "@/content/pages/home.json";
+import siteSettings from "@/content/site/settings.json";
+import coatsAndCocoa from "@/content/events/coats-and-cocoa.json";
+import restRetreat from "@/content/events/rest-retreat.json";
+import thanksgivingDinner from "@/content/events/thanksgiving-dinner.json";
+import programsData from "@/data/programs.json";
+
+const featuredEvents = [coatsAndCocoa, thanksgivingDinner, restRetreat].sort(
+  (a, b) => a.order - b.order,
+);
+
+const actionLinks = [
   {
-    eyebrow: "Featured Event",
-    title: "2024 Team Retreat",
-    body:
-      "The 2024 Team Retreat reflects Pass by Ira's REST experience for nonprofit, small business, and community leaders building lasting impact across DFW.",
-    meta: ["Leadership retreat", "Community partnerships", "Sponsor and advertise"],
-    imageSrc: "/images/gallery/wix-archive/021-4db8fe_ab01646ecc6d448d91676b695327ddbe-mv2.webp",
-    imageAlt: "REST Retreat speaker leading a session with attendees",
-    primaryHref: "/rest",
-    primaryLabel: "Explore REST",
-    secondaryHref: "/sponsorship",
-    secondaryLabel: "Sponsor the Event",
-    secondaryExternal: false,
+    label: "Give",
+    description: "Fund direct outreach and long-term change.",
+    href: siteSettings.donateUrl,
+    external: true,
   },
   {
-    eyebrow: "Signature Outreach",
-    title: "2023 Thanksgiving Dinner",
-    body:
-      "The 2023 Thanksgiving Dinner gallery captures a SERVE tradition: preparing and sharing warm meals with neighbors across the Dallas–Fort Worth Metroplex.",
-    meta: ["Meal preparation", "Direct outreach", "Volunteer-driven"],
-    imageSrc: "/images/gallery/wix-archive/008-129b3c_6c4307da023f42f2b365003f5e8dff40-mv2.webp",
-    imageAlt: "Pass by Ira volunteer delivering a meal during outreach",
-    primaryHref: "/event#outreach",
-    primaryLabel: "View SERVE Programs",
-    secondaryHref: "https://forms.gle/6R56X5v6z9dCuvWS9",
-    secondaryLabel: "Volunteer for Thanksgiving",
-    secondaryExternal: true,
+    label: "Volunteer",
+    description: "Bring your time, care, or professional skills.",
+    href: siteSettings.volunteerUrl,
+    external: true,
+  },
+  {
+    label: "Partner",
+    description: "Sponsor, advertise, or contribute in kind.",
+    href: "/sponsorship",
+    external: false,
+  },
+  {
+    label: "Learn",
+    description: "Understand the mission and share it forward.",
+    href: "/about-3",
+    external: false,
   },
 ] as const;
 
-// ─── Page ──────────────────────────────────────────────────────
 export default function HomePage() {
-  const board = boardData as BoardMember[];
-  const boardMembers = board.filter((member) => member.group === "board");
-  const boardAdvisors = board.filter((member) => member.group === "advisor");
-  const { pillars } = programsData as { pillars: Pillar[] };
+  const { hero, mission, currentNeed, programsIntro, story, eventsIntro, finalCta } = homeContent;
+  const { pillars } = programsData;
 
   return (
-    <>
-      {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="pbi-hero" aria-label="Hero">
-        <div
-          className="pbi-hero-bg"
-          style={{
-            // Replace with a local hero asset later if desired.
-            ["--hero-img" as string]: `url('/images/hero/home-hero.webp')`,
-          }}
-          aria-hidden="true"
-        />
-        <div className="pbi-hero-content">
-          <div className="hero-eyebrow">PASS BY IRA · DFW NONPROFIT</div>
-          <h1>
-            PASS BY IRA is working to eradicate homelessness by increasing access to{" "}
-            <em>basic human rights</em>.
-          </h1>
-          <p className="hero-lead">
-            What began with one bottle of water and one repeated act of care now guides our work to increase access to shelter, food, water, healthcare, education, and a livable income across DFW.
-          </p>
-          <div className="hero-cta-group">
-            <a
-              href="https://givebutter.com/Give4Ira"
-              className="btn-pbi btn-gold"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Donate Now
-            </a>
-            <a
-              href="https://forms.gle/6R56X5v6z9dCuvWS9"
-              className="btn-pbi btn-outline-white"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Volunteer with Us
-            </a>
-          </div>
-          <div className="hero-stats" aria-label="Homelessness statistics">
-            <div className="hero-stat">
-              <strong>4,244+</strong>
-              <span>Unhoused individuals in Dallas &amp; Collin Counties (2023)</span>
-            </div>
-            <div className="hero-stat">
-              <strong>2,390+</strong>
-              <span>Experiencing homelessness in Fort Worth (Jan 2024)</span>
-            </div>
-            <div className="hero-stat">
-              <strong>28%</strong>
-              <span>Living completely unsheltered — in places not meant for human habitation</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Stats banner ─────────────────────────────────────── */}
-      <div className="stats-banner" aria-label="Organization facts">
-        <div className="pbi-container">
-          <div className="stats-banner-grid">
-            <div className="stats-banner-item">
-              <strong>501(c)(3)</strong>
-              <span>Registered nonprofit organization</span>
-            </div>
-            <div className="stats-banner-item">
-              <strong>3</strong>
-              <span>Program pillars: outreach, education, and advocacy</span>
-            </div>
-            <div className="stats-banner-item">
-              <strong>DFW</strong>
-              <span>Serving the Dallas–Fort Worth Metroplex</span>
-            </div>
-            <div className="stats-banner-item">
-              <strong>Year-Round</strong>
-              <span>Active programs every season of the year</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* ── Mission & Vision ─────────────────────────────────── */}
-      <section className="section-shell section-alt" id="mission" aria-labelledby="mission-heading">
-        <div className="pbi-container">
-          <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-            <div className="section-eyebrow">Who We Are</div>
-            <h2 id="mission-heading" className="section-title">Our Mission &amp; Vision</h2>
-            <p className="section-lead" style={{ margin: "0 auto" }}>
-              Pass By Ira started as a personal act of care and has grown into a community response rooted in dignity, consistency, and relationship.
-            </p>
-          </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1.5rem" }}>
-            <div className="feature-card">
-              <div className="section-eyebrow">Mission</div>
-              <h3>Why We Exist</h3>
-              <p>
-                Our mission is to eradicate homelessness by increasing access to basic
-                human rights — including safe shelter, healthy food, clean water, quality
-                education, healthcare, and a livable income.
-              </p>
-            </div>
-            <div className="feature-card">
-              <div className="section-eyebrow">Vision</div>
-              <h3>What We Work Toward</h3>
-              <p>
-                We envision a world where no one is unseen, underserved, or without a
-                place to call home — a future built on dignity, equity, and community.
-              </p>
-            </div>
-            <div className="feature-card">
-              <div className="section-eyebrow">Our Approach</div>
-              <h3>How We Do It</h3>
-              <p>
-                We work through three connected pillars: direct <strong>Outreach</strong>, community <strong>Education</strong>, and systemic <strong>Advocacy</strong>.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Events spotlight ─────────────────────────────────── */}
-      <section className="section-shell" id="events" aria-labelledby="events-heading">
-        <div className="pbi-container">
-          <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-            <div className="section-eyebrow">Events</div>
-            <h2 id="events-heading" className="section-title">Events That Bring the Mission to Life</h2>
-            <p className="section-lead" style={{ margin: "0 auto" }}>
-              From leadership development to direct outreach, these gatherings show how care becomes visible in community.
-            </p>
-          </div>
-
-          <div style={{ display: "grid", gap: "1.5rem", marginBottom: "2rem" }}>
-            {homepageEventSpotlights.map((event, index) => (
-              <article
-                key={event.title}
-                className="feature-card home-event-card"
-                style={{
-                  display: "grid",
-                  gap: "1.5rem",
-                  alignItems: "center",
-                }}
+    <div className="pb-home">
+      <section className="pb-home-hero" aria-labelledby="home-heading">
+        <div className="pb-shell pb-home-hero__grid">
+          <div className="pb-home-hero__copy">
+            <p className="pb-kicker">{hero.eyebrow}</p>
+            <h1 id="home-heading">{hero.title}</h1>
+            <p className="pb-home-hero__lead">{hero.lead}</p>
+            <div className="pb-button-row">
+              <a
+                className="pb-button pb-button--dark"
+                href={siteSettings.donateUrl}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <div style={{ order: index % 2 === 0 ? 0 : 1 }}>
-                  <div className="section-eyebrow">{event.eyebrow}</div>
-                  <h3 style={{ marginTop: 0, marginBottom: "0.75rem", fontSize: "clamp(1.6rem, 2vw, 2rem)" }}>{event.title}</h3>
-                  <p style={{ marginBottom: "1.1rem" }}>{event.body}</p>
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: "0.55rem", marginBottom: "1.25rem" }}>
-                    {event.meta.map((item) => (
-                      <span
-                        key={item}
-                        style={{
-                          display: "inline-flex",
-                          alignItems: "center",
-                          padding: "0.42rem 0.8rem",
-                          borderRadius: "999px",
-                          background: "rgba(122, 98, 79, 0.12)",
-                          border: "1px solid rgba(91, 70, 56, 0.18)",
-                          color: "var(--color-pbi-primary-dark)",
-                          fontSize: "0.8rem",
-                          fontWeight: 700,
-                          letterSpacing: "0.02em",
-                        }}
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: "0.85rem" }}>
-                    <Link href={event.primaryHref} className="btn-pbi btn-blue">
-                      {event.primaryLabel}
-                    </Link>
-                    {event.secondaryExternal ? (
-                      <a
-                        href={event.secondaryHref}
-                        className="btn-pbi btn-outline-blue"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {event.secondaryLabel}
-                      </a>
-                    ) : (
-                      <Link href={event.secondaryHref} className="btn-pbi btn-outline-blue">
-                        {event.secondaryLabel}
-                      </Link>
-                    )}
-                  </div>
-                </div>
-
-                <div
-                  className="gallery-item home-event-card__media"
-                  style={{
-                    order: index % 2 === 0 ? 1 : 0,
-                    aspectRatio: "16 / 11",
-                    minHeight: "320px",
-                    borderRadius: "24px",
-                  }}
-                >
-                  <Image
-                    src={event.imageSrc}
-                    alt={event.imageAlt}
-                    width={1215}
-                    height={890}
-                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                  />
-                </div>
-              </article>
-            ))}
+                Donate to the mission <span aria-hidden="true">↗</span>
+              </a>
+              <a
+                className="pb-button pb-button--line"
+                href={siteSettings.volunteerUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Volunteer <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+            <p className="pb-home-hero__note">
+              501(c)(3) nonprofit <span aria-hidden="true">·</span> Serving the Dallas–Fort Worth Metroplex
+            </p>
           </div>
 
-          <div className="home-events-footer">
-            <p className="section-lead" style={{ margin: 0 }}>
-              Explore the full archive of outreach moments, team gatherings, and community events.
-            </p>
-            <Link href="/past-events" className="btn-pbi btn-outline-blue">
-              View Full Event Gallery
+          <div className="pb-home-hero__visual">
+            <Image
+              src={hero.image}
+              alt={hero.imageAlt}
+              width={1470}
+              height={1065}
+              priority
+              sizes="(max-width: 900px) 100vw, 48vw"
+            />
+            <div className="pb-home-hero__logo-card" aria-label="Pass by Ira">
+              <Image
+                src={siteSettings.logo}
+                alt="Pass by Ira — skyline, home, fork, and spoon logo"
+                width={504}
+                height={364}
+                priority
+                sizes="(max-width: 600px) 190px, 260px"
+              />
+            </div>
+            <div className="pb-home-hero__caption">
+              <span>Dallas–Fort Worth</span>
+              <strong>Care that shows up.</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <nav className="pb-action-strip" aria-label="Ways to support Pass by Ira">
+        <div className="pb-shell pb-action-strip__grid">
+          {actionLinks.map((action, index) => {
+            const content = (
+              <>
+                <span className="pb-action-strip__number">0{index + 1}</span>
+                <span>
+                  <strong>{action.label}</strong>
+                  <small>{action.description}</small>
+                </span>
+                <span className="pb-action-strip__arrow" aria-hidden="true">↗</span>
+              </>
+            );
+
+            return action.external ? (
+              <a key={action.label} href={action.href} target="_blank" rel="noopener noreferrer">
+                {content}
+              </a>
+            ) : (
+              <Link key={action.label} href={action.href}>
+                {content}
+              </Link>
+            );
+          })}
+        </div>
+      </nav>
+
+      <CampaignPromotion />
+
+      <section className="pb-section pb-mission" aria-labelledby="mission-heading">
+        <div className="pb-shell pb-mission__grid">
+          <div>
+            <p className="pb-kicker">{mission.eyebrow}</p>
+            <h2 id="mission-heading">{mission.title}</h2>
+          </div>
+          <div className="pb-mission__statement">
+            <p>{mission.body}</p>
+            <blockquote>“{mission.quote}”</blockquote>
+            <Link className="pb-text-link" href="/about-3">
+              Read Ira&apos;s story <span aria-hidden="true">→</span>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* ── Programs ─────────────────────────────────────────── */}
-      <section className="section-shell section-alt" id="programs" aria-labelledby="programs-heading">
-        <div className="pbi-container">
-          <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-            <div className="section-eyebrow">What We Do</div>
-            <h2 id="programs-heading" className="section-title">Our Programs</h2>
-            <p className="section-lead" style={{ margin: "0 auto" }}>
-              Built around outreach, education, and advocacy, our programs turn values into practical support across the DFW Metroplex.
-            </p>
+      <section className="pb-section pb-current" aria-labelledby="current-heading">
+        <div className="pb-shell pb-current__grid">
+          <div className="pb-current__media">
+            <Image
+              src={currentNeed.image}
+              alt={currentNeed.imageAlt}
+              width={1470}
+              height={744}
+              sizes="(max-width: 900px) 100vw, 50vw"
+            />
+            <span>Direct outreach, DFW</span>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1.5rem" }}>
-            {pillars.map((pillar, index) => (
-              <PillarCard key={pillar.id} pillar={pillar} defaultExpandedMobile={index === 0} />
-            ))}
-          </div>
-          <div style={{ textAlign: "center", marginTop: "2.5rem" }}>
-            <a
-              href="https://forms.gle/6R56X5v6z9dCuvWS9"
-              className="btn-pbi btn-blue"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Sign Up to Volunteer at Our Next Event
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Why Support Section ──────────────────────────────── */}
-      <section className="section-shell" aria-labelledby="support-heading">
-        <div className="pbi-container">
-          <div className="responsive-split responsive-split--wide responsive-split--center" style={{ gap: "2rem" }}>
-            <div>
-              <div className="section-eyebrow">Why It Matters</div>
-              <h2 id="support-heading" className="section-title">
-                Why Your Support Matters
-              </h2>
-              <p className="section-lead" style={{ marginBottom: "1.5rem" }}>
-                Homelessness is both immediate and systemic. Support helps meet urgent needs while strengthening pathways toward stability, dignity, and belonging.
-              </p>
-              <ul style={{ listStyle: "none", padding: 0, margin: "0 0 2rem", display: "flex", flexDirection: "column", gap: "0.6rem" }}>
-                {[
-                  "Provide meals and access to basic necessities",
-                  "Connect people with community resources",
-                  "Build public understanding and reduce stigma",
-                  "Support advocacy for long-term change",
-                ].map((item) => (
-                  <li key={item} style={{ display: "flex", gap: "0.6rem", alignItems: "flex-start", fontSize: "0.95rem", color: "var(--color-pbi-muted)", lineHeight: 1.55 }}>
-                    <span style={{ color: "var(--color-pbi-accent-strong)", fontWeight: 700, flexShrink: 0 }}>✓</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.85rem" }}>
-                <a
-                  href="https://givebutter.com/Give4Ira"
-                  className="btn-pbi btn-gold"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Donate
-                </a>
-                <Link
-                  href="/support-us"
-                  className="btn-pbi btn-outline-blue"
-                >
-                  Learn More
-                </Link>
-              </div>
-            </div>
-            <div className="gallery-item home-support-card__media" style={{ borderRadius: "22px", aspectRatio: "3/4", minHeight: "420px" }}>
-              <Image
-                src={siteImages.homeSupport.src}
-                alt={siteImages.homeSupport.alt}
-                width={1130}
-                height={1505}
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Board ─────────────────────────────────────────────── */}
-      <section className="section-shell" id="board" aria-labelledby="board-heading">
-        <div className="pbi-container">
-          <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-            <div className="section-eyebrow">Leadership</div>
-            <h2 id="board-heading" className="section-title">The Board of Directors</h2>
-            <p className="section-lead" style={{ margin: "0 auto" }}>
-              Our board brings together nonprofit, corporate, and community leadership to help steward the mission with care and accountability.
-            </p>
-          </div>
-          <LeadershipSections
-            boardMembers={boardMembers}
-            boardAdvisors={boardAdvisors}
-            membersTitle="Board Members"
-            membersCopy="Current officers, founders, and general members serving on the board."
-            advisorsTitle="Board Advisors"
-            advisorsCopy="Advisors who help strengthen strategy, care, and long-term community partnerships."
-          />
-          <p style={{ textAlign: "center", marginTop: "2rem", fontSize: "0.85rem", color: "var(--color-pbi-muted)" }}>
-            Board member profiles are updated as new members join. Contact{" "}
-            <a href="mailto:connect@passbyira.org" style={{ color: "var(--color-pbi-primary)", fontWeight: 600 }}>
-              connect@passbyira.org
-            </a>{" "}
-            for inquiries.
-          </p>
-        </div>
-      </section>
-
-      {/* ── Get Involved ─────────────────────────────────────── */}
-      <section className="section-shell" id="get-involved" aria-labelledby="involve-heading">
-        <div className="pbi-container">
-          <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-            <div className="section-eyebrow">Take Action</div>
-            <h2 id="involve-heading" className="section-title">Ways to Get Involved</h2>
-            <p className="section-lead" style={{ margin: "0 auto" }}>
-              Support the mission with your time, your resources, or your voice.
-            </p>
-          </div>
-          <div className="involve-grid">
-            {[
-              {
-                icon: "💛",
-                title: "Donate",
-                body: "Support meals, outreach, and advocacy through one-time, monthly, or in-kind giving.",
-                href: "https://givebutter.com/Give4Ira",
-                cta: "Donate Now",
-                external: true,
-              },
-              {
-                icon: "🤲",
-                title: "Volunteer",
-                body: "Join an outreach effort, help behind the scenes, or bring a skill the team can use.",
-                href: "https://forms.gle/6R56X5v6z9dCuvWS9",
-                cta: "Sign Up",
-                external: true,
-              },
-              {
-                icon: "📢",
-                title: "Fundraise",
-                body: "Turn birthdays, holidays, and matching gifts into practical support for the mission.",
-                href: "/support-us#fundraise",
-                cta: "Learn How",
-                external: false,
-              },
-              {
-                icon: "🗣️",
-                title: "Advocate",
-                body: "Share the mission, host awareness moments, and help shift the public conversation.",
-                href: "/support-us#advocate",
-                cta: "Start Advocating",
-                external: false,
-              },
-              {
-                icon: "🏢",
-                title: "Sponsor / Advertise",
-                body: "Partner through sponsorships, advertising, in-kind support, or team engagement.",
-                href: "/sponsorship",
-                cta: "View Opportunities",
-                external: false,
-              },
-              {
-                icon: "🏛️",
-                title: "Planned Giving",
-                body: "Create a lasting legacy by including Pass by Ira in your long-term planning.",
-                href: "mailto:jordanlowe@passbyira.org",
-                cta: "Contact Jordan Lowe",
-                external: false,
-              },
-            ].map((card) => (
-              <div key={card.title} className="involve-card">
-                <div className="involve-card__icon" aria-hidden="true">{card.icon}</div>
-                <h3>{card.title}</h3>
-                <p>{card.body}</p>
-                <a
-                  href={card.href}
-                  className="btn-pbi btn-outline-blue"
-                  style={{ marginTop: "auto", alignSelf: "flex-start", padding: "0.55rem 1.25rem", fontSize: "0.88rem" }}
-                  {...(card.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                >
-                  {card.cta}
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Donate CTA band ──────────────────────────────────── */}
-      <section className="cta-band" aria-labelledby="cta-heading">
-        <div className="pbi-container">
-          <div className="section-eyebrow" style={{ color: "var(--color-pbi-accent-soft)", background: "rgba(255,255,255,0.1)", borderColor: "rgba(201,162,39,0.45)" }}>
-            Make an Impact Today
-          </div>
-          <h2 id="cta-heading">
-            No one should be unseen,<br />underserved, or without a home.
-          </h2>
-          <p>
-            Every gift, item, and volunteer hour helps move the mission forward.
-          </p>
-          <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "1rem" }}>
-            <a
-              href="https://givebutter.com/Give4Ira"
-              className="btn-pbi btn-gold"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Donate via GiveButter
-            </a>
-            <a
-              href="https://forms.gle/6R56X5v6z9dCuvWS9"
-              className="btn-pbi btn-outline-white"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Volunteer
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Newsletter & Connect ────────────────────────────── */}
-      <section className="newsletter-section" id="connect" aria-labelledby="newsletter-heading">
-          <div className="pbi-container" style={{ maxWidth: "760px" }}>
-            <div className="section-eyebrow">Stay Connected</div>
-            <h2 id="newsletter-heading" className="section-title">Subscribe to Our Newsletter</h2>
-            <p className="section-lead" style={{ margin: "0 auto 2rem" }}>
-              Get updates on programs, events, and ways to stay involved.
-            </p>
-            <InquiryForm kind="newsletter" />
-            <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap", justifyContent: "center", marginTop: "1.5rem" }}>
-              <Link
-                href="/blog"
-                className="btn-pbi btn-blue"
-              >
-                View News &amp; Newsletter Posts
+          <div className="pb-current__copy">
+            <p className="pb-kicker">{currentNeed.eyebrow}</p>
+            <h2 id="current-heading">{currentNeed.title}</h2>
+            <p>{currentNeed.body}</p>
+            <ul className="pb-need-list">
+              {currentNeed.items.map((item) => (
+                <li key={item}><span aria-hidden="true">+</span>{item}</li>
+              ))}
+            </ul>
+            <div className="pb-button-row">
+              <a className="pb-button pb-button--dark" href={`mailto:${siteSettings.contact.donationsEmail}`}>
+                Arrange a donation
+              </a>
+              <Link className="pb-button pb-button--line" href="/support-us">
+                All ways to help
               </Link>
             </div>
           </div>
-        </section>
-      </>
+        </div>
+      </section>
+
+      <section className="pb-section pb-programs" aria-labelledby="programs-heading">
+        <div className="pb-shell">
+          <div className="pb-section-heading">
+            <p className="pb-kicker">{programsIntro.eyebrow}</p>
+            <h2 id="programs-heading">{programsIntro.title}</h2>
+            <p>{programsIntro.body}</p>
+          </div>
+          <div className="pb-program-grid">
+            {pillars.map((pillar, index) => (
+              <article className="pb-program-card" key={pillar.id}>
+                <div className="pb-program-card__topline">
+                  <span>0{index + 1}</span>
+                  <span>{pillar.label}</span>
+                </div>
+                <h3>{pillar.title}</h3>
+                <p>{pillar.description}</p>
+                <ul>
+                  {pillar.programs.map((program) => (
+                    <li key={program.name}>{program.name}</li>
+                  ))}
+                </ul>
+                <Link href={`/event#${pillar.id}`}>
+                  Explore {pillar.label.toLowerCase()} <span aria-hidden="true">→</span>
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="pb-section pb-origin" aria-labelledby="origin-heading">
+        <div className="pb-shell pb-origin__grid">
+          <div className="pb-origin__copy">
+            <p className="pb-kicker">{story.eyebrow}</p>
+            <h2 id="origin-heading">{story.title}</h2>
+            <p>{story.body}</p>
+            <Link className="pb-text-link pb-text-link--light" href="/about-3">
+              Meet Pass by Ira <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+          <div className="pb-origin__media">
+            <Image
+              src={story.image}
+              alt={story.imageAlt}
+              width={1130}
+              height={1505}
+              sizes="(max-width: 900px) 100vw, 44vw"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="pb-section pb-events" aria-labelledby="events-heading">
+        <div className="pb-shell">
+          <div className="pb-section-heading pb-section-heading--split">
+            <div>
+              <p className="pb-kicker">{eventsIntro.eyebrow}</p>
+              <h2 id="events-heading">{eventsIntro.title}</h2>
+            </div>
+            <div>
+              <p>{eventsIntro.body}</p>
+              <Link className="pb-text-link" href="/past-events">
+                View every event <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </div>
+          <div className="pb-event-grid">
+            {featuredEvents.map((event, index) => (
+              <article className={`pb-event-card${index === 0 ? " pb-event-card--feature" : ""}`} key={event.title}>
+                <Link href={event.href} aria-label={`${event.ctaLabel}: ${event.title}`}>
+                  <div className="pb-event-card__media">
+                    <Image
+                      src={event.image}
+                      alt={event.imageAlt}
+                      width={1215}
+                      height={890}
+                      sizes={index === 0 ? "(max-width: 900px) 100vw, 50vw" : "(max-width: 900px) 100vw, 25vw"}
+                    />
+                  </div>
+                  <div className="pb-event-card__body">
+                    <span>{event.category}</span>
+                    <h3>{event.title}</h3>
+                    <p>{event.summary}</p>
+                    <strong>{event.ctaLabel} <span aria-hidden="true">→</span></strong>
+                  </div>
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="pb-final-cta" aria-labelledby="final-cta-heading">
+        <div className="pb-shell pb-final-cta__grid">
+          <div>
+            <p className="pb-kicker">{finalCta.eyebrow}</p>
+            <h2 id="final-cta-heading">{finalCta.title}</h2>
+          </div>
+          <div>
+            <p>{finalCta.body}</p>
+            <div className="pb-button-row">
+              <a className="pb-button pb-button--light" href={siteSettings.donateUrl} target="_blank" rel="noopener noreferrer">
+                Donate now <span aria-hidden="true">↗</span>
+              </a>
+              <a className="pb-button pb-button--line-light" href={siteSettings.volunteerUrl} target="_blank" rel="noopener noreferrer">
+                Volunteer <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

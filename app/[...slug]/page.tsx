@@ -4,9 +4,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { type BoardMember } from "@/components/BoardCard";
+import CampaignPageClient from "@/components/CampaignPageClient";
 import EventGallery from "@/components/EventGallery";
 import InquiryForm from "@/components/InquiryForm";
 import LeadershipSections from "@/components/LeadershipSections";
+import newsData from "@/content/posts/posts.json";
+import siteSettings from "@/content/site/settings.json";
 import boardData from "@/data/board.json";
 import programsData from "@/data/programs.json";
 import {
@@ -42,6 +45,8 @@ interface Pillar {
   programs: Program[];
 }
 
+const newsPosts = newsData.posts;
+
 const STATIC_ROUTES = [
   "about-3",
   "meet-the-team",
@@ -54,13 +59,11 @@ const STATIC_ROUTES = [
   "sponsorship",
   "contact",
   "blog",
-  "post/quarterly-newsletter-february-2025",
-  "post/special-edition-newsletter-coats-cocoa-2024-the-recap",
-  "post/quarterly-newsletter-november-2024",
+  ...newsPosts.map((post) => post.slug),
   "30-for-30-campaign",
-] as const;
+] as string[];
 
-const pageMeta: Record<(typeof STATIC_ROUTES)[number], { title: string; description: string }> = {
+const pageMeta: Record<string, { title: string; description: string }> = {
   "about-3": {
     title: "About | Pass by Ira",
     description: "Learn the story of Ira, our mission, our vision, and the values guiding Pass by Ira.",
@@ -70,7 +73,7 @@ const pageMeta: Record<(typeof STATIC_ROUTES)[number], { title: string; descript
     description: "Meet the board members and advisors guiding the work of Pass by Ira.",
   },
   event: {
-    title: "Programs | Pass by Ira",
+    title: "Our Work | Pass by Ira",
     description: "Explore Pass by Ira's outreach, education, and advocacy programs across the DFW Metroplex.",
   },
   rest: {
@@ -78,8 +81,8 @@ const pageMeta: Record<(typeof STATIC_ROUTES)[number], { title: string; descript
     description: "Learn about Pass by Ira's REST Leadership Retreat and its focus on renewal, collaboration, and community impact.",
   },
   "past-events": {
-    title: "Gallery | Pass by Ira",
-    description: "View highlights from 2023 Thanksgiving Dinner, Coats & Cocoa, and the 2024 Team Retreat.",
+    title: "Events & Stories | Pass by Ira",
+    description: "See outreach, event, and leadership stories from Pass by Ira across Dallas–Fort Worth.",
   },
   "support-us": {
     title: "Support Us | Pass by Ira",
@@ -98,7 +101,7 @@ const pageMeta: Record<(typeof STATIC_ROUTES)[number], { title: string; descript
     description: "Explore sponsorship, partnership, and advertising opportunities that support Pass by Ira's mission.",
   },
   contact: {
-    title: "Connect | Pass by Ira",
+    title: "Contact | Pass by Ira",
     description: "Get in touch with Pass by Ira and stay connected through social channels and newsletters.",
   },
   blog: {
@@ -118,67 +121,17 @@ const pageMeta: Record<(typeof STATIC_ROUTES)[number], { title: string; descript
     description: "Newsletter highlights from Pass by Ira for November 2024.",
   },
   "30-for-30-campaign": {
-    title: "30 for 30 Campaign | Pass by Ira",
-    description: "Support Pass by Ira's 30 for 30 campaign and help sustain community outreach.",
+    title: "30 for 30 Campaign Archive | Pass by Ira",
+    description: "Read the archive of Pass by Ira's 30 for 30 campaign and find current ways to support the mission.",
   },
 };
 
-const newsPosts = [
-  {
-    slug: "post/quarterly-newsletter-february-2025",
-    title: "Quarterly Newsletter: February 2025",
-    date: "Feb 16, 2025",
-    summary: "Quarterly highlights, updates across the mission, and ways the community can stay engaged.",
-    lead: "A snapshot of recent momentum across outreach, education, advocacy, and community engagement.",
-    imageSrc: "/images/hero/volunteer-header.webp",
-    imageAlt: "February 2025 newsletter header",
-    bullets: [
-      "Mission updates and current momentum across outreach, education, and advocacy work.",
-      "A concise snapshot of recent activity for supporters following Pass by Ira's progress.",
-      "Clear next steps for staying connected through programs, events, and future updates.",
-    ],
-    body: [
-      "This quarterly update highlights the steady work required to address homelessness with consistency, compassion, and practical support. It reflects the organization's continued focus on showing up for neighbors across the DFW Metroplex through outreach, education, and advocacy.",
-      "For supporters, updates like this offer a concise way to follow the mission, celebrate progress, and stay connected to the programs and partnerships shaping the work ahead.",
-    ],
-  },
-  {
-    slug: "post/special-edition-newsletter-coats-cocoa-2024-the-recap",
-    title: "Special Edition Newsletter: Coats & Cocoa 2024 THE RECAP",
-    date: "Dec 14, 2024",
-    summary: "A recap of Coats & Cocoa 2024 and the community support behind the winter outreach effort.",
-    lead: "A recap of winter outreach centered on warmth, essential items, and community care.",
-    imageSrc: "/images/hero/support-banner.webp",
-    imageAlt: "Coats and Cocoa recap image",
-    bullets: [
-      "A winter-outreach recap centered on coats, cocoa, and direct community care.",
-      "Recognition of the people and support that helped make the seasonal event possible.",
-      "A preserved campaign-style update that now connects naturally to the new gallery and support pages.",
-    ],
-    body: [
-      "Coats & Cocoa reflects Pass by Ira's cold-weather response work: meeting immediate needs with coats, blankets, gloves, hot drinks, and visible care for neighbors facing winter conditions.",
-      "This recap highlights the people, generosity, and hands-on support that make seasonal outreach possible and underscores how community action can meet urgent needs with dignity.",
-    ],
-  },
-  {
-    slug: "post/quarterly-newsletter-november-2024",
-    title: "Quarterly Newsletter: November 2024",
-    date: "Dec 7, 2024",
-    summary: "A late-2024 mission update covering outreach momentum, seasonal needs, and community engagement.",
-    lead: "A snapshot of Pass by Ira's work and priorities heading into the winter season.",
-    imageSrc: "/images/gallery/wix-archive/026-4db8fe_cad34d6f0e2b47a39f72d22b114891dc-mv2.webp",
-    imageAlt: "Pass by Ira team at a community gathering",
-    bullets: [
-      "Seasonal outreach context and the importance of winter support.",
-      "A broader look at community engagement and ongoing organizational momentum.",
-      "An additional archived newsletter entry preserved from the live Wix blog.",
-    ],
-    body: [
-      "This archived newsletter reflects the rhythm of Pass by Ira's work near the close of 2024: consistent outreach, growing community visibility, and preparation for seasonal needs that become more urgent in colder months.",
-      "Keeping this archived newsletter available helps preserve the continuity of Pass by Ira's public story and gives supporters a fuller picture of the work over time.",
-    ],
-  },
-] as const;
+for (const post of newsPosts) {
+  pageMeta[post.slug] = {
+    title: `${post.title} | Pass by Ira`,
+    description: post.summary,
+  };
+}
 
 function getRoutePreview(key: (typeof STATIC_ROUTES)[number]) {
   const newsPost = newsPosts.find((post) => post.slug === key);
@@ -203,7 +156,10 @@ function getRoutePreview(key: (typeof STATIC_ROUTES)[number]) {
     sponsorship: { image: siteImages.sponsorshipHero.src, imageAlt: siteImages.sponsorshipHero.alt },
     contact: { image: siteImages.contactHero.src, imageAlt: siteImages.contactHero.alt },
     blog: { image: "/images/hero/volunteer-header.webp", imageAlt: "Pass by Ira newsletter archive header" },
-    "30-for-30-campaign": { image: "/images/hero/volunteer-header.webp", imageAlt: "30 for 30 campaign header" },
+    "30-for-30-campaign": {
+      image: "/images/gallery/wix-archive/003-129b3c_c8014410ad354faa9cea95febd8a87fb-mv2.webp",
+      imageAlt: "Pass by Ira volunteers handing prepared meals to community members",
+    },
   };
 
   const preview = previewMap[key];
@@ -270,6 +226,7 @@ export async function generateMetadata({
   return {
     title: meta.title,
     description: meta.description,
+    robots: key === "30-for-30-campaign" ? { index: false, follow: true } : undefined,
     alternates: {
       canonical: pathname,
     },
@@ -560,11 +517,11 @@ function renderGalleryPage() {
   return (
     <>
       <PageHero
-        eyebrow="Gallery"
-        title="From the Field"
-        lead="A closer look at the events, outreach moments, and leadership gatherings that help tell the story of Pass by Ira."
-        imageSrc="/images/hero/support-banner.webp"
-        imageAlt="Gallery hero image"
+        eyebrow="Events & Stories"
+        title="Care, made visible."
+        lead="See the outreach moments, volunteer effort, community partnerships, and leadership gatherings that bring Pass by Ira's mission to life."
+        imageSrc={galleryItems[0].src}
+        imageAlt={galleryItems[0].alt}
       />
 
       <section className="section-shell">
@@ -1211,29 +1168,10 @@ function renderSponsorshipPage() {
 
 function renderCampaignPage() {
   return (
-    <>
-      <PageHero
-        eyebrow="Campaign"
-        title="30 for 30 Campaign"
-        lead="Support the 30 for 30 campaign and help sustain the outreach, advocacy, and community care at the heart of Pass by Ira's mission."
-        imageSrc="/images/hero/volunteer-header.webp"
-        imageAlt="30 for 30 campaign header"
-      />
-
-      <section className="section-shell">
-        <div className="pbi-container">
-          <div className="feature-card" style={{ textAlign: "center" }}>
-            <p>
-              The 30 for 30 campaign is a call to support the mission with generosity, visibility, and practical action. Every contribution helps strengthen outreach efforts and deepen community impact.
-            </p>
-            <div style={{ display: "flex", justifyContent: "center", gap: "0.85rem", flexWrap: "wrap", marginTop: "1rem" }}>
-              <a href="https://givebutter.com/Give4Ira" className="btn-pbi btn-gold" target="_blank" rel="noopener noreferrer">Donate</a>
-              <a href="mailto:events@passbyira.org" className="btn-pbi btn-outline-blue">Contact Events Team</a>
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
+    <CampaignPageClient
+      initialSlug="30-for-30-campaign"
+      ongoingSupportUrl={siteSettings.donateUrl}
+    />
   );
 }
 
@@ -1249,10 +1187,15 @@ export default async function ContentRoutePage({
     notFound();
   }
 
-  const board = boardData as BoardMember[];
+  const board = boardData.members as BoardMember[];
   const boardMembers = board.filter((member) => member.group === "board");
   const boardAdvisors = board.filter((member) => member.group === "advisor");
   const { pillars } = programsData as { pillars: Pillar[] };
+  const newsPost = newsPosts.find((post) => post.slug === key);
+
+  if (newsPost) {
+    return renderBlogPostPage(newsPost);
+  }
 
   switch (key) {
     case "about-3":
@@ -1277,12 +1220,6 @@ export default async function ContentRoutePage({
       return renderContactPage();
     case "blog":
       return renderBlogPage();
-    case "post/quarterly-newsletter-february-2025":
-      return renderBlogPostPage(newsPosts[0]);
-    case "post/special-edition-newsletter-coats-cocoa-2024-the-recap":
-      return renderBlogPostPage(newsPosts[1]);
-    case "post/quarterly-newsletter-november-2024":
-      return renderBlogPostPage(newsPosts[2]);
     case "30-for-30-campaign":
       return renderCampaignPage();
     default:

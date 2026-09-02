@@ -1,0 +1,369 @@
+{
+  "review": {
+    "eyebrow": "Local content workspace",
+    "title": "Conversion and trust content readiness",
+    "description": "These drafts define the evidence, stories, and service information still needed before launch. Placeholder language is for internal review only and must not be published as fact.",
+    "contentOwner": "Pass by Ira leadership and communications team",
+    "lastReviewed": "September 1, 2026"
+  },
+  "sections": [
+    {
+      "id": "impact",
+      "title": "Annual impact",
+      "priority": "Launch critical",
+      "status": "Needs verified data",
+      "publishReady": false,
+      "publicPlacement": "Homepage after the mission; expanded on an impact or transparency page",
+      "reason": "Donors need proof of what Pass by Ira accomplished, not only statistics describing homelessness across DFW.",
+      "owner": "Executive director and program leads",
+      "draftHeadline": "What your support made possible in [reporting year].",
+      "draftBody": "[Add a 35–50 word summary connecting verified outputs to the organization’s mission. Distinguish Pass by Ira results from regional homelessness statistics.]",
+      "requiredInputs": [
+        "Reporting period and program scope",
+        "Three to four verified output or outcome metrics",
+        "Internal source and approver for every number",
+        "Short explanation of what changed because of the work"
+      ],
+      "verificationGate": [
+        "Every figure reconciles to an internal record",
+        "Reporting period appears beside the metrics",
+        "Outputs are not presented as long-term outcomes",
+        "Leadership approves the final wording"
+      ],
+      "contentFields": [
+        {
+          "label": "Reporting period",
+          "value": "[Calendar year or fiscal year]",
+          "guidance": "Use one consistent period across all metrics.",
+          "verified": false
+        },
+        {
+          "label": "Metric 1",
+          "value": "[Verified number] [people, events, items, or hours]",
+          "guidance": "Name the exact source and avoid double-counting.",
+          "verified": false
+        },
+        {
+          "label": "Metric 2",
+          "value": "[Verified number] [people, events, items, or hours]",
+          "guidance": "Prefer an organizational result over a regional need statistic.",
+          "verified": false
+        },
+        {
+          "label": "Metric 3",
+          "value": "[Verified number] [people, events, items, or hours]",
+          "guidance": "Include only if it adds a distinct dimension of impact.",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "id": "outcome-story",
+      "title": "Current human outcome story",
+      "priority": "Launch critical",
+      "status": "Needs story and consent",
+      "publishReady": false,
+      "publicPlacement": "Homepage near impact proof; full story in Events & Stories",
+      "reason": "Ira’s origin story explains why the organization began. A current story shows what the work means for people today.",
+      "owner": "Program lead, story subject, and communications lead",
+      "draftHeadline": "[First name or approved descriptor]: one moment of care, followed through.",
+      "draftBody": "[Write a 90–140 word dignity-first story with a clear beginning, the support provided, and a specific present-day outcome. Avoid savior language and unverified transformation claims.]",
+      "requiredInputs": [
+        "Consented story subject or approved anonymous framing",
+        "Concrete support Pass by Ira provided",
+        "Specific and current outcome",
+        "Approved documentary photograph and alt text"
+      ],
+      "verificationGate": [
+        "Written consent covers story and image use",
+        "Subject has reviewed sensitive details where appropriate",
+        "Language preserves dignity and agency",
+        "Outcome can be confirmed by the program team"
+      ],
+      "contentFields": [
+        {
+          "label": "Story subject",
+          "value": "[Approved name or descriptor]",
+          "guidance": "Use only the level of identification covered by consent.",
+          "verified": false
+        },
+        {
+          "label": "Support provided",
+          "value": "[Specific action by Pass by Ira]",
+          "guidance": "Describe the organization’s role accurately and without exaggeration.",
+          "verified": false
+        },
+        {
+          "label": "Outcome",
+          "value": "[Specific current result]",
+          "guidance": "State what is known now; do not imply permanence without evidence.",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "id": "volunteer",
+      "title": "Volunteer opportunities",
+      "priority": "Launch critical",
+      "status": "Needs operating details",
+      "publishReady": false,
+      "publicPlacement": "Get Involved page with a concise homepage preview",
+      "reason": "A generic sign-up asks volunteers to commit before they understand the role, schedule, location, or expectations.",
+      "owner": "Volunteer coordinator and program leads",
+      "draftHeadline": "Choose a role that fits the way you want to show up.",
+      "draftBody": "[Add a short introduction explaining whether opportunities are recurring, seasonal, individual, group-based, or skills-based. Set a clear expectation for response time after sign-up.]",
+      "requiredInputs": [
+        "Three to five active volunteer roles",
+        "Typical schedule, location, and time commitment",
+        "Age, orientation, transportation, or background requirements",
+        "Group and corporate participation options"
+      ],
+      "verificationGate": [
+        "Every listed role is currently available",
+        "A staff owner is assigned to volunteer inquiries",
+        "Sign-up confirmation explains the next step",
+        "Seasonal opportunities include dates or an update cadence"
+      ],
+      "contentFields": [
+        {
+          "label": "Direct outreach role",
+          "value": "[Role name, schedule, location, commitment]",
+          "guidance": "State what the volunteer will actually do.",
+          "verified": false
+        },
+        {
+          "label": "Behind-the-scenes role",
+          "value": "[Role name, schedule, location, commitment]",
+          "guidance": "Include preparation, logistics, communications, or professional skills.",
+          "verified": false
+        },
+        {
+          "label": "Group opportunity",
+          "value": "[Group size, activity, lead time, contact]",
+          "guidance": "Make corporate and community-group participation concrete.",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "id": "find-help",
+      "title": "Need help and referral pathway",
+      "priority": "Launch critical",
+      "status": "Needs scope decision",
+      "publishReady": false,
+      "publicPlacement": "Persistent utility link in the header or footer; dedicated resource page",
+      "reason": "People experiencing homelessness and concerned community members need an immediate, accurate path—even when Pass by Ira is not the direct provider.",
+      "owner": "Executive director and program lead",
+      "draftHeadline": "Need help right now? Start with the right local resource.",
+      "draftBody": "[State plainly what Pass by Ira can and cannot provide. Add verified DFW crisis, shelter, food, rental-assistance, and coordinated-entry resources with operating details.]",
+      "requiredInputs": [
+        "Approved description of Pass by Ira’s direct-service scope",
+        "Primary referral partners and current contact information",
+        "Emergency and after-hours guidance",
+        "Resource review owner and update schedule"
+      ],
+      "verificationGate": [
+        "Every phone number and link has been tested",
+        "Hours and eligibility are current",
+        "The page does not promise services Pass by Ira cannot provide",
+        "Resources are reviewed at least quarterly"
+      ],
+      "contentFields": [
+        {
+          "label": "Pass by Ira service scope",
+          "value": "[What we provide / what we do not provide]",
+          "guidance": "Use direct language and avoid making visitors infer eligibility.",
+          "verified": false
+        },
+        {
+          "label": "Primary DFW referral",
+          "value": "[Organization, phone, URL, hours]",
+          "guidance": "Confirm the referral accepts the intended need and geography.",
+          "verified": false
+        },
+        {
+          "label": "Emergency guidance",
+          "value": "[Approved urgent-care language]",
+          "guidance": "Separate emergencies from routine service navigation.",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "id": "transparency",
+      "title": "Trust and transparency",
+      "priority": "Launch critical",
+      "status": "Needs documents",
+      "publishReady": false,
+      "publicPlacement": "Who We Are or a dedicated Transparency page; concise trust signal near donation calls",
+      "reason": "Evidence-oriented donors, grantmakers, and partners need governance and financial information before committing support.",
+      "owner": "Board chair, treasurer, and executive director",
+      "draftHeadline": "Accountability is part of how we serve.",
+      "draftBody": "[Add a 40–60 word transparency statement and links to approved governance, reporting, and donor-policy documents.]",
+      "requiredInputs": [
+        "Current board and leadership roster",
+        "Most recent Form 990 or filing status",
+        "Annual report or year-in-review",
+        "Privacy, donor, and conflict-of-interest policies approved for publication"
+      ],
+      "verificationGate": [
+        "Documents are current and board-approved",
+        "EIN and legal name are consistent everywhere",
+        "Sensitive internal information has been removed",
+        "A named owner maintains the page annually"
+      ],
+      "contentFields": [
+        {
+          "label": "Annual report",
+          "value": "[Year, document URL, approval date]",
+          "guidance": "A concise year-in-review is acceptable if a formal report is not yet available.",
+          "verified": false
+        },
+        {
+          "label": "Tax filing",
+          "value": "[Form type, year, document URL or filing explanation]",
+          "guidance": "State the organization’s current filing status accurately.",
+          "verified": false
+        },
+        {
+          "label": "Governance and policies",
+          "value": "[Board link, privacy policy, donor policy]",
+          "guidance": "Publish only documents approved for public access.",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "id": "donation-case",
+      "title": "Donation case and sustaining support",
+      "priority": "Launch critical",
+      "status": "Needs program costing",
+      "publishReady": false,
+      "publicPlacement": "Donation page and immediately before external checkout links",
+      "reason": "A donor should understand what unrestricted support enables before leaving the site for the donation form.",
+      "owner": "Executive director, treasurer, and development lead",
+      "draftHeadline": "Your gift helps care show up—and keep showing up.",
+      "draftBody": "[Explain in 50–75 words how unrestricted gifts support direct outreach, coordination, education, and organizational capacity. Add monthly giving language only if the checkout is configured accordingly.]",
+      "requiredInputs": [
+        "Approved description of unrestricted fund use",
+        "Verified cost examples or honest gift-level ranges",
+        "Monthly giving availability and stewardship process",
+        "Donation form payment and receipt settings"
+      ],
+      "verificationGate": [
+        "Gift examples reflect actual costs and do not overpromise",
+        "Restricted and unrestricted giving are distinguished",
+        "Monthly giving can be selected and managed in checkout",
+        "Tax receipt and donor contact information are correct"
+      ],
+      "contentFields": [
+        {
+          "label": "Core donation promise",
+          "value": "[Approved unrestricted-fund explanation]",
+          "guidance": "Connect the gift to the operating model, not an invented one-to-one outcome.",
+          "verified": false
+        },
+        {
+          "label": "Gift example",
+          "value": "$[amount] can help provide [verified example]",
+          "guidance": "Use a range or ‘helps provide’ language when costs vary.",
+          "verified": false
+        },
+        {
+          "label": "Monthly giving",
+          "value": "[Name and benefit of sustaining support]",
+          "guidance": "Confirm the donation platform supports the promise before publishing.",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "id": "partners",
+      "title": "Partners and community validation",
+      "priority": "High value",
+      "status": "Needs approvals",
+      "publishReady": false,
+      "publicPlacement": "Homepage trust band and partnership page",
+      "reason": "Approved partner recognition helps donors understand Pass by Ira’s role within the larger DFW homelessness response system.",
+      "owner": "Executive director and partnership lead",
+      "draftHeadline": "Working alongside organizations committed to a stronger DFW.",
+      "draftBody": "[Add a short statement describing how Pass by Ira collaborates with service providers, businesses, funders, and community groups. Do not imply formal partnerships without approval.]",
+      "requiredInputs": [
+        "Approved partner list and relationship type",
+        "Logo-use permission and current brand assets",
+        "One sentence explaining the value of each partnership category",
+        "Partner contact responsible for approval"
+      ],
+      "verificationGate": [
+        "Every named partner has approved public recognition",
+        "Logos follow partner brand requirements",
+        "Relationship language is accurate",
+        "Former or inactive partners are excluded"
+      ],
+      "contentFields": [
+        {
+          "label": "Service-system partners",
+          "value": "[Approved organizations and relationship]",
+          "guidance": "Clarify whether the relationship is referral, program, or coalition-based.",
+          "verified": false
+        },
+        {
+          "label": "Corporate and funding partners",
+          "value": "[Approved organizations and relationship]",
+          "guidance": "Confirm recognition requirements before publishing logos.",
+          "verified": false
+        },
+        {
+          "label": "Community partners",
+          "value": "[Approved groups and relationship]",
+          "guidance": "Keep the list current and meaningful rather than exhaustive.",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "id": "current-needs",
+      "title": "Current-needs freshness",
+      "priority": "Launch critical",
+      "status": "Needs operating cadence",
+      "publishReady": false,
+      "publicPlacement": "Announcement bar and Get Involved page",
+      "reason": "A current-needs list converts quickly only when donors can trust that it is current and know exactly how to deliver items.",
+      "owner": "Outreach lead and communications lead",
+      "draftHeadline": "What is needed now—updated [date].",
+      "draftBody": "[Add accepted conditions, quantities or priority items, delivery instructions, and a contact or wishlist link. Remove items promptly when the need changes.]",
+      "requiredInputs": [
+        "Prioritized item list and accepted condition",
+        "Drop-off or shipping instructions",
+        "Update date and content owner",
+        "Wishlist or alternate giving option if available"
+      ],
+      "verificationGate": [
+        "The visible updated date is accurate",
+        "Delivery instructions have been tested",
+        "Items not currently accepted are clearly excluded",
+        "A monthly review reminder is assigned"
+      ],
+      "contentFields": [
+        {
+          "label": "Last updated",
+          "value": "[Month day, year]",
+          "guidance": "Display this date publicly near the list.",
+          "verified": false
+        },
+        {
+          "label": "Priority items",
+          "value": "[Item, condition, size or quantity]",
+          "guidance": "Use specific, distribution-ready descriptions.",
+          "verified": false
+        },
+        {
+          "label": "Delivery method",
+          "value": "[Drop-off, appointment, shipping, or wishlist instructions]",
+          "guidance": "Tell donors what happens after they choose to help.",
+          "verified": false
+        }
+      ]
+    }
+  ]
+}

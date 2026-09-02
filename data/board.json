@@ -1,4 +1,5 @@
-[
+{
+  "members": [
   {
     "group": "board",
     "name": "Jene'a Haynes",
@@ -78,4 +79,5 @@
     "photo": "/images/board/michelle-pena.webp",
     "linkedinUrl": "https://www.linkedin.com/company/pass-by-ira"
   }
-]
+  ]
+}

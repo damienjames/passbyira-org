@@ -4,18 +4,35 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "cms": "cross-env TINA_PUBLIC_IS_LOCAL=true tinacms dev -c \"next dev\"",
+    "campaigns:dev": "node scripts/campaign-dev-server.mjs",
+    "campaigns:validate": "node scripts/publish-campaigns.mjs --validate-only",
+    "campaigns:publish": "node scripts/publish-campaigns.mjs --require-storage",
+    "validate:api": "node --check api/tina/index.js && node --check api/tina/database.js && node --check api/campaigns/index.js && node --check api/_lib/campaigns.js && node --check api/_lib/tinaSession.js",
     "build": "next build",
+    "build:cms": "cross-env TINA_PUBLIC_IS_LOCAL=true tinacms build --local --skip-cloud-checks",
+    "build:deploy": "npm run campaigns:validate && cross-env NODE_ENV=production TINA_PUBLIC_IS_LOCAL=false TINA_ALLOW_BUILD_LOCAL_DB=true tinacms build --local --skip-cloud-checks --skip-indexing --datalayer-port 9001 && node scripts/prepare-tina-api.mjs && next build",
     "start": "next start",
     "lint": "eslint",
+    "test:campaigns": "node --test tests/campaigns.test.mjs",
     "download:gallery-assets": "node scripts/download-gallery-assets.mjs"
   },
   "dependencies": {
+    "@azure/data-tables": "^13.3.2",
+    "@azure/storage-blob": "^12.33.0",
+    "@tinacms/datalayer": "^2.0.29",
+    "abstract-level": "^1.0.4",
+    "cross-env": "^10.1.0",
+    "image-size": "^2.0.2",
     "next": "16.2.3",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "tinacms": "^3.12.1",
+    "tinacms-gitprovider-github": "^4.1.16"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@tinacms/cli": "^2.6.1",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

@@ -1,0 +1,15 @@
+{
+  "name": "passbyira-tina-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@azure/data-tables": "^13.3.2",
+    "@azure/storage-blob": "^12.33.0",
+    "@tinacms/datalayer": "^2.0.29",
+    "@tinacms/graphql": "^2.0.29",
+    "abstract-level": "^1.0.4",
+    "express": "^5.2.1",
+    "tinacms-gitprovider-github": "^4.1.16"
+  }
+}

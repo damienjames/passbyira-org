@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import MobileDock from "@/components/MobileDock";
+import AnnouncementRegion from "@/components/AnnouncementRegion";
 import SiteNav from "@/components/SiteNav";
 import Footer from "@/components/Footer";
+import siteSettings from "@/content/site/settings.json";
 import { getAbsoluteUrl, OG_IMAGE_ALT, OG_IMAGE_PATH, SITE_NAME } from "@/lib/site";
 
 const inter = Inter({
@@ -46,8 +47,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: OG_IMAGE_PATH,
-        width: 1470,
-        height: 744,
+        width: 1731,
+        height: 909,
         alt: OG_IMAGE_ALT,
       },
     ],
@@ -71,25 +72,17 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${inter.variable} ${playfair.variable}`}
+      data-scroll-behavior="smooth"
     >
-      <body className="flex flex-col min-h-dvh antialiased">
+      <body className="flex flex-col min-h-dvh antialiased" suppressHydrationWarning>
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
-        <div className="announcement-bar" role="banner" aria-label="Site announcement">
-          Now accepting in-kind donations: blankets, socks, gloves, toiletries &amp; water.&nbsp;
-          <a
-            href="mailto:donate@passbyira.org"
-            style={{ color: "inherit", fontWeight: 800, textDecoration: "underline" }}
-          >
-            donate@passbyira.org
-          </a>
-        </div>
+        <AnnouncementRegion fallback={siteSettings.announcement} />
         <SiteNav />
         <main id="main-content" className="flex-1">
           {children}
         </main>
-        <MobileDock />
         <Footer />
       </body>
     </html>

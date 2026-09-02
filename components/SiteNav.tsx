@@ -1,309 +1,178 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { useState, useEffect, useRef, useCallback } from 'react';
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useCallback, useEffect, useRef, useState } from "react";
 
-const NAV_GROUPS = [
-  {
-    label: 'About',
-    items: [
-      { href: '/about-3', label: 'The Story of Ira' },
-      { href: '/about-3#mission', label: 'Mission & Vision' },
-      { href: '/about-3#values', label: 'Values' },
-      { href: '/meet-the-team', label: 'Meet the Team' },
-    ],
-  },
-  {
-    label: 'Programs',
-    items: [
-      { href: '/event', label: 'Overview' },
-      { href: '/event#outreach', label: 'Outreach' },
-      { href: '/event#education', label: 'Education' },
-      { href: '/event#advocacy', label: 'Advocacy' },
-      { href: '/rest', label: 'REST Retreat' },
-    ],
-  },
-  {
-    label: 'Get Involved',
-    items: [
-      { href: '/support-us', label: 'Support Us' },
-      { href: '/sign-up-to-volunteer', label: 'Volunteer' },
-      { href: '/donate', label: 'Donate' },
-      { href: '/sponsorship', label: 'Partnerships & Sponsorship' },
-      { href: '/support-us#fundraise', label: 'Fundraise' },
-      { href: '/support-us#advocate', label: 'Advocate for Change' },
-      { href: '/support-us#planned-giving', label: 'Planned Giving' },
-    ],
-  },
-  {
-    label: 'Gallery',
-    href: '/past-events',
-  },
-  {
-    label: 'Connect',
-    href: '/contact#connect',
-  },
-] as const;
-
-type NavGroup = (typeof NAV_GROUPS)[number];
-type DropdownGroup = NavGroup & { items: readonly ({ href: string; label: string; external?: boolean } | { group: string })[] };
-type DirectGroup = { label: string; href: string; external?: boolean };
-
-function isDropdown(g: NavGroup): g is DropdownGroup {
-  return 'items' in g;
-}
-
-function isDirectLink(g: NavGroup): g is NavGroup & DirectGroup {
-  return 'href' in g;
-}
-
-function isGroupLabel(item: { href?: string; label?: string; group?: string }): item is { group: string } {
-  return 'group' in item && !('href' in item);
-}
-
-interface DropdownProps {
-  group: DropdownGroup;
-  isOpen: boolean;
-  onToggle: () => void;
-  onClose: () => void;
-}
-
-function Dropdown({ group, isOpen, onToggle, onClose }: DropdownProps) {
-  const menuRef = useRef<HTMLUListElement>(null);
-  const btnRef = useRef<HTMLButtonElement>(null);
-
-  // Close on outside click
-  useEffect(() => {
-    if (!isOpen) return;
-    const handler = (e: MouseEvent) => {
-      if (
-        menuRef.current && !menuRef.current.contains(e.target as Node) &&
-        btnRef.current && !btnRef.current.contains(e.target as Node)
-      ) {
-        onClose();
-      }
-    };
-    document.addEventListener('mousedown', handler);
-    return () => document.removeEventListener('mousedown', handler);
-  }, [isOpen, onClose]);
-
-  return (
-    <li className="nav-item" data-open={isOpen ? 'true' : undefined}>
-      <button
-        type="button"
-        ref={btnRef}
-        className="nav-toggle"
-        aria-expanded={isOpen}
-        aria-haspopup="menu"
-        onClick={onToggle}
-      >
-        {group.label}
-        <span className="nav-caret" aria-hidden="true">▾</span>
-      </button>
-      <ul
-        ref={menuRef}
-        className={`dropdown-menu${isOpen ? ' is-open' : ''}`}
-        role="menu"
-      >
-        {group.items.map((item, i) => {
-          if (isGroupLabel(item)) {
-            return <li key={i}><span className="dropdown-group-label">{item.group}</span></li>;
-          }
-          const linkProps = item.external
-            ? { target: '_blank', rel: 'noopener noreferrer' }
-            : {};
-          return (
-            <li key={i} role="none">
-              <Link href={item.href} role="menuitem" onClick={onClose} {...linkProps}>
-                {item.label}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </li>
-  );
-}
+import siteSettings from "@/content/site/settings.json";
 
 export default function SiteNav() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
 
-  const closeAll = useCallback(() => setOpenIndex(null), []);
-
-  // Close dropdowns on Escape
-  useEffect(() => {
-    const handler = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        setOpenIndex(null);
-        setMobileOpen(false);
-      }
-    };
-    document.addEventListener('keydown', handler);
-    return () => document.removeEventListener('keydown', handler);
+  const closeMenu = useCallback((restoreFocus = false) => {
+    setMenuOpen(false);
+    if (restoreFocus) {
+      window.requestAnimationFrame(() => menuButtonRef.current?.focus());
+    }
   }, []);
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
-  }, [mobileOpen]);
+    if (!menuOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const focusTimer = window.setTimeout(() => closeButtonRef.current?.focus(), 50);
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        closeMenu(true);
+        return;
+      }
+
+      if (event.key !== "Tab") return;
+      const drawer = document.getElementById("mobile-site-menu");
+      if (!drawer) return;
+      const focusable = Array.from(
+        drawer.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ),
+      ).filter((element) => !element.hasAttribute("disabled"));
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last?.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first?.focus();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.clearTimeout(focusTimer);
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [closeMenu, menuOpen]);
 
   return (
-    <>
-      <header className="pbi-nav" role="banner">
-        <div className="nav-container">
-          {/* Brand */}
-          <Link href="/" className="nav-brand" aria-label="Pass by Ira — Home">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/logo-nav.webp"
-              alt=""
-              className="nav-brand-logotype"
-              width={58}
-              height={42}
-              aria-hidden="true"
-              onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
-            />
-            <span className="nav-brand-name">PASS BY IRA</span>
-          </Link>
+    <header className="pb-site-header">
+      <div className="pb-site-header__inner">
+        <Link href="/" className="pb-site-brand" aria-label="Pass by Ira home">
+          <Image
+            src={siteSettings.logo}
+            alt="Pass by Ira"
+            width={504}
+            height={364}
+            priority
+            sizes="(max-width: 760px) 88px, 118px"
+          />
+        </Link>
 
-          {/* Desktop nav */}
-          <ul className="nav-links-list" role="list">
-            {NAV_GROUPS.map((group, i) => {
-              if (isDropdown(group)) {
-                return (
-                  <Dropdown
-                    key={group.label}
-                    group={group}
-                    isOpen={openIndex === i}
-                    onToggle={() => setOpenIndex(openIndex === i ? null : i)}
-                    onClose={closeAll}
-                  />
-                );
-              }
-              if (!isDirectLink(group)) return null;
-              const linkProps = group.external
-                ? { target: '_blank' as const, rel: 'noopener noreferrer' }
-                : {};
+        <nav className="pb-desktop-nav" aria-label="Primary navigation">
+          <ul>
+            {siteSettings.primaryNavigation.map((item) => {
+              const isCurrent = pathname === item.href || pathname.startsWith(`${item.href}/`);
               return (
-                <li key={group.label} className="nav-item">
-                  <Link href={group.href} className="nav-link" onClick={closeAll} {...linkProps}>
-                    {group.label}
+                <li key={item.href}>
+                  <Link href={item.href} aria-current={isCurrent ? "page" : undefined}>
+                    {item.label}
                   </Link>
                 </li>
               );
             })}
-            <li>
-              <a
-                href="https://givebutter.com/Give4Ira"
-                className="nav-cta"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Donate
-              </a>
-            </li>
           </ul>
-
-          {/* Hamburger */}
-          <button
-            type="button"
-            className="hamburger-btn"
-            aria-label="Open navigation menu"
-            aria-expanded={mobileOpen}
-            aria-controls="mobile-nav"
-            onClick={() => setMobileOpen(true)}
-          >
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-              <rect x="2" y="5" width="18" height="2" rx="1" fill="currentColor" />
-              <rect x="2" y="10" width="18" height="2" rx="1" fill="currentColor" />
-              <rect x="2" y="15" width="18" height="2" rx="1" fill="currentColor" />
-            </svg>
-          </button>
-        </div>
-      </header>
-
-      {/* Mobile overlay */}
-      <nav
-        id="mobile-nav"
-        className={`mobile-overlay${mobileOpen ? ' is-open' : ''}`}
-        aria-label="Mobile navigation"
-        aria-hidden={!mobileOpen}
-      >
-        <div className="mobile-overlay-header">
-          <Link
-            href="/"
-            className="nav-brand"
-            onClick={() => setMobileOpen(false)}
-            aria-label="Pass by Ira — Home"
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/logo-nav.webp"
-              alt=""
-              className="nav-brand-logotype"
-              width={58}
-              height={42}
-              aria-hidden="true"
-            />
-            <span className="nav-brand-name nav-brand-name--mobile">PASS BY IRA</span>
-          </Link>
-          <button
-            type="button"
-            className="mobile-close-btn"
-            aria-label="Close navigation menu"
-            onClick={() => setMobileOpen(false)}
-          >
-            ✕
-          </button>
-        </div>
-
-        <div className="mobile-nav-section">
-          <span className="mobile-nav-section-label">About</span>
-          <Link href="/about-3" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>The Story of Ira</Link>
-          <Link href="/about-3#mission" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>Mission &amp; Vision</Link>
-          <Link href="/about-3#values" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>Values</Link>
-          <Link href="/meet-the-team" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>Meet the Team</Link>
-        </div>
-
-        <div className="mobile-nav-section">
-          <span className="mobile-nav-section-label">Programs</span>
-          <Link href="/event" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>Overview</Link>
-          <Link href="/event#outreach" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>Outreach</Link>
-          <Link href="/event#education" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>Education</Link>
-          <Link href="/event#advocacy" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>Advocacy</Link>
-          <Link href="/rest" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>REST Retreat</Link>
-        </div>
-
-        <div className="mobile-nav-section">
-          <span className="mobile-nav-section-label">Get Involved</span>
-          <Link href="/support-us" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>Support Us</Link>
-          <Link href="/sign-up-to-volunteer" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>Volunteer</Link>
-          <Link href="/donate" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>Donate</Link>
-          <Link href="/sponsorship" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>Partnerships &amp; Sponsorship</Link>
-          <Link href="/support-us#fundraise" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>Fundraise</Link>
-          <Link href="/support-us#advocate" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>Advocate</Link>
-          <Link href="/support-us#planned-giving" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>Planned Giving</Link>
-        </div>
-
-        <div className="mobile-nav-section">
-          <span className="mobile-nav-section-label">More</span>
-          <Link href="/past-events" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>Gallery</Link>
-          <Link href="/contact#connect" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>Connect</Link>
-          <Link href="/blog" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>News</Link>
-        </div>
+        </nav>
 
         <a
-          href="https://givebutter.com/Give4Ira"
-          className="mobile-nav-cta"
+          className="pb-header-donate"
+          href={siteSettings.donateUrl}
           target="_blank"
           rel="noopener noreferrer"
-          onClick={() => setMobileOpen(false)}
         >
-          Donate Now
+          Donate <span aria-hidden="true">↗</span>
         </a>
-      </nav>
-    </>
+
+        <button
+          ref={menuButtonRef}
+          type="button"
+          className="pb-menu-trigger"
+          aria-expanded={menuOpen}
+          aria-controls="mobile-site-menu"
+          aria-label="Open site menu"
+          onClick={() => setMenuOpen(true)}
+        >
+          <span>Menu</span>
+          <span className="pb-menu-trigger__icon" aria-hidden="true">
+            <i />
+            <i />
+          </span>
+        </button>
+      </div>
+
+      <div
+        id="mobile-site-menu"
+        className={`pb-mobile-menu${menuOpen ? " is-open" : ""}`}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Site menu"
+        aria-hidden={!menuOpen}
+      >
+        <div className="pb-mobile-menu__top">
+          <Link href="/" className="pb-mobile-menu__brand" onClick={() => closeMenu()}>
+            <Image src={siteSettings.logo} alt="Pass by Ira" width={504} height={364} sizes="120px" />
+          </Link>
+          <button
+            ref={closeButtonRef}
+            type="button"
+            className="pb-mobile-menu__close"
+            aria-label="Close site menu"
+            onClick={() => closeMenu(true)}
+          >
+            Close <span aria-hidden="true">×</span>
+          </button>
+        </div>
+
+        <nav className="pb-mobile-menu__nav" aria-label="Mobile navigation">
+          <ol>
+            {siteSettings.primaryNavigation.map((item, index) => {
+              const isCurrent = pathname === item.href || pathname.startsWith(`${item.href}/`);
+              return (
+                <li key={item.href}>
+                  <span>0{index + 1}</span>
+                  <Link
+                    href={item.href}
+                    aria-current={isCurrent ? "page" : undefined}
+                    onClick={() => closeMenu()}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              );
+            })}
+          </ol>
+        </nav>
+
+        <div className="pb-mobile-menu__actions">
+          <a href={siteSettings.donateUrl} target="_blank" rel="noopener noreferrer">
+            Donate now <span aria-hidden="true">↗</span>
+          </a>
+          <a href={siteSettings.volunteerUrl} target="_blank" rel="noopener noreferrer">
+            Volunteer <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+        <div className="pb-mobile-menu__footer">
+          <a href={`mailto:${siteSettings.contact.generalEmail}`}>{siteSettings.contact.generalEmail}</a>
+          <span>{siteSettings.contact.location}</span>
+        </div>
+      </div>
+    </header>
   );
 }

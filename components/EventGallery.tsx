@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface GalleryImage {
   src: string;
@@ -21,6 +21,8 @@ interface GalleryItem {
 export default function EventGallery({ items }: { items: readonly GalleryItem[] }) {
   const [activeEventId, setActiveEventId] = useState<string | null>(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const openerRef = useRef<HTMLButtonElement | null>(null);
 
   const activeEvent = items.find((item) => item.id === activeEventId) ?? null;
   const activeImages = activeEvent?.images ?? [];
@@ -34,10 +36,29 @@ export default function EventGallery({ items }: { items: readonly GalleryItem[] 
 
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    const focusTimer = window.setTimeout(() => closeButtonRef.current?.focus(), 50);
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setActiveEventId(null);
+        return;
+      }
+
+      if (event.key === "Tab") {
+        const panel = document.querySelector<HTMLElement>(".gallery-modal__panel");
+        const focusable = panel
+          ? Array.from(panel.querySelectorAll<HTMLElement>('button:not([disabled]), [href], [tabindex]:not([tabindex="-1"])'))
+          : [];
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last?.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first?.focus();
+        }
         return;
       }
 
@@ -57,8 +78,10 @@ export default function EventGallery({ items }: { items: readonly GalleryItem[] 
     window.addEventListener("keydown", handleKeyDown);
 
     return () => {
+      window.clearTimeout(focusTimer);
       document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", handleKeyDown);
+      openerRef.current?.focus();
     };
   }, [activeEvent, activeImages.length]);
 
@@ -79,7 +102,8 @@ export default function EventGallery({ items }: { items: readonly GalleryItem[] 
                 <button
                   type="button"
                   className="btn-pbi btn-outline-blue"
-                  onClick={() => {
+                  onClick={(event) => {
+                    openerRef.current = event.currentTarget;
                     setActiveEventId(item.id);
                     setActiveImageIndex(0);
                   }}
@@ -96,13 +120,13 @@ export default function EventGallery({ items }: { items: readonly GalleryItem[] 
       {activeEvent && activeImage ? (
         <div className="gallery-modal" role="dialog" aria-modal="true" aria-labelledby="gallery-modal-title">
           <div className="gallery-modal__backdrop" onClick={() => setActiveEventId(null)} />
-          <div className="gallery-modal__panel">
+          <div className="gallery-modal__panel" role="document">
             <div className="gallery-modal__header">
               <div>
                 <div className="section-eyebrow">{activeEvent.subtitle}</div>
                 <h2 id="gallery-modal-title" style={{ margin: "0.35rem 0 0" }}>{activeEvent.title}</h2>
               </div>
-              <button type="button" className="gallery-modal__close" onClick={() => setActiveEventId(null)} aria-label="Close gallery">
+              <button ref={closeButtonRef} type="button" className="gallery-modal__close" onClick={() => setActiveEventId(null)} aria-label="Close gallery">
                 ×
               </button>
             </div>
@@ -119,7 +143,7 @@ export default function EventGallery({ items }: { items: readonly GalleryItem[] 
                 </button>
               ) : null}
               <div className="gallery-modal__image-wrap">
-                <Image src={activeImage.src} alt={activeImage.alt} width={1600} height={1200} className="gallery-modal__image" />
+                <Image src={activeImage.src} alt={activeImage.alt} width={1600} height={1200} className="gallery-modal__image" sizes="(max-width: 760px) 90vw, 900px" />
               </div>
               {hasMultipleImages ? (
                 <button
@@ -134,7 +158,7 @@ export default function EventGallery({ items }: { items: readonly GalleryItem[] 
             </div>
 
             <div className="gallery-modal__footer">
-              <p className="gallery-modal__count">
+              <p className="gallery-modal__count" aria-live="polite">
                 {hasMultipleImages ? `Photo ${activeImageIndex + 1} of ${activeImages.length}` : "Featured event photo"}
               </p>
               {hasMultipleImages ? (

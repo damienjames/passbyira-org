@@ -12,6 +12,11 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    "public/admin/**",
+    "tina/__generated__/**",
+    "api/tina/__generated__/**",
+    "api/content/**",
+    "api/data/**",
   ]),
 ]);
 

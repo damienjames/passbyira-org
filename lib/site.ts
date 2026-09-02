@@ -1,13 +1,15 @@
+import newsData from "@/content/posts/posts.json";
+
 export const SITE_NAME = "Pass by Ira";
-export const FALLBACK_SITE_URL = "https://proud-mushroom-030eb6910.1.azurestaticapps.net";
+export const FALLBACK_SITE_URL = "https://www.passbyira.org";
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || FALLBACK_SITE_URL).replace(/\/$/, "");
-export const OG_IMAGE_PATH = "/images/gallery/wix-archive/010-129b3c_18868cc8893741f785f3d80f54ea7aa4-mv2.webp";
-export const OG_IMAGE_ALT = "Dallas skyline with Pass by Ira outreach in the city";
+export const OG_IMAGE_PATH = "/og.png";
+export const OG_IMAGE_ALT = "Pass by Ira — Everyone deserves a place to call home";
 
 export const CONTACT_FORM_ENDPOINT = process.env.NEXT_PUBLIC_CONTACT_FORM_ENDPOINT || "";
 export const NEWSLETTER_FORM_ENDPOINT = process.env.NEXT_PUBLIC_NEWSLETTER_FORM_ENDPOINT || "";
 
-export const SITE_ROUTES = [
+const CORE_SITE_ROUTES = [
   "/",
   "/about-3",
   "/meet-the-team",
@@ -20,11 +22,12 @@ export const SITE_ROUTES = [
   "/sponsorship",
   "/contact",
   "/blog",
-  "/post/quarterly-newsletter-february-2025",
-  "/post/special-edition-newsletter-coats-cocoa-2024-the-recap",
-  "/post/quarterly-newsletter-november-2024",
-  "/30-for-30-campaign",
 ] as const;
+
+export const SITE_ROUTES: readonly string[] = [
+  ...CORE_SITE_ROUTES,
+  ...newsData.posts.map((post) => `/${post.slug}`),
+];
 
 export function getAbsoluteUrl(path = "/") {
   if (/^https?:\/\//i.test(path)) {

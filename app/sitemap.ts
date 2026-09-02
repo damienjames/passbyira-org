@@ -4,9 +4,9 @@ import { SITE_ROUTES, getAbsoluteUrl, OG_IMAGE_PATH } from "@/lib/site";
 
 export const dynamic = "force-static";
 
-const lastModified = new Date("2026-04-09T00:00:00.000Z");
+const lastModified = new Date("2026-09-01T00:00:00.000Z");
 
-const routePriorities: Partial<Record<(typeof SITE_ROUTES)[number], number>> = {
+const routePriorities: Partial<Record<string, number>> = {
   "/": 1,
   "/donate": 0.95,
   "/sign-up-to-volunteer": 0.92,

@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/api/node_modules/
 /.pnp
 .pnp.*
 .yarn/*
@@ -16,6 +17,12 @@
 # next.js
 /.next/
 /out/
+/public/admin/assets/
+/public/admin/index.html
+/tina/__generated__/
+/api/tina/__generated__/
+/api/content/
+/api/data/
 
 # production
 /build
@@ -23,6 +30,7 @@
 # misc
 .DS_Store
 *.pem
+/tmp-*
 
 # debug
 npm-debug.log*
